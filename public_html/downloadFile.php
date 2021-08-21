@@ -31,5 +31,3 @@ if(!$_SESSION["sUserID"]) {
 			die('Error: The file '.$full_path.' does not exist!');
 		}
 ?>
-
-
