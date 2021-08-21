@@ -1,0 +1,7 @@
+env.php
+
+/log
+/logs
+*.log
+
+/document/
