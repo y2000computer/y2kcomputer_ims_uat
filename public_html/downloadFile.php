@@ -20,8 +20,8 @@ if(!$_SESSION["sUserID"]) {
 		$filename =$_GET['filename'];
 		$path =$_GET['path'];
 		$full_path =DIR_PUBLIC_HTML.'/'.$path.'/'.$filename;
-		//echo 'full_path ='.$full_path.'<br>';
-		//die();
+		echo 'full_path ='.$full_path.'<br>';
+		die();
 		if(file_exists($full_path) && is_file($full_path)) {	
 			header('Content-Description: File Transfer');
 			header("Content-Type: application/octet-stream");
