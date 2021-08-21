@@ -22,6 +22,7 @@ if(!$_SESSION["sUserID"]) {
 		$full_path =DIR_PUBLIC_HTML.'/'.$path.'/'.$filename;
 		echo 'full_path ='.$full_path.'<br>';
 		die();
+		
 ?>
 
 
