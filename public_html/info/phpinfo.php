@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__.'/../app/config_core.php';
-
 // Show all information, defaults to INFO_ALL
 phpinfo();
 
