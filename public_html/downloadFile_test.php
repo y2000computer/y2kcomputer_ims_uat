@@ -1,6 +1,6 @@
 <?php
 session_start();
-DEFINE('DIR_PUBLIC_HTML', __DIR__.'/document');
+DEFINE('DIR_PUBLIC_HTML', __DIR__.'/../document');
 
 if(!$_SESSION["sUserID"]) {
 	echo 'no session<br>';
