@@ -177,7 +177,11 @@ function getMainMenu($user_policy_module_grant)
 			$section_set = 'article_home';
 			}
 	
-	
+		if($section == 'PROP'){
+			$order_num = 2;
+			$section_set = 'prop_home';
+			}
+		
 		if($section == 'GL'){
 			$order_num = 3;
 			$section_set = 'gl_home';
@@ -215,6 +219,10 @@ function getMainMenu($user_policy_module_grant)
 			$goto_app ='article';
 			$goto_module ='article_home';
 			break;
+		case "prop_home";
+			$goto_app ='prop';
+			$goto_module ='prop_home';
+			break;			
 		case "gl_home";
 			$goto_app ='erp';
 			$goto_module ='gl_home';

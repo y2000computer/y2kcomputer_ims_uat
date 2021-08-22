@@ -35,6 +35,9 @@ switch(IS_PORTAL)
 	case "photolibrary";
 		require __DIR__.'/../app/'.IS_PORTAL.'/'.IS_PORTAL.'_routing.php';
 		break;
+	case "prop";
+		require __DIR__.'/../app/'.IS_PORTAL.'/'.IS_PORTAL.'_routing.php';
+		break;
 	case "test";
 		require __DIR__.'/../app/'.IS_PORTAL.'/'.IS_PORTAL.'_routing.php';
 		break;
