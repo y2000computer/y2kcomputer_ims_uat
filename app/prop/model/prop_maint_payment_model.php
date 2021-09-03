@@ -496,7 +496,7 @@ class prop_maint_payment_model extends dataManager
 
 		$rows = $this->runSQLAssoc($sql);	
 		foreach ($rows as $row): 
-			$prefix_max = $now['max'];
+			$prefix_max = $row['max'];
 		endforeach;	
 		
 
