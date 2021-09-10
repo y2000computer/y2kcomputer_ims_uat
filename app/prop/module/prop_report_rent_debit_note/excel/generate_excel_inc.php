@@ -79,6 +79,10 @@ $path = __DIR__.DIR_EXCEL_OUTPUT;
 $file_name = 'prop_report_rent_debit_note_'.$dt->format('Y-m-d_H_i_s').'.xlsx';
 $writer->save($path.$file_name);
 
+// clean the output buffer
+ob_clean();
+
+
 header ("Content-Type: application/x-msexcel");
 header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 readfile($path.$file_name);

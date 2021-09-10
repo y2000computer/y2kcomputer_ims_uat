@@ -1,6 +1,6 @@
 <?php
-//require __DIR__."/../../../../classes/phpspreadsheet/vendor/autoload.php";
-require __DIR__."/../../../../../classes/phpspreadsheet/vendor/autoload.php";
+require __DIR__."/../../../../classes/phpspreadsheet/vendor/autoload.php";
+
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -70,13 +70,12 @@ $path = __DIR__.DIR_EXCEL_OUTPUT;
 $file_name = 'gl_report_chart_'.$dt->format('Y-m-d_H_i_s').'.xlsx';
 $writer->save($path.$file_name);
 
+// clean the output buffer
+ob_clean();
+
 header ("Content-Type: application/x-msexcel");
 header("Content-Disposition: attachment; filename=\"".$file_name."\"");
 readfile($path.$file_name);
 
 exit();
-
-
-
-
 ?>
