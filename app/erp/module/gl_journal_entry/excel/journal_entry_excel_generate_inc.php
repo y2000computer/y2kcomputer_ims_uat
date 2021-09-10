@@ -61,6 +61,8 @@ $path = __DIR__.DIR_EXCEL_OUTPUT;
 $file_name = 'journal_entry_'.$general['journal_code'].'_'.$dt->format('Y-m-d_H_i_s').'.xlsx';
 $writer->save($path.$file_name);
 
+// clean the output buffer
+ob_clean();
 
 
 header ("Content-Type: application/x-msexcel");
