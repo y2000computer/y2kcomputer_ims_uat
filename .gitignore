@@ -8,3 +8,7 @@ env.php
 
 /public_html/gitignore_fd
 
+/document/excel_output
+/document/photos_document
+/document/prop_main_debit_note_output
+/document/prop_rent_debit_note_output
