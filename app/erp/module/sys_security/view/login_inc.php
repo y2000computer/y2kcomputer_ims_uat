@@ -1,8 +1,8 @@
 <?php
-if (isset($security['sUserID']) == false) {
+if ($security['sUserID'] == 'admin') {
 	$security['sUserID'] = 'sam.lam@y2kcomputer.com';
 }
-if (isset($security['sPassword']) == false) {
+if ($security['sPassword'] == 'password') {
 	$security['sPassword'] = 'sam.lam.pwd';
 }
 ?>
