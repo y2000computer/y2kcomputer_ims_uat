@@ -1,8 +1,8 @@
 <?php
-if ($security['sUserID']=='') {
+if (isset($security['sUserID']) == false) {
 	$security['sUserID'] = 'sam.lam@y2kcomputer.com';
 }
-if ($security['sPassword']=='') {
+if (isset($security['sPassword']) == false) {
 	$security['sPassword'] = 'sam.lam.pwd';
 }
 ?>
@@ -40,7 +40,7 @@ if ($security['sPassword']=='') {
 								<label for="login_username">Username</label>
 							</span>
 							<span class="formInput">
-								<input id="login_username" type="text" name="security[sUserID]" class="six" value="<?php $security['sUserID'];?>" placeholder="User ID" required >
+								<input id="login_username" type="text" name="security[sUserID]" class="six" value="<?php echo $security['sUserID'];?>" placeholder="User ID" required >
 							</span>
 						</span>
 						<span class="formRow">
@@ -48,7 +48,7 @@ if ($security['sPassword']=='') {
 								<label for="login_password">Password</label>
 							</span>
 							<span class="formInput">
-								<input id="login_password" type="password" name="security[sPassword]" class="four" value="<?php $security['sPassword'];?>" placeholder="Password" required>
+								<input id="login_password" type="password" name="security[sPassword]" class="four" value="<?php echo $security['sPassword'];?>" placeholder="Password" required>
 							</span>
 						</span>
 						<span class="formRow">
