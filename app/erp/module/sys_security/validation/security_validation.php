@@ -78,7 +78,8 @@ class security_validation
 			} else {
 					//Check sUserID is block at database 
 					
-					if (!$this->dmSecurity->network_checking($security['sUserID'], $_SESSION["source_ip"])) {
+					//if (!$this->dmSecurity->network_checking($security['sUserID'], $_SESSION["source_ip"])) {
+					if (!$this->dmSecurity->network_checking($security['sUserID'], (ISSET($_SESSION["source_ip"])? $_SESSION["source_ip"] : '0.0.0.0'))) {
 						$this->problemMsg .= 'IP ADDRESS FAIL<br>';
 						$reason ='IP ADDRESS FAIL !';
 						$time = date("Y-m-d H:i:s");
@@ -94,8 +95,10 @@ class security_validation
 						$this->problemMsg .= 'Wrong Password !<br>';
 						$reason ='Wrong Password !';
 						$time = date("Y-m-d H:i:s");
-						$source_ip = $_SESSION["source_ip"];
-						$browser_type = $_SESSION["browser_type"];
+						//$source_ip = $_SESSION["source_ip"];
+						$source_ip = (ISSET($_SESSION["source_ip"])? $_SESSION["source_ip"] : '0.0.0.0');
+						//$browser_type = $_SESSION["browser_type"];
+						$browser_type = (ISSET($_SESSION["browser_type"])? $_SESSION["browser_type"] : 'n/a');
 						$url = $_SERVER["REQUEST_URI"];
 						$this->dmSecurity->writefailreason($security['sUserID'], $security['sPassword'], $reason, $source_ip, $browser_type, $url, $time);
 						$this->dmSecurity->faillogincounter($security['sUserID'], $time);

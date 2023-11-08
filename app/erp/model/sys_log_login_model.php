@@ -77,8 +77,10 @@ class sys_log_login_model extends dataManager
 		endforeach; 	
 
 
-		$security_item  = $arr_security_item[0];
-		$last_visit_date  = $security_item[1];
+		//$security_item  = $arr_security_item[0];
+		$security_item  =  (ISSET($arr_security_item[0])? $arr_security_item[0] : 'n/a');
+		//$last_visit_date  = $security_item[1];
+		$last_visit_date  = (ISSET($security_item[1])? $security_item[1] : 'n/a');
 
 		$_SESSION["last_visit_date"] = $security_item['last_visit_date'];
 		$_SESSION["eng_name"] = $security_item['eng_name'];
@@ -273,6 +275,7 @@ class sys_log_login_model extends dataManager
 		$sUserID = addslashes($sUserID);
 		$source_ip = addslashes($source_ip);
 		$net_check_state = 0 ;
+		///echo '<br>source_ip='.$source_ip.'<br>';
 
 		//if ($source_ip == '127.0.0.1') {
 		if (false) {			
@@ -313,10 +316,11 @@ class sys_log_login_model extends dataManager
 					$ar_network = explode(".", $network);
 					$ar_net_mask = explode(".", $net_mask);
 					$match = -1 ;
-					if ($ar_net_mask[0] =='255') { if ($ar_ip[0] <> $ar_network[0]) $match = 0 ; }
-					if ($ar_net_mask[1] =='255') { if ($ar_ip[1] <> $ar_network[1]) $match = 0 ; }
-					if ($ar_net_mask[2] =='255') { if ($ar_ip[2] <> $ar_network[2]) $match = 0 ; }
-					if ($ar_net_mask[3] =='255') { if ($ar_ip[3] <> $ar_network[3]) $match = 0 ; }
+					//if ($ar_net_mask[0] =='255') { if ($ar_ip[0] <> $ar_network[0]) $match = 0 ; }
+					if ($ar_net_mask[0] =='255') { if ($ar_ip[0] <> (ISSET($ar_network[0])? $ar_network[0] : 'n/a')) $match = 0 ; }
+					if ($ar_net_mask[1] =='255') { if ($ar_ip[1] <> (ISSET($ar_network[1])? $ar_network[1] : 'n/a')) $match = 0 ; }
+					if ($ar_net_mask[2] =='255') { if ($ar_ip[2] <> (ISSET($ar_network[2])? $ar_network[2] : 'n/a')) $match = 0 ; }
+					if ($ar_net_mask[3] =='255') { if ($ar_ip[3] <> (ISSET($ar_network[3])? $ar_network[3] : 'n/a')) $match = 0 ; }
 					//echo '<br>source_ip='.$source_ip.'<br>';
 					//echo '<br>network='.$network.'<br>';
 					if ($match==-1) $net_check_state = -1 ;

@@ -111,9 +111,9 @@ switch($IS_action)
 
 	
 		$time = date("Y-m-d H:i:s");
-		$source_ip = $_SESSION["source_ip"];
-		$browser_type = $_SESSION["browser_type"];
-		$url = $_SESSION["url"];
+		$source_ip = (ISSET($_SESSION["source_ip"])? $_SESSION["source_ip"] : '0.0.0.0');
+		$browser_type = (ISSET($_SESSION["browser_type"])? $_SESSION["browser_type"] : 'n/a');
+		$url = (ISSET($_SESSION["url"])? $_SESSION["url"] : 'n/a');
 		$session_id = session_id();
 		$dmURLlog->url_log($security['sUserID'], $url, $browser_type, $source_ip, $session_id, $time);	
 

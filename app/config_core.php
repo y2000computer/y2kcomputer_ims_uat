@@ -2,7 +2,9 @@
 //PHP engine setting 
 ini_set("magic_quotes_gpc", "0ff");
 ini_set("display_errors", "on");
-ini_set('error_reporting', E_ALL & ~E_NOTICE); //running on php 7
+ini_set('error_reporting', E_ALL & ~E_NOTICE); //running on php 8
+//ini_set('error_reporting', E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_NOTICE & ~E_USER_WARNING & ~E_USER_NOTICE & ~E_USER_DEPRECATED); //running on php 8
+//ini_set('error_reporting', E_COMPILE_ERROR|E_RECOVERABLE_ERROR|E_ERROR|E_CORE_ERROR); //running on php 8
 ini_set('max_file_upload',"20M");
 ini_set("max_execution_time","3000");
 ini_set("max_input_time","6000");
