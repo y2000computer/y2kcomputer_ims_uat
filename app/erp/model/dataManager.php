@@ -1,7 +1,7 @@
 <?php 
 class dataManager{
 	private $table;
-	protected $data;
+	private $connection;
 	private $result;
 	private $errorMsg;
 	private $lot_id;
@@ -10,9 +10,9 @@ class dataManager{
 		$this->errorMsg='dataManager->Connection error:';
 
 		try {
-			$this->data = new PDO(DB_CONNECTION_STRING,DB_USERNAME,DB_PASSWORD);
-			$this->data->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$this->data->query("set names utf8");
+			$this->connection = new PDO(DB_CONNECTION_STRING,DB_USERNAME,DB_PASSWORD);
+			$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->connection->query("set names utf8");
 
 
 		} catch (PDOException $e) {
@@ -24,8 +24,8 @@ class dataManager{
 	}
 
 	public function __destruct(){
-		if ($this->data)
-			$this->data=null;
+		if ($this->connection)
+			$this->connection=null;
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,9 +67,9 @@ class dataManager{
 	public function runSQLAssocFixedInjection($sql,$bind){
 		$record = array();	
 		try {
-				//$rs = $this->data->query($sql);
+				//$rs = $this->connection->query($sql);
 
-				$rs=$this->data->prepare($sql);
+				$rs=$this->connection->prepare($sql);
 				
 				foreach ($bind as $bindElm) {
 					
@@ -98,7 +98,7 @@ class dataManager{
 		if($debug) echo '<br>dataManage:runSQLAssoc() para: sql :'.$sql.'<br>';
 		$record = array();	
 		try {
-				$rs = $this->data->query($sql);
+				$rs = $this->connection->query($sql);
 				while($row = $rs->fetch(PDO::FETCH_ASSOC)){
 				$record[] = $row;
 				 }
@@ -111,10 +111,10 @@ class dataManager{
 		return $record;
 	}
 	public function runSQLReturnID($sql){
-		$this->data->beginTransaction();
+		$this->connection->beginTransaction();
 			try {
-				$rows = $this->data->query($sql);
-				$last_insert_id = $this->data->lastInsertId(); 
+				$rows = $this->connection->query($sql);
+				$last_insert_id = $this->connection->lastInsertId(); 
 				
 				} catch (PDOException $e) {		
 					print "Error!: " . $e->getMessage() . "<br/>";
@@ -122,7 +122,7 @@ class dataManager{
 					$sNewLog -> add( ($this->errorMsg.$e->getMessage().'--Statement:'.$query) );
 					//die();
 			  }		
-			$this->data->commit();
+			$this->connection->commit();
 		return $last_insert_id;
 	}
 
@@ -131,7 +131,7 @@ class dataManager{
 	public function runSQL($sql){
 		
 			try {
-				$rows = $this->data->query($sql);
+				$rows = $this->connection->query($sql);
 				//echo '<br>sql:'.$sql.'<br>';
 				
 				} catch (PDOException $e) {		
@@ -148,7 +148,7 @@ class dataManager{
 		$record = array();	
 		try {
 
-				$rs=$this->data->prepare($sql);
+				$rs=$this->connection->prepare($sql);
 				
 				foreach ($bind as $bindElm) {
 					
@@ -178,7 +178,7 @@ class dataManager{
 
 		try {
 			$sql = "SHOW COLUMNS FROM ".$table;
-			$result = $this->data->query($sql);
+			$result = $this->connection->query($sql);
 			$result = $result->fetchall(PDO::FETCH_ASSOC);
 			$fieldStructure=array();
 			foreach ($result as $arrayField){
@@ -219,7 +219,7 @@ class dataManager{
 			}
 					$lot_id = strtotime(date("Y-m-d H:i:s"));
 
-					$this->data->beginTransaction();
+					$this->connection->beginTransaction();
 
 					$query = 'INSERT INTO `tbl_sys_paging_control`(
 								`searchphrase`,
@@ -235,7 +235,7 @@ class dataManager{
 					$query.='now()'.')';
 
 					$this->runSQL($query);
-					$this->data->commit();
+					$this->connection->commit();
 					$this->lot_id=$lot_id;
 	}
 
@@ -253,7 +253,7 @@ class dataManager{
 			}
 					$lot_id = strtotime(date("Y-m-d H:i:s"));
 
-					$this->data->beginTransaction();
+					$this->connection->beginTransaction();
 
 					$query = 'INSERT INTO `tbl_sys_paging_control`(
 								`searchphrase`,
@@ -269,7 +269,7 @@ class dataManager{
 					$query.='now()'.')';
 
 					$this->runSQL($query);
-					$this->data->commit();
+					$this->connection->commit();
 					$this->lot_id=$lot_id;
 
 

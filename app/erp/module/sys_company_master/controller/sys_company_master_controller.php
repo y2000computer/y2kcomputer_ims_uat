@@ -92,7 +92,7 @@ switch($IS_action)
 		break;
 }
 
-$dmGeneralModel = $dmGeneralModel->close();  
+$dmGeneralModel = null;  
 ?>
 
 
