@@ -17,7 +17,7 @@
 									<label for="userModule_email" class="">Keyword&nbsp; (Oneword, Twoword) </label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[keyword]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['keyword']);?>" />
+									<input type="text"  name="general[keyword]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['keyword']);?>" />
 									
 								</span>
 							
@@ -25,7 +25,7 @@
 									<label for="userModule_email" class="">RFID&nbsp;</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[rfid]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($json_search_items['general']['rfid']);?>" />
+									<input type="text"  name="general[rfid]"  autocomplete="off" class="three" value="<?php echo f_html_escape($json_search_items['general']['rfid']);?>" />
 									
 								</span>
 							

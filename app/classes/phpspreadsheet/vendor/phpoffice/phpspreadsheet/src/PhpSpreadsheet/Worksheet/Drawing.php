@@ -43,9 +43,9 @@ class Drawing extends BaseDrawing
     public function getIndexedFilename()
     {
         $fileName = $this->getFilename();
-        $fileName = str_replace(' ', '_', $fileName);
+        $fileName = f_str_replace(' ', '_', $fileName);
 
-        return str_replace('.' . $this->getExtension(), '', $fileName) . $this->getImageIndex() . '.' . $this->getExtension();
+        return f_str_replace('.' . $this->getExtension(), '', $fileName) . $this->getImageIndex() . '.' . $this->getExtension();
     }
 
     /**

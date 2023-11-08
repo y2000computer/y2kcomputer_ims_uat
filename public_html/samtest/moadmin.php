@@ -602,7 +602,7 @@ class moadminModel {
                             $find[$_GET['searchField']] = array('$in' => $in);
                         }
                     } else { //text with wildcards
-                        $regex = '/' . str_replace('\*', '.*', preg_quote($_GET['search'])) . '/i';
+                        $regex = '/' . f_str_replace('\*', '.*', preg_quote($_GET['search'])) . '/i';
                         $find[$_GET['searchField']] = new mongoRegex($regex);
                     }
                     break;
@@ -924,7 +924,7 @@ class htmlHelper {
                 case 'jqueryTheme':
                     if ($tagType == 'jqueryTheme') {
                         $arg = $this->_protocol . 'ajax.googleapis.com/ajax/libs/jqueryui/1/themes/'
-                             . str_replace(' ', '-', strtolower($arg)) . '/jquery-ui.css';
+                             . f_str_replace(' ', '-', strtolower($arg)) . '/jquery-ui.css';
                         $tagType = 'css';
                     }
                     if (!isset($this->_includedFiles[$tagType][$arg])) {
@@ -1049,13 +1049,13 @@ class htmlHelper {
      * @param string $docType
      */
     public function setDocType($docType) {
-        $docType = str_replace(' ', '', strtolower($docType));
+        $docType = f_str_replace(' ', '', strtolower($docType));
         if ($docType == 'xhtml1.1' || $docType == 'xhtml') {
             return; //XHTML 1.1 is the default
         } else if ($docType == 'xhtml1.0') {
             $docType = 'strict';
         }
-        $docType = str_replace(array('xhtml mobile', 'xhtml1.0'), array('mobile', ''), $docType);
+        $docType = f_str_replace(array('xhtml mobile', 'xhtml1.0'), array('mobile', ''), $docType);
         $docTypes = array(
             'mobile1.2'    => '<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" '
                             . '"http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">',
@@ -1284,7 +1284,7 @@ var dom = function(id) {
             $args['text'] = $args['href'];
         }
         if (!isset($args['title']) && isset($args['text'])) {
-            $args['title'] = str_replace(array("\n", "\r"), ' ', strip_tags($args['text']));
+            $args['title'] = f_str_replace(array("\n", "\r"), ' ', strip_tags($args['text']));
         }
         $return = '';
         if (isset($args['ajaxload'])) {
@@ -1324,7 +1324,7 @@ var dom = function(id) {
      * @return str
      */
     public function code($str) {
-        return '<code>' . str_replace('  ', '&nbsp;&nbsp;', nl2br(get::htmlentities($str))) . '</code>';
+        return '<code>' . f_str_replace('  ', '&nbsp;&nbsp;', nl2br(get::htmlentities($str))) . '</code>';
     }
 
     /**
@@ -2566,7 +2566,7 @@ mo.submitQuery = function() {
                     $showEdit = false;
                     $binData = -2;
                 }
-                $data[$id] = str_replace('        ', '    ', (substr($rowData, 0, 4) === '    ' ? substr($rowData, 4)
+                $data[$id] = f_str_replace('        ', '    ', (substr($rowData, 0, 4) === '    ' ? substr($rowData, 4)
                                                                                                 : $rowData));
                 if ($raw === ')') {
                     $data[$id] = substr($data[$id], 4);

@@ -39,9 +39,9 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Photo ID:<?php echo htmlspecialchars($primary['photo_code']);?>									
+										Photo ID:<?php echo f_html_escape($primary['photo_code']);?>									
 										&nbsp;&nbsp;
-										Caption :<?php echo htmlspecialchars($primary['caption']);?>																		
+										Caption :<?php echo f_html_escape($primary['caption']);?>																		
 									</span>
 								</span>
 							</span>
@@ -73,7 +73,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Description:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[file_desc]"  autocomplete="off" class="twelve"  required value="<?php echo htmlspecialchars($general['file_desc']);?>" />
+									<input type="text"  name="general[file_desc]"  autocomplete="off" class="twelve"  required value="<?php echo f_html_escape($general['file_desc']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

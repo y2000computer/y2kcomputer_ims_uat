@@ -14,7 +14,7 @@
 									<label for="userModule_email" class="">Security Policy Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="policy[eng_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['policy']['eng_name']);?>" />
+									<input type="text"  name="policy[eng_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['policy']['eng_name']);?>" />
 								</span>
 							</span>							
 							

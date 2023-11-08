@@ -47,7 +47,7 @@ if ($IS_action=='new') {
 									<label class="">Chart Code From :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="criteria[chart_code_from]"  size="15" class="four" value="<?php echo htmlspecialchars($criteria['chart_code_from']);?>" />
+										<input type="text" name="criteria[chart_code_from]"  size="15" class="four" value="<?php echo f_html_escape($criteria['chart_code_from']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -58,7 +58,7 @@ if ($IS_action=='new') {
 									<label class="">Chart Code To :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="criteria[chart_code_to]"  size="15" class="four" value="<?php echo htmlspecialchars($criteria['chart_code_to']);?>" />
+										<input type="text" name="criteria[chart_code_to]"  size="15" class="four" value="<?php echo f_html_escape($criteria['chart_code_to']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

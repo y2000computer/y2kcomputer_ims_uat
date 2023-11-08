@@ -13,7 +13,7 @@
 									<label for="userModule_email" class="">Company Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[name_eng]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['name_eng']);?>" />
+									<input type="text"  name="general[name_eng]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['name_eng']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

@@ -40,22 +40,22 @@ $json_search_items = json_decode($json_searchphrase, true);
 										if ($general_model['status']==0)  echo '<tr style="background: #D1D0CE;">';
 										echo '<td>'.$i_count++.'</td>';
 										echo '<td>';
-										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['tenant_code']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['tenant_code']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
-										echo '<td>'.htmlspecialchars($general_model['eng_name']).'<br> &nbsp;'.htmlspecialchars($general_model['add_1']).'
-										<br> &nbsp;'.htmlspecialchars($general_model['add_2']).
-										'<br> &nbsp;'.htmlspecialchars($general_model['add_3']).
-										'<br> &nbsp;'.htmlspecialchars($general_model['ref_no']).
-										'<br> &nbsp;'.htmlspecialchars($general_model['shop_no']).
+										echo '<td>'.f_html_escape($general_model['eng_name']).'<br> &nbsp;'.f_html_escape($general_model['add_1']).'
+										<br> &nbsp;'.f_html_escape($general_model['add_2']).
+										'<br> &nbsp;'.f_html_escape($general_model['add_3']).
+										'<br> &nbsp;'.f_html_escape($general_model['ref_no']).
+										'<br> &nbsp;'.f_html_escape($general_model['shop_no']).
 										'</td>';
 
-										echo '<td>'.htmlspecialchars(YMDtoDMY($general_model['rent_date'])).'</td>';
+										echo '<td>'.f_html_escape(YMDtoDMY($general_model['rent_date'])).'</td>';
 
-										echo '<td style="text-align:right" >'.htmlspecialchars(number_format($general_model['rent_amount']),2).'</td>';
+										echo '<td style="text-align:right" >'.f_html_escape(number_format($general_model['rent_amount']),2).'</td>';
 
-										echo '<td>'.htmlspecialchars(YMDtoDMY($general_model['maint_date'])).'</td>';
+										echo '<td>'.f_html_escape(YMDtoDMY($general_model['maint_date'])).'</td>';
 
-										echo '<td style="text-align:right" >'.htmlspecialchars(number_format($general_model['maint_amount']),2).'</td>';
+										echo '<td style="text-align:right" >'.f_html_escape(number_format($general_model['maint_amount']),2).'</td>';
 										
 
 										echo '<td>';	

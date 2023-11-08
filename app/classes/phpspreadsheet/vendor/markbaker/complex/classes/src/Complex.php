@@ -114,7 +114,7 @@ class Complex
         }
 
         // Fix silly human errors
-        $complexNumber = str_replace(
+        $complexNumber = f_str_replace(
             ['+-', '-+', '++', '--'],
             ['-', '-', '+', '+'],
             $complexNumber
@@ -370,7 +370,7 @@ class Complex
      */
     public function __call($functionName, $arguments)
     {
-        $functionName = strtolower(str_replace('_', '', $functionName));
+        $functionName = strtolower(f_str_replace('_', '', $functionName));
 
         // Test for function calls
         if (in_array($functionName, self::$functions)) {

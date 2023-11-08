@@ -286,7 +286,7 @@ class Functions
         if (is_numeric(trim($operand, '"'))) {
             $operand = trim($operand, '"');
         } elseif (!is_numeric($operand)) {
-            $operand = str_replace('"', '""', $operand);
+            $operand = f_str_replace('"', '""', $operand);
             $operand = Calculation::wrapResult(strtoupper($operand));
         }
 

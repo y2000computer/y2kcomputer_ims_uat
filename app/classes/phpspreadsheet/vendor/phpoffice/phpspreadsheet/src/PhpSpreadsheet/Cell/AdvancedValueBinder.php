@@ -80,7 +80,7 @@ class AdvancedValueBinder extends DefaultValueBinder implements IValueBinder
             // Check for percentage
             if (preg_match('/^\-?\d*\.?\d*\s?\%$/', $value)) {
                 // Convert value to number
-                $value = (float) str_replace('%', '', $value) / 100;
+                $value = (float) f_str_replace('%', '', $value) / 100;
                 $cell->setValueExplicit($value, DataType::TYPE_NUMERIC);
                 // Set style
                 $cell->getWorksheet()->getStyle($cell->getCoordinate())
@@ -95,18 +95,18 @@ class AdvancedValueBinder extends DefaultValueBinder implements IValueBinder
             $thousandsSeparator = StringHelper::getThousandsSeparator();
             if (preg_match('/^' . preg_quote($currencyCode, '/') . ' *(\d{1,3}(' . preg_quote($thousandsSeparator, '/') . '\d{3})*|(\d+))(' . preg_quote($decimalSeparator, '/') . '\d{2})?$/', $value)) {
                 // Convert value to number
-                $value = (float) trim(str_replace([$currencyCode, $thousandsSeparator, $decimalSeparator], ['', '', '.'], $value));
+                $value = (float) trim(f_str_replace([$currencyCode, $thousandsSeparator, $decimalSeparator], ['', '', '.'], $value));
                 $cell->setValueExplicit($value, DataType::TYPE_NUMERIC);
                 // Set style
                 $cell->getWorksheet()->getStyle($cell->getCoordinate())
                     ->getNumberFormat()->setFormatCode(
-                        str_replace('$', $currencyCode, NumberFormat::FORMAT_CURRENCY_USD_SIMPLE)
+                        f_str_replace('$', $currencyCode, NumberFormat::FORMAT_CURRENCY_USD_SIMPLE)
                     );
 
                 return true;
             } elseif (preg_match('/^\$ *(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/', $value)) {
                 // Convert value to number
-                $value = (float) trim(str_replace(['$', ','], '', $value));
+                $value = (float) trim(f_str_replace(['$', ','], '', $value));
                 $cell->setValueExplicit($value, DataType::TYPE_NUMERIC);
                 // Set style
                 $cell->getWorksheet()->getStyle($cell->getCoordinate())

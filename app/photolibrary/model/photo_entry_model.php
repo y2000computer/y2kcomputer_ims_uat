@@ -48,13 +48,13 @@ class photo_entry_model extends dataManager
 			
 			//Handle keyword and high light the keyword in red color 
 			$keyword_input_is =false;
-			if(htmlspecialchars($json['general']['keyword'])<>'' ) $keyword_input_is = true;
+			if(f_html_escape($json['general']['keyword'])<>'' ) $keyword_input_is = true;
 
 			//if( $keyword_input_is == true )  echo '<br> keyword_input_is is true<br>';
 			//if( $keyword_input_is == false)  echo '<br> keyword_input_is is false<br>';
 								
 			//verify keyword input, filter error_get_last
-			$pattern_cks  = explode(',', htmlspecialchars($json['general']['keyword']));
+			$pattern_cks  = explode(',', f_html_escape($json['general']['keyword']));
 			$pattern_checkeds =array();
 			$i = 0;
 			$p = 0;

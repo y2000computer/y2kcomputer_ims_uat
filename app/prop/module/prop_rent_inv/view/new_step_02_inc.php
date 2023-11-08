@@ -36,13 +36,13 @@ $json_search_items = json_decode($json_searchphrase, true);
 										echo '<tr>';
 
 										echo '<td>'.$i_count++.'</td>';
-										echo '<td>'.htmlspecialchars($general_model['build_eng_name']).'</td>';						
+										echo '<td>'.f_html_escape($general_model['build_eng_name']).'</td>';						
 										echo '<td>';
-										echo '<a href="'.actionURL('new_step_03','?item_id='.$general_model['tenant_id'].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['tenant_code']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('new_step_03','?item_id='.$general_model['tenant_id'].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['tenant_code']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
 
 
-										echo '<td>'.htmlspecialchars($general_model['eng_name']).'</td>';
+										echo '<td>'.f_html_escape($general_model['eng_name']).'</td>';
 
 
 										echo '</tr>';

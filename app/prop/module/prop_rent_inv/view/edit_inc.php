@@ -62,7 +62,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Building :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['build_eng_name']);?>
+								<?php echo f_html_escape($general['build_eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -73,7 +73,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Tenant Code :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['tenant_code']);?>
+								<?php echo f_html_escape($general['tenant_code']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -90,7 +90,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice No. :</label>
 								</span>
 								<span class="formInput">
-										<?php echo htmlspecialchars($general['inv_code']);?> 
+										<?php echo f_html_escape($general['inv_code']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -102,7 +102,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice Date :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-									<?php echo htmlspecialchars($general['inv_date']);?> 
+									<?php echo f_html_escape($general['inv_date']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -116,7 +116,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Name :</label>
 								</span>
 								<span class="formInput">
-									<?php echo htmlspecialchars($general['eng_name']);?>
+									<?php echo f_html_escape($general['eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -127,7 +127,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Add(1) :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['add_1']);?>
+								<?php echo f_html_escape($general['add_1']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -139,7 +139,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Add(2) :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['add_2']);?>
+								<?php echo f_html_escape($general['add_2']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -151,7 +151,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Add(3) :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['add_3']);?>
+								<?php echo f_html_escape($general['add_3']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -164,7 +164,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Ref No. :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['ref_no']);?>
+								<?php echo f_html_escape($general['ref_no']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -176,7 +176,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Shop No. :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['shop_no']);?>
+								<?php echo f_html_escape($general['shop_no']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -189,7 +189,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Description :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['description']);?>
+								<?php echo f_html_escape($general['description']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -206,7 +206,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Period From :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_from']);?>
+								<?php echo f_html_escape($general['period_date_from']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -218,7 +218,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Period To :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_to']);?>
+								<?php echo f_html_escape($general['period_date_to']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -236,7 +236,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Amount :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['amount'],2));?>									
+								<?php echo f_html_escape(number_format($general['amount'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -247,7 +247,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Balance :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['balance'],2));?>									
+								<?php echo f_html_escape(number_format($general['balance'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">

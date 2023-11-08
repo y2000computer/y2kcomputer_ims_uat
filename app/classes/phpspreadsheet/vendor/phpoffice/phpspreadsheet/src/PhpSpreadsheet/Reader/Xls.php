@@ -1193,7 +1193,7 @@ class Xls extends BaseReader
                             $noteDetails['objTextData']['text'] = '';
                         }
                     }
-                    $cellAddress = str_replace('$', '', $noteDetails['cellRef']);
+                    $cellAddress = f_str_replace('$', '', $noteDetails['cellRef']);
                     $this->phpSheet->getComment($cellAddress)->setAuthor($noteDetails['author'])->setText($this->parseRichText($noteDetails['objTextData']['text']));
                 }
             }
@@ -1219,7 +1219,7 @@ class Xls extends BaseReader
                                 if (strpos($explodes[1], ':') === false) {
                                     $explodes[1] = $explodes[1] . ':' . $explodes[1];
                                 }
-                                $extractedRanges[] = str_replace('$', '', $explodes[1]); // C7:J66
+                                $extractedRanges[] = f_str_replace('$', '', $explodes[1]); // C7:J66
                             }
                         }
                         if ($docSheet = $this->spreadsheet->getSheetByName($sheetName)) {
@@ -1247,7 +1247,7 @@ class Xls extends BaseReader
                                 $explodes = Worksheet::extractSheetTitle($range, true);
                                 if ($docSheet = $this->spreadsheet->getSheetByName($explodes[0])) {
                                     $extractedRange = $explodes[1];
-                                    $extractedRange = str_replace('$', '', $extractedRange);
+                                    $extractedRange = f_str_replace('$', '', $extractedRange);
 
                                     $coordinateStrings = explode(':', $extractedRange);
                                     if (count($coordinateStrings) == 2) {
@@ -1275,7 +1275,7 @@ class Xls extends BaseReader
                     if (($docSheet = $this->spreadsheet->getSheetByName($explodes[0])) ||
                         ($docSheet = $this->spreadsheet->getSheetByName(trim($explodes[0], "'")))) {
                         $extractedRange = $explodes[1];
-                        $extractedRange = str_replace('$', '', $extractedRange);
+                        $extractedRange = f_str_replace('$', '', $extractedRange);
 
                         $localOnly = ($definedName['scope'] == 0) ? false : true;
 
@@ -1701,7 +1701,7 @@ class Xls extends BaseReader
                 $cellAddress = array_pop(array_keys($this->phpSheet->getComments()));
             }
 
-            $cellAddress = str_replace('$', '', $cellAddress);
+            $cellAddress = f_str_replace('$', '', $cellAddress);
             $noteLength = self::getUInt2d($recordData, 4);
             $noteText = trim(substr($recordData, 6));
 
@@ -4951,7 +4951,7 @@ class Xls extends BaseReader
 
             // in list type validity, null characters are used as item separators
             if ($type == DataValidation::TYPE_LIST) {
-                $formula1 = str_replace(chr(0), ',', $formula1);
+                $formula1 = f_str_replace(chr(0), ',', $formula1);
             }
         } catch (PhpSpreadsheetException $e) {
             return;
@@ -5768,7 +5768,7 @@ class Xls extends BaseReader
                 $name = 'tNum';
                 $size = 9;
                 $data = self::extractNumber(substr($formulaData, 1));
-                $data = str_replace(',', '.', (string) $data); // in case non-English locale
+                $data = f_str_replace(',', '.', (string) $data); // in case non-English locale
                 break;
             case 0x20:    //    array constant
             case 0x40:
@@ -7495,7 +7495,7 @@ class Xls extends BaseReader
                     }
 
                     // escape the single-quotes
-                    $sheetRange = str_replace("'", "''", $sheetRange);
+                    $sheetRange = f_str_replace("'", "''", $sheetRange);
 
                     // if there are special characters, we need to enclose the range in single-quotes
                     // todo: check if we have identified the whole set of special characters
@@ -7778,7 +7778,7 @@ class Xls extends BaseReader
      */
     private static function UTF8toExcelDoubleQuoted($value)
     {
-        return '"' . str_replace('"', '""', $value) . '"';
+        return '"' . f_str_replace('"', '""', $value) . '"';
     }
 
     /**

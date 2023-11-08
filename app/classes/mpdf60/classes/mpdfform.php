@@ -644,7 +644,7 @@ function _putFormsCatalog() {
 
 
 function SetFormButtonJS( $name, $js ) {
-	$js = str_replace("\t",' ', trim($js) );
+	$js = f_str_replace("\t",' ', trim($js) );
 	if ( isset($name) && isset($js) ) {
 		$this->array_form_button_js[$this->mpdf->_escape($name)] = array(
 				'js' => $js
@@ -653,7 +653,7 @@ function SetFormButtonJS( $name, $js ) {
 }
 
 function SetFormChoiceJS( $name, $js ) {
-	$js = str_replace("\t",' ', trim($js) );
+	$js = f_str_replace("\t",' ', trim($js) );
 	if ( isset($name) && isset($js) ) {
 		$this->array_form_choice_js[$this->mpdf->_escape($name)] = array(
 				'js' => $js
@@ -663,7 +663,7 @@ function SetFormChoiceJS( $name, $js ) {
 
 function SetFormTextJS( $name, $js) {
    for ($i=0; $i<count($js); $i++) {
-	$j = str_replace("\t",' ', trim($js[$i][1]) );
+	$j = f_str_replace("\t",' ', trim($js[$i][1]) );
 	$format = $js[$i][0];
 	if ($name) {
 		$this->array_form_text_js[$this->mpdf->_escape($name)][$format] = array('js' => $j);

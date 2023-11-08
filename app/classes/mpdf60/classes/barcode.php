@@ -262,8 +262,8 @@ class PDFBarcode {
 			case 'C39E+': {	// CODE 39 EXTENDED + CHECKSUM
 				if ($pr > 0) { $this->print_ratio = $pr; }
 				else { $this->print_ratio = 2.5; }	// spec: Pr= 1:2 - 1:3 (>2.2 if X<0.50)
-				$code = str_replace(chr(194).chr(160), ' ', $code);	// mPDF 5.3.95  (for utf-8 encoded)
-				$code = str_replace(chr(160), ' ', $code);	// mPDF 5.3.95	(for win-1252)
+				$code = f_str_replace(chr(194).chr(160), ' ', $code);	// mPDF 5.3.95  (for utf-8 encoded)
+				$code = f_str_replace(chr(160), ' ', $code);	// mPDF 5.3.95	(for win-1252)
 				if (strtoupper($type)=='C39') { $arrcode = $this->barcode_code39($code, false, false); }
 				if (strtoupper($type)=='C39+') { $arrcode = $this->barcode_code39($code, false, true); }
 				if (strtoupper($type)=='C39E') { $arrcode = $this->barcode_code39($code, true, false); }
@@ -429,7 +429,7 @@ class PDFBarcode {
 		$encode = array(
 			chr(0) => '%U', chr(1) => '$A', chr(2) => '$B', chr(3) => '$C',
 			chr(4) => '$D', chr(5) => '$E', chr(6) => '$F', chr(7) => '$G',
-			chr(8) => '$H', chr(9) => '$I', chr(10) => '$J', chr(11) => '£K',
+			chr(8) => '$H', chr(9) => '$I', chr(10) => '$J', chr(11) => 'ï¿½K',
 			chr(12) => '$L', chr(13) => '$M', chr(14) => '$N', chr(15) => '$O',
 			chr(16) => '$P', chr(17) => '$Q', chr(18) => '$R', chr(19) => '$S',
 			chr(20) => '$T', chr(21) => '$U', chr(22) => '$V', chr(23) => '$W',
@@ -546,7 +546,7 @@ class PDFBarcode {
 		$encode = array(
 			chr(0) => chr(131).'U', chr(1) => chr(128).'A', chr(2) => chr(128).'B', chr(3) => chr(128).'C',
 			chr(4) => chr(128).'D', chr(5) => chr(128).'E', chr(6) => chr(128).'F', chr(7) => chr(128).'G',
-			chr(8) => chr(128).'H', chr(9) => chr(128).'I', chr(10) => chr(128).'J', chr(11) => '£K',
+			chr(8) => chr(128).'H', chr(9) => chr(128).'I', chr(10) => chr(128).'J', chr(11) => 'ï¿½K',
 			chr(12) => chr(128).'L', chr(13) => chr(128).'M', chr(14) => chr(128).'N', chr(15) => chr(128).'O',
 			chr(16) => chr(128).'P', chr(17) => chr(128).'Q', chr(18) => chr(128).'R', chr(19) => chr(128).'S',
 			chr(20) => chr(128).'T', chr(21) => chr(128).'U', chr(22) => chr(128).'V', chr(23) => chr(128).'W',
@@ -1375,8 +1375,8 @@ class PDFBarcode {
 		}
 		$bararray = array('code' => $code, 'maxw' => 0, 'maxh' => 5, 'bcode' => array());
 		$k = 0;
-		$code = str_replace('-', '', $code);
-		$code = str_replace(' ', '', $code);
+		$code = f_str_replace('-', '', $code);
+		$code = f_str_replace(' ', '', $code);
 		$len = strlen($code);
 		// calculate checksum
 		$sum = 0;

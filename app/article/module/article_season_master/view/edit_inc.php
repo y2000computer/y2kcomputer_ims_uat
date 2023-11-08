@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Name: <?php echo htmlspecialchars($general['name']);?>									
+										Name: <?php echo f_html_escape($general['name']);?>									
 									</span>
 								</span>
 							</span>
@@ -66,7 +66,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Name :</label>
 								</span>
 								<span class="formInput" >
-									<input type="text"  name="general[name]"  autocomplete="off" class="eight" required value="<?php echo htmlspecialchars($general['name']);?>" />
+									<input type="text"  name="general[name]"  autocomplete="off" class="eight" required value="<?php echo f_html_escape($general['name']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -106,7 +106,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Content :</label>
 								</span>
 								<span class="formInput"  >
-									<textarea  class="fifteen" rows="16"  name="general[content]"><?php echo htmlspecialchars($general['content']);?></textarea>
+									<textarea  class="fifteen" rows="16"  name="general[content]"><?php echo f_html_escape($general['content']);?></textarea>
 								</span>
 							</span>							
 

@@ -3195,7 +3195,7 @@ class upload {
      * @return array RGB colors
      */
     function getcolors($color) {
-        $color = str_replace('#', '', $color);
+        $color = f_str_replace('#', '', $color);
         if (strlen($color) == 3) $color = str_repeat(substr($color, 0, 1), 2) . str_repeat(substr($color, 1, 1), 2) . str_repeat(substr($color, 2, 1), 2);
         $r = sscanf($color, "%2x%2x%2x");
         $red   = (is_array($r) && array_key_exists(0, $r) && is_numeric($r[0]) ? $r[0] : 0);
@@ -3244,14 +3244,14 @@ class upload {
         } else {
             $ct = $offsets[0]; $cr = $offsets[0]; $cb = $offsets[0]; $cl = $offsets[0];
         }
-        if (strpos($ct, '%')>0) $ct = $y * (str_replace('%','',$ct) / 100);
-        if (strpos($cr, '%')>0) $cr = $x * (str_replace('%','',$cr) / 100);
-        if (strpos($cb, '%')>0) $cb = $y * (str_replace('%','',$cb) / 100);
-        if (strpos($cl, '%')>0) $cl = $x * (str_replace('%','',$cl) / 100);
-        if (strpos($ct, 'px')>0) $ct = str_replace('px','',$ct);
-        if (strpos($cr, 'px')>0) $cr = str_replace('px','',$cr);
-        if (strpos($cb, 'px')>0) $cb = str_replace('px','',$cb);
-        if (strpos($cl, 'px')>0) $cl = str_replace('px','',$cl);
+        if (strpos($ct, '%')>0) $ct = $y * (f_str_replace('%','',$ct) / 100);
+        if (strpos($cr, '%')>0) $cr = $x * (f_str_replace('%','',$cr) / 100);
+        if (strpos($cb, '%')>0) $cb = $y * (f_str_replace('%','',$cb) / 100);
+        if (strpos($cl, '%')>0) $cl = $x * (f_str_replace('%','',$cl) / 100);
+        if (strpos($ct, 'px')>0) $ct = f_str_replace('px','',$ct);
+        if (strpos($cr, 'px')>0) $cr = f_str_replace('px','',$cr);
+        if (strpos($cb, 'px')>0) $cb = f_str_replace('px','',$cb);
+        if (strpos($cl, 'px')>0) $cl = f_str_replace('px','',$cl);
         $ct = (int) $ct; $cr = (int) $cr; $cb = (int) $cb; $cl = (int) $cl;
         if ($round) { 
             $ct = round($ct); 
@@ -4623,7 +4623,7 @@ class upload {
                         $src_size_kb    = number_format($src_size, 1, ".", " ");
                         $src_size_human = ($src_size > 1024 ? $src_size_mb . " MB" : $src_size_kb . " kb");
 
-                        $this->image_text = str_replace(
+                        $this->image_text = f_str_replace(
                             array('[src_name]',
                                   '[src_name_body]',
                                   '[src_name_ext]',
@@ -4830,8 +4830,8 @@ class upload {
                         $this->log .= '- add reflection : ' . $this->image_reflection_height . '<br />';
                         // we decode image_reflection_height, which can be a integer, a string in pixels or percentage
                         $image_reflection_height = $this->image_reflection_height;
-                        if (strpos($image_reflection_height, '%')>0) $image_reflection_height = $this->image_dst_y * (str_replace('%','',$image_reflection_height / 100));
-                        if (strpos($image_reflection_height, 'px')>0) $image_reflection_height = str_replace('px','',$image_reflection_height);
+                        if (strpos($image_reflection_height, '%')>0) $image_reflection_height = $this->image_dst_y * (f_str_replace('%','',$image_reflection_height / 100));
+                        if (strpos($image_reflection_height, 'px')>0) $image_reflection_height = f_str_replace('px','',$image_reflection_height);
                         $image_reflection_height = (int) $image_reflection_height;
                         if ($image_reflection_height > $this->image_dst_y) $image_reflection_height = $this->image_dst_y;
                         if (empty($this->image_reflection_opacity)) $this->image_reflection_opacity = 60;

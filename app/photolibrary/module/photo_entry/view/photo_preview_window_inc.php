@@ -58,7 +58,7 @@
 								<span class="contentMessage">
 										<?php
 										$desc_show = $general_model['desc'];
-										$desc_show = mb_str_replace("\r", "<br>\r", $desc_show);
+										$desc_show = mb_f_str_replace("\r", "<br>\r", $desc_show);
 										echo '<span class="message">'. $desc_show . '</span>';
 										?>																
 								</span>

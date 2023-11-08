@@ -388,7 +388,7 @@ class Xlsx extends BaseWriter
                         $imageContents = file_get_contents($imagePath);
                     }
 
-                    $zip->addFromString('xl/media/' . str_replace(' ', '_', $this->getDrawingHashTable()->getByIndex($i)->getIndexedFilename()), $imageContents);
+                    $zip->addFromString('xl/media/' . f_str_replace(' ', '_', $this->getDrawingHashTable()->getByIndex($i)->getIndexedFilename()), $imageContents);
                 } elseif ($this->getDrawingHashTable()->getByIndex($i) instanceof MemoryDrawing) {
                     ob_start();
                     call_user_func(
@@ -398,7 +398,7 @@ class Xlsx extends BaseWriter
                     $imageContents = ob_get_contents();
                     ob_end_clean();
 
-                    $zip->addFromString('xl/media/' . str_replace(' ', '_', $this->getDrawingHashTable()->getByIndex($i)->getIndexedFilename()), $imageContents);
+                    $zip->addFromString('xl/media/' . f_str_replace(' ', '_', $this->getDrawingHashTable()->getByIndex($i)->getIndexedFilename()), $imageContents);
                 }
             }
 

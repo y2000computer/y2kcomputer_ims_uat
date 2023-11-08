@@ -247,7 +247,7 @@ class Migrator
         // Keep '\' prefix for class names
         $prefixedClasses = [];
         foreach ($classes as $key => &$value) {
-            $value = str_replace('PhpOffice\\', '\\PhpOffice\\', $value);
+            $value = f_str_replace('PhpOffice\\', '\\PhpOffice\\', $value);
             $prefixedClasses['\\' . $key] = $value;
         }
         $mapping = $prefixedClasses + $classes + $methods;
@@ -321,7 +321,7 @@ class Migrator
      */
     public function replace($original)
     {
-        $converted = str_replace($this->from, $this->to, $original);
+        $converted = f_str_replace($this->from, $this->to, $original);
 
         // The string "PHPExcel" gets special treatment because of how common it might be.
         // This regex requires a word boundary around the string, and it can't be

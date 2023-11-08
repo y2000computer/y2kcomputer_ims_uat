@@ -29,7 +29,7 @@ for ($i=0;$i<count($m[0]);$i++) {
 	preg_match('/height: (.*?);/',$style, $hr);
 	$h = $mpdf->ConvertSize($hr[1],0,$mpdf->FontSize) * $mpdf->dpi/25.4;
 	$replace = '<svg'.$m[1][$i].' width="'.$w.'" height="'.$h.'" style="'.$m[2][$i].'"';
-	$html = str_replace($m[0][$i],$replace,$html);
+	$html = f_str_replace($m[0][$i],$replace,$html);
 }
 
 

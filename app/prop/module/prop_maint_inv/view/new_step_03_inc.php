@@ -39,7 +39,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Building :</label>
 								</span>
 								<span class="formInput">
-									<input type="hidden" name="general[build_id]"  value="<?php echo htmlspecialchars($general['build_id']);?>" />
+									<input type="hidden" name="general[build_id]"  value="<?php echo f_html_escape($general['build_id']);?>" />
 									<?php echo $general['build_eng_name']; ?>
 									</select>
 								</span>
@@ -53,8 +53,8 @@ if ($IS_action=='new_step_03') {
 									<label class="">Tenant Code :</label>
 								</span>
 								<span class="formInput">
-								<input type="hidden" name="general[tenant_id]"  value="<?php echo htmlspecialchars($general['tenant_id']);?>" />
-								<?php echo htmlspecialchars($general['tenant_code']);?>
+								<input type="hidden" name="general[tenant_id]"  value="<?php echo f_html_escape($general['tenant_id']);?>" />
+								<?php echo f_html_escape($general['tenant_code']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -66,7 +66,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Name :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['eng_name']);?>
+								<?php echo f_html_escape($general['eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -84,7 +84,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Maint. Bill Date :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-									<?php echo htmlspecialchars($general['maint_date']);?> 
+									<?php echo f_html_escape($general['maint_date']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -95,7 +95,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Maint. Amount :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['maint_amount'],2));?>									
+								<?php echo f_html_escape(number_format($general['maint_amount'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -149,7 +149,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Invoice Amount :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo htmlspecialchars($general['amount']);?>" />
+									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo f_html_escape($general['amount']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

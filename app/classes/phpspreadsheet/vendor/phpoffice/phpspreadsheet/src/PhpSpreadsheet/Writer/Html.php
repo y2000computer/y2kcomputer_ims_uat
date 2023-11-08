@@ -352,31 +352,31 @@ class Html extends BaseWriter
         $html .= '      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . PHP_EOL;
         $html .= '      <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">' . PHP_EOL;
         if ($properties->getTitle() > '') {
-            $html .= '      <title>' . htmlspecialchars($properties->getTitle()) . '</title>' . PHP_EOL;
+            $html .= '      <title>' . f_html_escape($properties->getTitle()) . '</title>' . PHP_EOL;
         }
         if ($properties->getCreator() > '') {
-            $html .= '      <meta name="author" content="' . htmlspecialchars($properties->getCreator()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="author" content="' . f_html_escape($properties->getCreator()) . '" />' . PHP_EOL;
         }
         if ($properties->getTitle() > '') {
-            $html .= '      <meta name="title" content="' . htmlspecialchars($properties->getTitle()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="title" content="' . f_html_escape($properties->getTitle()) . '" />' . PHP_EOL;
         }
         if ($properties->getDescription() > '') {
-            $html .= '      <meta name="description" content="' . htmlspecialchars($properties->getDescription()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="description" content="' . f_html_escape($properties->getDescription()) . '" />' . PHP_EOL;
         }
         if ($properties->getSubject() > '') {
-            $html .= '      <meta name="subject" content="' . htmlspecialchars($properties->getSubject()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="subject" content="' . f_html_escape($properties->getSubject()) . '" />' . PHP_EOL;
         }
         if ($properties->getKeywords() > '') {
-            $html .= '      <meta name="keywords" content="' . htmlspecialchars($properties->getKeywords()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="keywords" content="' . f_html_escape($properties->getKeywords()) . '" />' . PHP_EOL;
         }
         if ($properties->getCategory() > '') {
-            $html .= '      <meta name="category" content="' . htmlspecialchars($properties->getCategory()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="category" content="' . f_html_escape($properties->getCategory()) . '" />' . PHP_EOL;
         }
         if ($properties->getCompany() > '') {
-            $html .= '      <meta name="company" content="' . htmlspecialchars($properties->getCompany()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="company" content="' . f_html_escape($properties->getCompany()) . '" />' . PHP_EOL;
         }
         if ($properties->getManager() > '') {
-            $html .= '      <meta name="manager" content="' . htmlspecialchars($properties->getManager()) . '" />' . PHP_EOL;
+            $html .= '      <meta name="manager" content="' . f_html_escape($properties->getManager()) . '" />' . PHP_EOL;
         }
 
         if ($pIncludeStyles) {
@@ -635,7 +635,7 @@ class Html extends BaseWriter
                     }
 
                     // Convert UTF8 data to PCDATA
-                    $filename = htmlspecialchars($filename);
+                    $filename = f_html_escape($filename);
 
                     $html .= PHP_EOL;
                     if ((!$this->embedImages) || ($this->isPdf)) {
@@ -1245,7 +1245,7 @@ class Html extends BaseWriter
 
                         // Convert UTF8 data to PCDATA
                         $cellText = $element->getText();
-                        $cellData .= htmlspecialchars($cellText);
+                        $cellData .= f_html_escape($cellText);
 
                         if ($element instanceof Run) {
                             if ($element->getFont()->getSuperscript()) {
@@ -1271,7 +1271,7 @@ class Html extends BaseWriter
                             [$this, 'formatColor']
                         );
                     }
-                    $cellData = htmlspecialchars($cellData);
+                    $cellData = f_html_escape($cellData);
                     if ($pSheet->getParent()->getCellXfByIndex($cell->getXfIndex())->getFont()->getSuperscript()) {
                         $cellData = '<sup>' . $cellData . '</sup>';
                     } elseif ($pSheet->getParent()->getCellXfByIndex($cell->getXfIndex())->getFont()->getSubscript()) {
@@ -1313,7 +1313,7 @@ class Html extends BaseWriter
 
             // Hyperlink?
             if ($pSheet->hyperlinkExists($coordinate) && !$pSheet->getHyperlink($coordinate)->isInternal()) {
-                $cellData = '<a href="' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getUrl()) . '" title="' . htmlspecialchars($pSheet->getHyperlink($coordinate)->getTooltip()) . '">' . $cellData . '</a>';
+                $cellData = '<a href="' . f_html_escape($pSheet->getHyperlink($coordinate)->getUrl()) . '" title="' . f_html_escape($pSheet->getHyperlink($coordinate)->getTooltip()) . '">' . $cellData . '</a>';
             }
 
             // Should the cell be written or is it swallowed by a rowspan or colspan?
@@ -1508,12 +1508,12 @@ class Html extends BaseWriter
 
         $color_regex = '/^\\[[a-zA-Z]+\\]/';
         if (preg_match($color_regex, $pFormat, $matches)) {
-            $color = str_replace(['[', ']'], '', $matches[0]);
+            $color = f_str_replace(['[', ']'], '', $matches[0]);
             $color = strtolower($color);
         }
 
         // convert to PCDATA
-        $value = htmlspecialchars($pValue);
+        $value = f_html_escape($pValue);
 
         // color span tag
         if ($color !== null) {

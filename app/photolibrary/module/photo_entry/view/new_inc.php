@@ -37,7 +37,7 @@ if ($IS_action=='new') {
 									<label class="">Caption:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[caption]"  required autocomplete="off" class="twelve" value="<?php echo htmlspecialchars($json_search_items['general']['caption']);?>" />
+									<input type="text"  name="general[caption]"  required autocomplete="off" class="twelve" value="<?php echo f_html_escape($json_search_items['general']['caption']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -49,7 +49,7 @@ if ($IS_action=='new') {
 									<label class="">Year:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[photo_year]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($json_search_items['general']['photo_year']);?>" />
+									<input type="text"  name="general[photo_year]"  autocomplete="off" class="three" value="<?php echo f_html_escape($json_search_items['general']['photo_year']);?>" />
 									(e.g: 1950 , 2000)			
 								</span>
 							</span>							
@@ -62,7 +62,7 @@ if ($IS_action=='new') {
 									<label class="">Description:</label>
 								</span>
 								<span class="formInput">
-									<textarea  class="seven" rows="6" cols="60" name="general[desc]"><?php echo htmlspecialchars($json_search_items['general']['desc']);?></textarea>
+									<textarea  class="seven" rows="6" cols="60" name="general[desc]"><?php echo f_html_escape($json_search_items['general']['desc']);?></textarea>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -75,7 +75,7 @@ if ($IS_action=='new') {
 									<label class="">RFID:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[rfid]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['rfid']);?>" />
+									<input type="text"  name="general[rfid]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['rfid']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

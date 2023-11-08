@@ -57,7 +57,7 @@ class TextData
         }
 
         if (is_string($stringValue) || is_numeric($stringValue)) {
-            return str_replace(self::$invalidChars, '', trim($stringValue, "\x00..\x1F"));
+            return f_str_replace(self::$invalidChars, '', trim($stringValue, "\x00..\x1F"));
         }
 
         return null;
@@ -475,7 +475,7 @@ class TextData
         $instance = floor(Functions::flattenSingleValue($instance));
 
         if ($instance == 0) {
-            return str_replace($fromText, $toText, $text);
+            return f_str_replace($fromText, $toText, $text);
         }
 
         $pos = -1;
@@ -544,7 +544,7 @@ class TextData
         $value = Functions::flattenSingleValue($value);
 
         if (!is_numeric($value)) {
-            $numberValue = str_replace(
+            $numberValue = f_str_replace(
                 StringHelper::getThousandsSeparator(),
                 '',
                 trim($value, " \t\n\r\0\x0B" . StringHelper::getCurrencyCode())
@@ -606,7 +606,7 @@ class TextData
                 return Functions::VALUE();
             }
 
-            $value = str_replace([$groupSeparator, $decimalSeparator], ['', '.'], $value);
+            $value = f_str_replace([$groupSeparator, $decimalSeparator], ['', '.'], $value);
 
             // Handle the special case of trailing % signs
             $percentageString = rtrim($value, '%');

@@ -435,7 +435,7 @@ class Worksheet implements IComparable
             throw new Exception('Sheet code name cannot be empty.');
         }
         // Some of the printable ASCII characters are invalid:  * : / \ ? [ ] and  first and last characters cannot be a "'"
-        if ((str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) ||
+        if ((f_str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) ||
             (Shared\StringHelper::substring($pValue, -1, 1) == '\'') ||
             (Shared\StringHelper::substring($pValue, 0, 1) == '\'')) {
             throw new Exception('Invalid character found in sheet code name');
@@ -461,7 +461,7 @@ class Worksheet implements IComparable
     private static function checkSheetTitle($pValue)
     {
         // Some of the printable ASCII characters are invalid:  * : / \ ? [ ]
-        if (str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) {
+        if (f_str_replace(self::$invalidCharacters, '', $pValue) !== $pValue) {
             throw new Exception('Invalid character found in sheet title');
         }
 
@@ -3008,7 +3008,7 @@ class Worksheet implements IComparable
         }
 
         if ($validate) {
-            $pValue = str_replace(' ', '_', $pValue); //Excel does this automatically without flinching, we are doing the same
+            $pValue = f_str_replace(' ', '_', $pValue); //Excel does this automatically without flinching, we are doing the same
 
             // Syntax check
             // throw an exception if not valid

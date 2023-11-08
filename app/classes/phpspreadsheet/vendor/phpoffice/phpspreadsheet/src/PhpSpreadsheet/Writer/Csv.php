@@ -320,7 +320,7 @@ class Csv extends BaseWriter
 
         foreach ($pValues as $element) {
             // Escape enclosures
-            $element = str_replace($this->enclosure, $this->enclosure . $this->enclosure, $element);
+            $element = f_str_replace($this->enclosure, $this->enclosure . $this->enclosure, $element);
 
             // Add delimiter
             if ($writeDelimiter) {

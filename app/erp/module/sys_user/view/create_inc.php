@@ -33,7 +33,7 @@ require __DIR__.'/../../../../template/header_inc.php';
 									<label class="">Email :</label>
 								</span>
 								<span class="formInput">
-										<span class="message"><?php echo htmlspecialchars($user['email']);?></span>
+										<span class="message"><?php echo f_html_escape($user['email']);?></span>
 								</span>
 							</span>
 							<span class="formRow">
@@ -44,7 +44,7 @@ require __DIR__.'/../../../../template/header_inc.php';
 									<label class="">Password:</label>
 								</span>
 								<span class="formInput">
-										<span class="message"><?php echo htmlspecialchars($user['password']);?></span>
+										<span class="message"><?php echo f_html_escape($user['password']);?></span>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -55,7 +55,7 @@ require __DIR__.'/../../../../template/header_inc.php';
 									<label class="">Last Name:</label>
 								</span>
 								<span class="formInput">
-										<span class="message"><?php echo htmlspecialchars($user['last_name']);?></span>
+										<span class="message"><?php echo f_html_escape($user['last_name']);?></span>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -66,7 +66,7 @@ require __DIR__.'/../../../../template/header_inc.php';
 									<label class="">First Name:</label>
 								</span>
 								<span class="formInput">
-									<span class="message"><?php echo htmlspecialchars($user['first_name']);?></span>
+									<span class="message"><?php echo f_html_escape($user['first_name']);?></span>
 								</span>
 							</span>							
 							<span class="formRow">

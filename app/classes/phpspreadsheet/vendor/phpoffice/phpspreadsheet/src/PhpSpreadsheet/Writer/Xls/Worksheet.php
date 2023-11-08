@@ -485,7 +485,7 @@ class Worksheet extends BIFFwriter
 
             if (strpos($url, 'sheet://') !== false) {
                 // internal to current workbook
-                $url = str_replace('sheet://', 'internal:', $url);
+                $url = f_str_replace('sheet://', 'internal:', $url);
             } elseif (preg_match('/^(http:|https:|ftp:|mailto:)/', $url)) {
                 // URL
             } else {
@@ -2829,7 +2829,7 @@ class Worksheet extends BIFFwriter
                 try {
                     $formula1 = $dataValidation->getFormula1();
                     if ($type == 0x03) { // list type
-                        $formula1 = str_replace(',', chr(0), $formula1);
+                        $formula1 = f_str_replace(',', chr(0), $formula1);
                     }
                     $this->parser->parse($formula1);
                     $formula1 = $this->parser->toReversePolish();

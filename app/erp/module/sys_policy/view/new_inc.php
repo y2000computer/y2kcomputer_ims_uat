@@ -37,7 +37,7 @@ if ($IS_action=='new') {
 									<label class="">Security Policy Name :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="policy[eng_name]" required="required" size="50" value="<?php echo htmlspecialchars($policy['eng_name']);?>" class="twelve"/>
+										<input type="text" name="policy[eng_name]" required="required" size="50" value="<?php echo f_html_escape($policy['eng_name']);?>" class="twelve"/>
 								</span>
 							</span>
 							<span class="formRow">

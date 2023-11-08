@@ -2471,7 +2471,7 @@ class Calculation
             //    Default is English, if user isn't requesting english, then read the necessary data from the locale files
             if ($locale != 'en_us') {
                 //    Search for a file with a list of function names for locale
-                $functionNamesFile = __DIR__ . '/locale/' . str_replace('_', DIRECTORY_SEPARATOR, $locale) . DIRECTORY_SEPARATOR . 'functions';
+                $functionNamesFile = __DIR__ . '/locale/' . f_str_replace('_', DIRECTORY_SEPARATOR, $locale) . DIRECTORY_SEPARATOR . 'functions';
                 if (!file_exists($functionNamesFile)) {
                     //    If there isn't a locale specific function file, look for a language specific function file
                     $functionNamesFile = __DIR__ . '/locale/' . $language . DIRECTORY_SEPARATOR . 'functions';
@@ -2500,7 +2500,7 @@ class Calculation
                     self::$localeBoolean['FALSE'] = self::$localeFunctions['FALSE'];
                 }
 
-                $configFile = __DIR__ . '/locale/' . str_replace('_', DIRECTORY_SEPARATOR, $locale) . DIRECTORY_SEPARATOR . 'config';
+                $configFile = __DIR__ . '/locale/' . f_str_replace('_', DIRECTORY_SEPARATOR, $locale) . DIRECTORY_SEPARATOR . 'config';
                 if (!file_exists($configFile)) {
                     $configFile = __DIR__ . '/locale/' . $language . DIRECTORY_SEPARATOR . 'config';
                 }
@@ -3261,7 +3261,7 @@ class Calculation
                     if ($i = !$i) {
                         $openCount += substr_count($value, '{');
                         $closeCount += substr_count($value, '}');
-                        $value = str_replace($matrixReplaceFrom, $matrixReplaceTo, $value);
+                        $value = f_str_replace($matrixReplaceFrom, $matrixReplaceTo, $value);
                     }
                 }
                 unset($value);
@@ -3271,7 +3271,7 @@ class Calculation
                 //    If there's no quoted strings, then we do a simple count/replace
                 $openCount = substr_count($formula, '{');
                 $closeCount = substr_count($formula, '}');
-                $formula = str_replace($matrixReplaceFrom, $matrixReplaceTo, $formula);
+                $formula = f_str_replace($matrixReplaceFrom, $matrixReplaceTo, $formula);
             }
             //    Trap for mismatched braces and trigger an appropriate error
             if ($openCount < $closeCount) {
@@ -3674,7 +3674,7 @@ class Calculation
                     $localeConstant = false;
                     if ($opCharacter == '"') {
                         //    UnEscape any quotes within the string
-                        $val = self::wrapResult(str_replace('""', '"', self::unwrapResult($val)));
+                        $val = self::wrapResult(f_str_replace('""', '"', self::unwrapResult($val)));
                     } elseif (is_numeric($val)) {
                         if ((strpos($val, '.') !== false) || (stripos($val, 'e') !== false) || ($val > PHP_INT_MAX) || ($val < -PHP_INT_MAX)) {
                             $val = (float) $val;
@@ -4005,7 +4005,7 @@ class Calculation
                                 $result = '#VALUE!';
                             }
                         } else {
-                            $result = '"' . str_replace('""', '"', self::unwrapResult($operand1) . self::unwrapResult($operand2)) . '"';
+                            $result = '"' . f_str_replace('""', '"', self::unwrapResult($operand1) . self::unwrapResult($operand2)) . '"';
                         }
                         $this->debugLog->writeDebugLog('Evaluation Result is ', $this->showTypeDetails($result));
                         $stack->push('Value', $result);

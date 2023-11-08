@@ -302,7 +302,7 @@ class StringHelper
     {
         self::buildCharacterSets();
 
-        return str_replace(array_keys(self::$controlCharacters), array_values(self::$controlCharacters), $value);
+        return f_str_replace(array_keys(self::$controlCharacters), array_values(self::$controlCharacters), $value);
     }
 
     /**
@@ -324,7 +324,7 @@ class StringHelper
     {
         self::buildCharacterSets();
 
-        return str_replace(array_values(self::$controlCharacters), array_keys(self::$controlCharacters), $value);
+        return f_str_replace(array_values(self::$controlCharacters), array_keys(self::$controlCharacters), $value);
     }
 
     /**
@@ -370,7 +370,7 @@ class StringHelper
     public static function formatNumber($value)
     {
         if (is_float($value)) {
-            return str_replace(',', '.', $value);
+            return f_str_replace(',', '.', $value);
         }
 
         return (string) $value;
@@ -698,7 +698,7 @@ class StringHelper
         }
 
         foreach (self::$SYLKCharacters as $k => $v) {
-            $pValue = str_replace($k, $v, $pValue);
+            $pValue = f_str_replace($k, $v, $pValue);
         }
 
         return $pValue;

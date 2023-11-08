@@ -62,7 +62,7 @@ endforeach;
 									<label class="">Email :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="user[email]" required size="50" value="<?php echo htmlspecialchars($user['email']);?>" class="nine"/>
+										<input type="text" name="user[email]" required size="50" value="<?php echo f_html_escape($user['email']);?>" class="nine"/>
 								</span>
 							</span>
 							<span class="formRow">
@@ -73,7 +73,7 @@ endforeach;
 									<label class="">Password:</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="user[password]" required size="30"  value="<?php echo htmlspecialchars($user['password']);?>" class="five"/>
+										<input type="text" name="user[password]" required size="30"  value="<?php echo f_html_escape($user['password']);?>" class="five"/>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -84,7 +84,7 @@ endforeach;
 									<label class="">Last Name:</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="user[last_name]" required size="50"  value="<?php echo htmlspecialchars($user['last_name']);?>" class="six"/>
+										<input type="text" name="user[last_name]" required size="50"  value="<?php echo f_html_escape($user['last_name']);?>" class="six"/>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -95,7 +95,7 @@ endforeach;
 									<label class="">First Name:</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="user[first_name]" required size="50"  value="<?php echo htmlspecialchars($user['first_name']);?>" class="eight"/>
+										<input type="text" name="user[first_name]" required size="50"  value="<?php echo f_html_escape($user['first_name']);?>" class="eight"/>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -336,7 +336,7 @@ endforeach;
 									foreach ($arr_ava_company as $ava_company): 
 									
 										echo '<option value="'.$ava_company['comp_id'].'"';
-											echo '>'.$x++.'. '.htmlspecialchars($ava_company['name_eng']);
+											echo '>'.$x++.'. '.f_html_escape($ava_company['name_eng']);
 											echo '</option>';
 									endforeach; 
 									?>									

@@ -26,7 +26,7 @@ class PagingManger
     }
 	
     function getCurrentRow($id){
-		$var = str_replace("'", "", $this->Result_ID_Array);
+		$var = f_str_replace("'", "", $this->Result_ID_Array);
 		$cell = explode(",", $var);
 		$position = array_search($id, $cell);
 		if ($position !== false)   $this->CurrentRow=$position+1;
@@ -52,13 +52,13 @@ class PagingManger
 
 
    function getPrev_ID($id){
-		$var = str_replace("'", "", $this->Result_ID_Array);
+		$var = f_str_replace("'", "", $this->Result_ID_Array);
 		$cell = explode(",", $var);
 		return $cell[$this->getCurrentRow($id)-2];
 	}
 
    function getNext_ID($id){
-		$var = str_replace("'", "", $this->Result_ID_Array);
+		$var = f_str_replace("'", "", $this->Result_ID_Array);
 		$cell = explode(",", $var);
 		return $cell[$this->getCurrentRow($id)];
 	}

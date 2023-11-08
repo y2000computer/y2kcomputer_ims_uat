@@ -42,7 +42,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 										echo '<td>'.$i_count++.'</td>';
 										echo '<td>'.YMDtoDMY($general_model['journal_date']).'</td>';
 										echo '<td>';
-										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['journal_code']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['journal_code']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
 										echo '<td style="text-align:right">';
 										if($general_model['balance']<>0) echo '<font color="red">';

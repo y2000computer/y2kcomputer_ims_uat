@@ -783,7 +783,7 @@ class Html extends BaseReader
                     break;
 
                 case 'font-family':
-                    $cellStyle->getFont()->setName(str_replace('\'', '', $styleValue));
+                    $cellStyle->getFont()->setName(f_str_replace('\'', '', $styleValue));
 
                     break;
 
@@ -813,14 +813,14 @@ class Html extends BaseReader
 
                 case 'width':
                     $sheet->getColumnDimension($column)->setWidth(
-                        str_replace('px', '', $styleValue)
+                        f_str_replace('px', '', $styleValue)
                     );
 
                     break;
 
                 case 'height':
                     $sheet->getRowDimension($row)->setRowHeight(
-                        str_replace('px', '', $styleValue)
+                        f_str_replace('px', '', $styleValue)
                     );
 
                     break;
@@ -834,7 +834,7 @@ class Html extends BaseReader
 
                 case 'text-indent':
                     $cellStyle->getAlignment()->setIndent(
-                        (int) str_replace(['px'], '', $styleValue)
+                        (int) f_str_replace(['px'], '', $styleValue)
                     );
 
                     break;

@@ -37,7 +37,7 @@ if ($IS_action=='new') {
 									<label class="">Category Name :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[name]"  autocomplete="off" class="six" value="<?php echo htmlspecialchars($json_search_items['general']['name']);?>" />
+									<input type="text"  name="general[name]"  autocomplete="off" class="six" value="<?php echo f_html_escape($json_search_items['general']['name']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Name:<?php echo htmlspecialchars($primary['name']); 
+										Name:<?php echo f_html_escape($primary['name']); 
 										?>									
 									</span>
 								</span>
@@ -91,7 +91,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Headline:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[headline]"  autocomplete="off" class="twelve"  required value="<?php echo htmlspecialchars($general['headline']);?>" />
+									<input type="text"  name="general[headline]"  autocomplete="off" class="twelve"  required value="<?php echo f_html_escape($general['headline']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

@@ -40,7 +40,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Building :</label>
 								</span>
 								<span class="formInput">
-									<input type="hidden" name="general[build_id]"  value="<?php echo htmlspecialchars($general['build_id']);?>" />
+									<input type="hidden" name="general[build_id]"  value="<?php echo f_html_escape($general['build_id']);?>" />
 									<?php echo $general['build_eng_name']; ?>
 									</select>
 								</span>
@@ -54,8 +54,8 @@ if ($IS_action=='new_step_03') {
 									<label class="">Tenant Code :</label>
 								</span>
 								<span class="formInput">
-								<input type="hidden" name="general[tenant_code]"  value="<?php echo htmlspecialchars($general['tenant_code']);?>" />
-								<?php echo htmlspecialchars($general['tenant_code']);?>
+								<input type="hidden" name="general[tenant_code]"  value="<?php echo f_html_escape($general['tenant_code']);?>" />
+								<?php echo f_html_escape($general['tenant_code']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -73,8 +73,8 @@ if ($IS_action=='new_step_03') {
 									<label class="">Invoice No. :</label>
 								</span>
 								<span class="formInput">
-										<input type="hidden" name="general[inv_id]"  value="<?php echo htmlspecialchars($general['inv_id']);?>" />
-										<?php echo htmlspecialchars($general['inv_code']);?> 
+										<input type="hidden" name="general[inv_id]"  value="<?php echo f_html_escape($general['inv_id']);?>" />
+										<?php echo f_html_escape($general['inv_code']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -85,7 +85,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Invoice Date :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-									<?php echo htmlspecialchars($general['inv_date']);?> 
+									<?php echo f_html_escape($general['inv_date']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -97,7 +97,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Name :</label>
 								</span>
 								<span class="formInput">
-									<?php echo htmlspecialchars($general['tenant_eng_name']);?>
+									<?php echo f_html_escape($general['tenant_eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -114,7 +114,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Period From :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_from']);?>
+								<?php echo f_html_escape($general['period_date_from']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -126,7 +126,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Period To :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_to']);?>
+								<?php echo f_html_escape($general['period_date_to']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -144,7 +144,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Invoice Amount :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['inv_amount'],2));?>									
+								<?php echo f_html_escape(number_format($general['inv_amount'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -156,7 +156,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Invoice Balance :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['Balance'],2));?>									
+								<?php echo f_html_escape(number_format($general['Balance'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -190,7 +190,7 @@ if ($IS_action=='new_step_03') {
 									<label class="">Payment Amount :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo htmlspecialchars($general['amount']);?>" />
+									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo f_html_escape($general['amount']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

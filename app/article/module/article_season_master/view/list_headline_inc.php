@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Name: <?php echo htmlspecialchars($general['name']);?>									
+										Name: <?php echo f_html_escape($general['name']);?>									
 										<?php
 										echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 										echo '<a class="commonTextBtn" href="'.actionURL('headline_new','?item_id='.$item_id.'&lot_id='.$lot_id.'&tab='.$tab).'" >

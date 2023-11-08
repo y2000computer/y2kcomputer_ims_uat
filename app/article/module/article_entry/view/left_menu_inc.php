@@ -49,7 +49,7 @@
 									<label for="userModule_email" class="">Headline</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[headline]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['headline']);?>" />
+									<input type="text"  name="general[headline]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['headline']);?>" />
 								</span>
 							
 							

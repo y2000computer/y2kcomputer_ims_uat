@@ -17,13 +17,13 @@ $json_search_items = json_decode($json_searchphrase, true);
 					<?php
 					//Handle keyword and high light the keyword in red color 
 					$keyword_input_is =false;
-					if(htmlspecialchars($json_search_items['general']['keyword'])<>'' ) $keyword_input_is = true;
+					if(f_html_escape($json_search_items['general']['keyword'])<>'' ) $keyword_input_is = true;
 
 					//if( $keyword_input_is == true )  echo '<br> keyword_input_is is true<br>';
 					//if( $keyword_input_is == false)  echo '<br> keyword_input_is is false<br>';
 										
 					//verify keyword input, filter error_get_last
-					$pattern_cks  = explode(',', htmlspecialchars($json_search_items['general']['keyword']));
+					$pattern_cks  = explode(',', f_html_escape($json_search_items['general']['keyword']));
 					$pattern_checkeds =array();
 					$i = 0;
 					$p = 0;
@@ -46,12 +46,12 @@ $json_search_items = json_decode($json_searchphrase, true);
 					
 					
 					$replacements = array();
-					//$patterns  = explode(',', htmlspecialchars($json_search_items['general']['keyword']));
-					//$pure_patterns  = explode(',', htmlspecialchars($json_search_items['general']['keyword']));
+					//$patterns  = explode(',', f_html_escape($json_search_items['general']['keyword']));
+					//$pure_patterns  = explode(',', f_html_escape($json_search_items['general']['keyword']));
 					
 					$patterns  = $pattern_checkeds;
 					$pure_patterns  = $pattern_checkeds;
-					$pure_pattern_first = str_replace("/", "", $pure_patterns[0]);
+					$pure_pattern_first = f_str_replace("/", "", $pure_patterns[0]);
 
 					//echo '<br> count = '. count($patterns).'<br>';
 					$i = 0;
@@ -135,7 +135,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 										$caption_show = $general_model['caption'];
 										if( $keyword_input_is == true )  {
 											$caption =  preg_replace($patterns, $replacements, $general_model['caption']);
-											$caption_show = str_replace("/", "", $caption);
+											$caption_show = f_str_replace("/", "", $caption);
 										}
 									    
 										echo '<span class="itemCaption">'. $caption_show . '</span>';
@@ -148,12 +148,12 @@ $json_search_items = json_decode($json_searchphrase, true);
 											$desc_show =  preg_replace($patterns, $replacements, $desc_show);
 											$desc_show_len =mb_strlen($desc_show, 'UTF-8');
 											//$desc_show_pattern_pos = mb_strpos($desc_show, $pure_pattern_first, 0,'UTF-8');
-											$desc_show = str_replace("/", "", $desc_show);
+											$desc_show = f_str_replace("/", "", $desc_show);
 
 										}
 										
 
-										$desc_show = mb_str_replace("\r", "<br>\r", $desc_show);
+										$desc_show = mb_f_str_replace("\r", "<br>\r", $desc_show);
 										echo '<span class="itemDesc">'. $desc_show . '</span>';
 										*/
 										
@@ -179,7 +179,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 										
 										//Handle search RFID
 										$rfid_input_is = false;
-										if(htmlspecialchars($json_search_items['general']['rfid'])<>'' ) $rfid_input_is = true;
+										if(f_html_escape($json_search_items['general']['rfid'])<>'' ) $rfid_input_is = true;
 										
 										if($rfid_input_is==true){
 												$meta_tag_show = '<span style="color: #f00;">'.'RFID#'.$general_model['rfid'].''.'</span>';
@@ -188,7 +188,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 										
 										if( $keyword_input_is == true )  {
 											//$meta_tag_show =  preg_replace($patterns, $replacements, $meta_tag);
-											//$meta_tag_show = str_replace("/", "", $meta_tag_show);
+											//$meta_tag_show = f_str_replace("/", "", $meta_tag_show);
 										}
 										
 										if($meta_tag_show=='') {

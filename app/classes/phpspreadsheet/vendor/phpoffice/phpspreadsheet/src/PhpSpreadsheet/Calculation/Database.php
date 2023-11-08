@@ -95,7 +95,7 @@ class Database
                 if (isset($dataValues[$k])) {
                     $dataValue = $dataValues[$k];
                     $dataValue = (is_string($dataValue)) ? Calculation::wrapResult(strtoupper($dataValue)) : $dataValue;
-                    $testConditionList = str_replace('[:' . $criteriaName . ']', $dataValue, $testConditionList);
+                    $testConditionList = f_str_replace('[:' . $criteriaName . ']', $dataValue, $testConditionList);
                 }
             }
             //    evaluate the criteria against the row data

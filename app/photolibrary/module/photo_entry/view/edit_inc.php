@@ -39,9 +39,9 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Photo ID:<?php echo htmlspecialchars($general['photo_code']);?>									
+										Photo ID:<?php echo f_html_escape($general['photo_code']);?>									
 										&nbsp;&nbsp;
-										Caption :<?php echo htmlspecialchars($general['caption']);?>									
+										Caption :<?php echo f_html_escape($general['caption']);?>									
 									</span>
 								</span>
 							</span>
@@ -173,7 +173,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Caption:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[caption]"  required autocomplete="off" class="twelve" value="<?php echo htmlspecialchars($general['caption']);?>" />
+									<input type="text"  name="general[caption]"  required autocomplete="off" class="twelve" value="<?php echo f_html_escape($general['caption']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -185,7 +185,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Year:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[photo_year]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($general['photo_year']);?>" />
+									<input type="text"  name="general[photo_year]"  autocomplete="off" class="three" value="<?php echo f_html_escape($general['photo_year']);?>" />
 									(e.g: 1950 , 2000)			
 								</span>
 							</span>							
@@ -199,7 +199,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Description:</label>
 								</span>
 								<span class="formInput">
-									<textarea  class="seven" rows="6" cols="60" name="general[desc]"><?php echo htmlspecialchars($general['desc']);?></textarea>
+									<textarea  class="seven" rows="6" cols="60" name="general[desc]"><?php echo f_html_escape($general['desc']);?></textarea>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -211,7 +211,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">RFID:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[rfid]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($general['rfid']);?>" />
+									<input type="text"  name="general[rfid]"  autocomplete="off" class="five" value="<?php echo f_html_escape($general['rfid']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

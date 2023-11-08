@@ -64,7 +64,7 @@ class Sample
      */
     public function getPageHeading()
     {
-        return $this->isIndex() ? '' : '<h1>' . str_replace('_', ' ', $this->getScriptFilename()) . '</h1>';
+        return $this->isIndex() ? '' : '<h1>' . f_str_replace('_', ' ', $this->getScriptFilename()) . '</h1>';
     }
 
     /**
@@ -82,10 +82,10 @@ class Sample
 
         $files = [];
         foreach ($regex as $file) {
-            $file = str_replace(str_replace('\\', '/', $baseDir) . '/', '', str_replace('\\', '/', $file[0]));
+            $file = f_str_replace(f_str_replace('\\', '/', $baseDir) . '/', '', f_str_replace('\\', '/', $file[0]));
             $info = pathinfo($file);
-            $category = str_replace('_', ' ', $info['dirname']);
-            $name = str_replace('_', ' ', preg_replace('/(|\.php)/', '', $info['filename']));
+            $category = f_str_replace('_', ' ', $info['dirname']);
+            $name = f_str_replace('_', ' ', preg_replace('/(|\.php)/', '', $info['filename']));
             if (!in_array($category, ['.', 'boostrap', 'templates'])) {
                 if (!isset($files[$category])) {
                     $files[$category] = [];
@@ -161,7 +161,7 @@ class Sample
     {
         $originalExtension = pathinfo($filename, PATHINFO_EXTENSION);
 
-        return $this->getTemporaryFolder() . '/' . str_replace('.' . $originalExtension, '.' . $extension, basename($filename));
+        return $this->getTemporaryFolder() . '/' . f_str_replace('.' . $originalExtension, '.' . $extension, basename($filename));
     }
 
     /**

@@ -329,7 +329,7 @@ class Cells
         // Change prefix
         $newCollection->cachePrefix = $newCollection->getUniqueID();
         foreach ($oldValues as $oldKey => $value) {
-            $newValues[str_replace($oldCachePrefix, $newCollection->cachePrefix, $oldKey)] = clone $value;
+            $newValues[f_str_replace($oldCachePrefix, $newCollection->cachePrefix, $oldKey)] = clone $value;
         }
 
         // Store new values

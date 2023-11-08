@@ -35,7 +35,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 									if ($general_model['status']==0)  echo '<tr class="deactive">';
 									echo '<td>'.$i_count++.'</td>';
 									echo '<td>';
-									echo '<a class="text" href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['name_eng']).'&nbsp;'.'&raquo;'.'</a>';
+									echo '<a class="text" href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['name_eng']).'&nbsp;'.'&raquo;'.'</a>';
 									echo '</td>';
 									echo '<td>';
 									switch($general_model['status']) {

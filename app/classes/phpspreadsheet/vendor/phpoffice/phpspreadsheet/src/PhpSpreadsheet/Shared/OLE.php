@@ -303,7 +303,7 @@ class OLE
             $nameLength = self::_readInt2($fh);
             $nameUtf16 = substr($nameUtf16, 0, $nameLength - 2);
             // Simple conversion from UTF-16LE to ISO-8859-1
-            $name = str_replace("\x00", '', $nameUtf16);
+            $name = f_str_replace("\x00", '', $nameUtf16);
             $type = self::_readInt1($fh);
             switch ($type) {
                 case self::OLE_PPS_TYPE_ROOT:

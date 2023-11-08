@@ -65,7 +65,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Building :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['build_eng_name']);?>
+								<?php echo f_html_escape($general['build_eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -76,7 +76,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Tenant Code :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars($general['tenant_code']);?>
+								<?php echo f_html_escape($general['tenant_code']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -94,7 +94,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice No. :</label>
 								</span>
 								<span class="formInput">
-										<?php echo htmlspecialchars($general['inv_code']);?> 
+										<?php echo f_html_escape($general['inv_code']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -105,7 +105,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice Date :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-									<?php echo htmlspecialchars($general['inv_date']);?> 
+									<?php echo f_html_escape($general['inv_date']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -117,7 +117,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Name :</label>
 								</span>
 								<span class="formInput">
-									<?php echo htmlspecialchars($general['tenant_eng_name']);?>
+									<?php echo f_html_escape($general['tenant_eng_name']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -134,7 +134,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Period From :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_from']);?>
+								<?php echo f_html_escape($general['period_date_from']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -146,7 +146,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Period To :</label>
 								</span>
 								<span class="formInput" data-remarks="(dd/mm/yyyy)">
-								<?php echo htmlspecialchars($general['period_date_to']);?>
+								<?php echo f_html_escape($general['period_date_to']);?>
 								</span>
 							</span>
 							<span class="formRow">
@@ -164,7 +164,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice Amount :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['inv_amount'],2));?>									
+								<?php echo f_html_escape(number_format($general['inv_amount'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -175,7 +175,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Invoice Balance :</label>
 								</span>
 								<span class="formInput">
-								<?php echo htmlspecialchars(number_format($general['inv_balance'],2));?>									
+								<?php echo f_html_escape(number_format($general['inv_balance'],2));?>									
 								</span>
 							</span>
 							<span class="formRow">
@@ -195,7 +195,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Payment No. :</label>
 								</span>
 								<span class="formInput">
-										<?php echo htmlspecialchars($general['payment_code']);?> 
+										<?php echo f_html_escape($general['payment_code']);?> 
 								</span>
 							</span>
 							<span class="formRow">
@@ -222,7 +222,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Payment Amount :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo htmlspecialchars($general['amount']);?>" />
+									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo f_html_escape($general['amount']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

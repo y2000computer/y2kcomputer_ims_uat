@@ -37,7 +37,7 @@ if ($IS_action=='new') {
 									<label class="">Category Name :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[name]"  autocomplete="off" class="six" required value="<?php echo htmlspecialchars($json_search_items['general']['name']);?>" />
+									<input type="text"  name="general[name]"  autocomplete="off" class="six" required value="<?php echo f_html_escape($json_search_items['general']['name']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -49,7 +49,7 @@ if ($IS_action=='new') {
 									<label class="">Sorting :</label>
 								</span>
 								<span class="formInput" >
-									<input type="text"  name="general[sorting]"  autocomplete="off" class="two" required value="<?php echo htmlspecialchars($general['sorting']);?>" />
+									<input type="text"  name="general[sorting]"  autocomplete="off" class="two" required value="<?php echo f_html_escape($general['sorting']);?>" />
 									(e.g: 1 , 2 )			
 								</span>
 							</span>							

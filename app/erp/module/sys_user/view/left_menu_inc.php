@@ -13,7 +13,7 @@
 									<label for="userModule_email" class="">Email</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="user[email]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['user']['email']);?>" />
+									<input type="text"  name="user[email]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['user']['email']);?>" />
 								</span>
 							</span>
 							
@@ -22,7 +22,7 @@
 									<label for="userModule_email" class="">Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="user[eng_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['user']['eng_name']);?>" />
+									<input type="text"  name="user[eng_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['user']['eng_name']);?>" />
 								</span>
 							</span>							
 							

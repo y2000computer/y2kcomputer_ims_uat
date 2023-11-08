@@ -21,6 +21,7 @@
 	</head>
 
 	<?php
+		$body_photo_preview_is = (ISSET($body_photo_preview_is)? $body_photo_preview_is : false);
 		if($body_photo_preview_is==true) echo '<body class="previewOpen">';
 		if($body_photo_preview_is==false) echo '<body>';
 	?>

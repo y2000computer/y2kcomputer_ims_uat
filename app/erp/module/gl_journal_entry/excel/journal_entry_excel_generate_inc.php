@@ -36,7 +36,7 @@ foreach ($arr_detail as $detail):
 	$sheet->setCellValue(('A'.$excel_row), $i_count++);
 	$sheet->setCellValue(('B'.$excel_row), ($detail['chart_code']));
 	$sheet->setCellValue(('C'.$excel_row), ($detail['chart_name']));
-	$sheet->setCellValue(('D'.$excel_row), (htmlspecialchars($detail['description'])));
+	$sheet->setCellValue(('D'.$excel_row), (f_html_escape($detail['description'])));
 	$sheet->setCellValue(('E'.$excel_row), ($detail['amount']));
 	
 

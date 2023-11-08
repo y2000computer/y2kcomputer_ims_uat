@@ -44,7 +44,7 @@ function ReadCSS($html) {
 			// Remove comment tags 
 			$sub = preg_replace('/(<\!\-\-|\-\->)/s',' ',$m[1][$i]);
 			$sub = '>'.preg_replace('|/\*.*?\*/|s',' ',$sub).'</style>';
-			$html = str_replace('>'.$m[1][$i].'</style>', $sub, $html);
+			$html = f_str_replace('>'.$m[1][$i].'</style>', $sub, $html);
 		}
 	}
 
@@ -177,7 +177,7 @@ function ReadCSS($html) {
 			//Save to local file
 			file_put_contents($file, base64_decode($idata[3][$i]));
 			// $this->mpdf->GetFullPath($file);	// ? is this needed - NO  mPDF 5.6.03
-			$CSSstr = str_replace($idata[0][$i], 'url("'.$file.'")', $CSSstr); 	// mPDF 5.5.17
+			$CSSstr = f_str_replace($idata[0][$i], 'url("'.$file.'")', $CSSstr); 	// mPDF 5.5.17
 		}
 	}
 
@@ -191,17 +191,17 @@ function ReadCSS($html) {
 	if (strpos($CSSstr,'url(')!==false) {
 		preg_match_all( '/url\(\"(.*?)\"\)/', $CSSstr, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$CSSstr = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $CSSstr);
 		}
 		preg_match_all( '/url\(\'(.*?)\'\)/', $CSSstr, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$CSSstr = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $CSSstr);
 		}
 		preg_match_all( '/url\(([^\'\"].*?[^\'\"])\)/', $CSSstr, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$CSSstr = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $CSSstr);
 		}
 	}
@@ -222,7 +222,7 @@ function ReadCSS($html) {
 					$property = $tmp[0];
 					if (isset($tmp[1])) { $value = $tmp[1]; }
 					else { $value = ''; }
-					$value = str_replace($tempmarker,';',$value);	// mPDF 5.7.4 URLs
+					$value = f_str_replace($tempmarker,';',$value);	// mPDF 5.7.4 URLs
 					$property = trim($property);
 					$value = preg_replace('/\s*!important/i','',$value);
 					$value = trim($value);
@@ -242,7 +242,7 @@ function ReadCSS($html) {
 			foreach($tagarr AS $tg) {
 				// mPDF 5.7.4
 				if (preg_match('/NTH-CHILD\((\s*(([\-+]?\d*)N(\s*[\-+]\s*\d+)?|[\-+]?\d+|ODD|EVEN)\s*)\)/',$tg,$m) ) {
-					$tg = preg_replace('/NTH-CHILD\(.*\)/', 'NTH-CHILD('.str_replace(' ','',$m[1]).')', $tg);
+					$tg = preg_replace('/NTH-CHILD\(.*\)/', 'NTH-CHILD('.f_str_replace(' ','',$m[1]).')', $tg);
 				}
 				$tags = preg_split('/\s+/',trim($tg));
 				$level = count($tags);
@@ -343,17 +343,17 @@ function readInlineCSS($html) {
 	if (strpos($html,'url(')!==false) {
 		preg_match_all( '/url\(\"(.*?)\"\)/', $html, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$html = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $html);
 		}
 		preg_match_all( '/url\(\'(.*?)\'\)/', $html, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$html = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $html);
 		}
 		preg_match_all( '/url\(([^\'\"].*?[^\'\"])\)/', $html, $m);
 		for($i = 0; $i < count($m[1]) ; $i++) {
-			$tmp = str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
+			$tmp = f_str_replace(array('(',')',';'),array('%28','%29',$tempmarker),$m[1][$i]);
 			$html = preg_replace('/'.preg_quote($m[0][$i],'/').'/', 'url(\''.$tmp.'\')', $html);
 		}
 	}
@@ -372,7 +372,7 @@ function readInlineCSS($html) {
 		if ((strtoupper($properties[$i])=='BACKGROUND-IMAGE' || strtoupper($properties[$i])=='BACKGROUND') && preg_match('/-webkit-gradient/i',$values[$i])) { 
 			continue; 
 		}
-		$values[$i] = str_replace($tempmarker,';',$values[$i]);	// mPDF 5.7.4 URLs
+		$values[$i] = f_str_replace($tempmarker,';',$values[$i]);	// mPDF 5.7.4 URLs
 		$classproperties[strtoupper($properties[$i])] = trim($values[$i]);
 	}
 	return $this->fixCSS($classproperties);

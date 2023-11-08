@@ -56,23 +56,23 @@ echo '<DIV id="BodyDiv">';
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'Brought Forward:'.'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($chart_brought_forward).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($chart_brought_forward).'</td>';
 				echo '</tr>';
 
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'Previous Balance:'.'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($chart_previous_balance).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($chart_previous_balance).'</td>';
 				echo '</tr>';
 
 				
@@ -86,12 +86,12 @@ echo '<DIV id="BodyDiv">';
 					echo '<tr>';
 					echo '<td>'.$i_count++.'</td>';
 					echo '<td>'. $report['chart_code'] .'</td>';
-					echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-					echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
-					echo '<td>'.htmlspecialchars(toDMY($current_tran['journal_date'])).'</td>';
-					echo '<td>'.htmlspecialchars($current_tran['journal_code']).'</td>';
-					echo '<td>'.htmlspecialchars($current_tran['description']).'</td>';
-					echo '<td style="text-align:right" >'.htmlspecialchars($current_tran['amount']).'</td>';
+					echo '<td>'.f_html_escape($report['type_name']).'</td>';
+					echo '<td>'.f_html_escape($report['chart_name']).'</td>';
+					echo '<td>'.f_html_escape(toDMY($current_tran['journal_date'])).'</td>';
+					echo '<td>'.f_html_escape($current_tran['journal_code']).'</td>';
+					echo '<td>'.f_html_escape($current_tran['description']).'</td>';
+					echo '<td style="text-align:right" >'.f_html_escape($current_tran['amount']).'</td>';
 					echo '</tr>';	
 
 				endforeach; 	
@@ -100,24 +100,24 @@ echo '<DIV id="BodyDiv">';
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'Current Balance:'.'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($chart_current_period_balance).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($chart_current_period_balance).'</td>';
 				echo '</tr>';
 
 
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'&nbsp;'.'</td>';
 				echo '<td>'.'Ending Balance:'.'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($chart_ending_balance).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($chart_ending_balance).'</td>';
 				echo '</tr>';
 
 

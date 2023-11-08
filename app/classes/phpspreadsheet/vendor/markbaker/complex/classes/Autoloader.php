@@ -41,7 +41,7 @@ class Autoloader
 
         $pClassFilePath = __DIR__ . DIRECTORY_SEPARATOR .
                           'src' . DIRECTORY_SEPARATOR .
-                          str_replace(['Complex\\', '\\'], ['', '/'], $pClassName) .
+                          f_str_replace(['Complex\\', '\\'], ['', '/'], $pClassName) .
                           '.php';
 
         if ((file_exists($pClassFilePath) === false) || (is_readable($pClassFilePath) === false)) {

@@ -42,7 +42,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 										Journal Date:
 										<?php echo $general['journal_date'];?>
 										&nbsp;&nbsp;&nbsp;
-										Journal Code :<?php echo htmlspecialchars($general['journal_code']); 
+										Journal Code :<?php echo f_html_escape($general['journal_code']); 
 										echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 										echo '<a class="commonTextBtn" href="'.actionURL('journal_entry_excel_generate','?item_id='.$item_id.'&lot_id='.$lot_id.'&tab='.$tab.'&deleteaction='.$deleteaction).'" target="_blank">
 										Download Journal Entry Excel</a>'; 										
@@ -99,7 +99,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 												
 												echo '<td style="text-align:left" >'.$detail['type_name'].'</td>';
 												echo '<td style="text-align:left" >'.$detail['chart_name'].'</td>';
-												echo '<td style="text-align:left" >'.htmlspecialchars($detail['description']).'</td>';
+												echo '<td style="text-align:left" >'.f_html_escape($detail['description']).'</td>';
 												echo '<td style="text-align:right">';
 												if($detail['amount']<0) echo '<p style="color:red">';
 												echo number_format($detail['amount'],2);
@@ -138,7 +138,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Chart Code :</label>
 								</span>
 								<span class="formInput" style="min-width: 200px; max-width: 200px;">
-									<input id="chart_code" type="text"  name="general[chart_code]"  autocomplete="off" class="four" required value="<?php echo htmlspecialchars($general['chart_code']);?>" onkeyup="show_chart_code(this.value)"  />
+									<input id="chart_code" type="text"  name="general[chart_code]"  autocomplete="off" class="four" required value="<?php echo f_html_escape($general['chart_code']);?>" onkeyup="show_chart_code(this.value)"  />
 								</span>
 									<a href="javascript:popupwindow('<?php echo actionURL('list_chart','')?>','chart_list',1000,800);"><img border="0" alt="Browse" src="/images/icons/browse.png" onmouseover="this.src='/images/icons/browse_hover.png';"" onmouseout="this.src='/images/icons/browse.png';""></a>									
 									&nbsp;&nbsp;
@@ -154,7 +154,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Description :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[description]"  autocomplete="off" class="fifteen" required value="<?php echo htmlspecialchars($general['description']);?>" />
+									<input type="text"  name="general[description]"  autocomplete="off" class="fifteen" required value="<?php echo f_html_escape($general['description']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -166,7 +166,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Amount(+/-) :</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo htmlspecialchars($general['amount']);?>" />
+									<input type="text"  name="general[amount]"  autocomplete="off" class="four" required value="<?php echo f_html_escape($general['amount']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

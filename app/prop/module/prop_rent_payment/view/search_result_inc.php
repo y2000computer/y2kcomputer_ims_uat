@@ -43,23 +43,23 @@ $json_search_items = json_decode($json_searchphrase, true);
 										if ($general_model['status']==0)  echo '<tr style="background: #D1D0CE;">';
 										echo '<td>'.$i_count++.'</td>';
 										echo '<td>';
-										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['payment_code']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['payment_code']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
 
-										echo '<td>'.htmlspecialchars(YMDtoDMY($general_model['payment_date'])).'</td>';						
+										echo '<td>'.f_html_escape(YMDtoDMY($general_model['payment_date'])).'</td>';						
 	
-										echo '<td>'.htmlspecialchars($general_model['tenant_code']).'</td>';
+										echo '<td>'.f_html_escape($general_model['tenant_code']).'</td>';
 
-										echo '<td>'.htmlspecialchars($general_model['tenant_eng_name']).'</td>';
+										echo '<td>'.f_html_escape($general_model['tenant_eng_name']).'</td>';
 
-										echo '<td>'.htmlspecialchars($general_model['inv_code']).'</td>';
+										echo '<td>'.f_html_escape($general_model['inv_code']).'</td>';
 
-										echo '<td>'.htmlspecialchars(YMDtoDMY($general_model['period_date_from'])).'</td>';
+										echo '<td>'.f_html_escape(YMDtoDMY($general_model['period_date_from'])).'</td>';
 
-										echo '<td>'.htmlspecialchars(YMDtoDMY($general_model['period_date_to'])).'</td>';										
-										echo '<td style="text-align:right" >'.htmlspecialchars(number_format($general_model['inv_amount'],2)).'</td>';
+										echo '<td>'.f_html_escape(YMDtoDMY($general_model['period_date_to'])).'</td>';										
+										echo '<td style="text-align:right" >'.f_html_escape(number_format($general_model['inv_amount'],2)).'</td>';
 
-										echo '<td style="text-align:right" >'.htmlspecialchars(number_format($general_model['amount'],2)).'</td>';
+										echo '<td style="text-align:right" >'.f_html_escape(number_format($general_model['amount'],2)).'</td>';
 
 										echo '<td>';	
 											switch($general_model['status']) {

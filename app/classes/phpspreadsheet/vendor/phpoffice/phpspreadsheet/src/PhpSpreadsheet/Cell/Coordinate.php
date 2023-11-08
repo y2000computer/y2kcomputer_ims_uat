@@ -498,7 +498,7 @@ abstract class Coordinate
      */
     private static function getCellBlocksFromRangeString($pRange)
     {
-        return explode(' ', str_replace('$', '', strtoupper($pRange)));
+        return explode(' ', f_str_replace('$', '', strtoupper($pRange)));
     }
 
     /**

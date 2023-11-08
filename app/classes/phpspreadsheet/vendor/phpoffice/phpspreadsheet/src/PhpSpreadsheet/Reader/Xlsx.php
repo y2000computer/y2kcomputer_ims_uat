@@ -960,7 +960,7 @@ class Xlsx extends BaseReader
                                                 $comment->getFillColor()->setRGB($fillColor);
 
                                                 // Parse style
-                                                $styleArray = explode(';', str_replace(' ', '', $style));
+                                                $styleArray = explode(';', f_str_replace(' ', '', $style));
                                                 foreach ($styleArray as $stylePair) {
                                                     $stylePair = explode(':', $stylePair);
 
@@ -1303,9 +1303,9 @@ class Xlsx extends BaseReader
                                     // Extract range
                                     $extractedRange = (string) $definedName;
                                     if (($spos = strpos($extractedRange, '!')) !== false) {
-                                        $extractedRange = substr($extractedRange, 0, $spos) . str_replace('$', '', substr($extractedRange, $spos));
+                                        $extractedRange = substr($extractedRange, 0, $spos) . f_str_replace('$', '', substr($extractedRange, $spos));
                                     } else {
-                                        $extractedRange = str_replace('$', '', $extractedRange);
+                                        $extractedRange = f_str_replace('$', '', $extractedRange);
                                     }
 
                                     // Valid range?
@@ -1336,7 +1336,7 @@ class Xlsx extends BaseReader
                                                 // Set print titles
                                                 foreach ($extractedRange as $range) {
                                                     $matches = [];
-                                                    $range = str_replace('$', '', $range);
+                                                    $range = f_str_replace('$', '', $range);
 
                                                     // check for repeating columns, e g. 'A:A' or 'A:D'
                                                     if (preg_match('/!?([A-Z]+)\:([A-Z]+)$/', $range, $matches)) {
@@ -1356,7 +1356,7 @@ class Xlsx extends BaseReader
                                                     if (strpos($rangeSet, ':') === false) {
                                                         $rangeSet = $rangeSet . ':' . $rangeSet;
                                                     }
-                                                    $newRangeSets[] = str_replace('$', '', $rangeSet);
+                                                    $newRangeSets[] = f_str_replace('$', '', $rangeSet);
                                                 }
                                                 $docSheet->getPageSetup()->setPrintArea(implode(',', $newRangeSets));
 
@@ -1378,9 +1378,9 @@ class Xlsx extends BaseReader
                                 // Extract range
                                 $extractedRange = (string) $definedName;
                                 if (($spos = strpos($extractedRange, '!')) !== false) {
-                                    $extractedRange = substr($extractedRange, 0, $spos) . str_replace('$', '', substr($extractedRange, $spos));
+                                    $extractedRange = substr($extractedRange, 0, $spos) . f_str_replace('$', '', substr($extractedRange, $spos));
                                 } else {
-                                    $extractedRange = str_replace('$', '', $extractedRange);
+                                    $extractedRange = f_str_replace('$', '', $extractedRange);
                                 }
 
                                 // Valid range?
@@ -1401,10 +1401,10 @@ class Xlsx extends BaseReader
                                             if ($mapSheetId[(int) $definedName['localSheetId']] !== null) {
                                                 if (strpos((string) $definedName, '!') !== false) {
                                                     $range = Worksheet::extractSheetTitle((string) $definedName, true);
-                                                    $range[0] = str_replace("''", "'", $range[0]);
-                                                    $range[0] = str_replace("'", '', $range[0]);
+                                                    $range[0] = f_str_replace("''", "'", $range[0]);
+                                                    $range[0] = f_str_replace("'", '', $range[0]);
                                                     if ($worksheet = $docSheet->getParent()->getSheetByName($range[0])) {
-                                                        $extractedRange = str_replace('$', '', $range[1]);
+                                                        $extractedRange = f_str_replace('$', '', $range[1]);
                                                         $scope = $docSheet->getParent()->getSheet($mapSheetId[(int) $definedName['localSheetId']]);
                                                         $excel->addNamedRange(new NamedRange((string) $definedName['name'], $worksheet, $extractedRange, true, $scope));
                                                     }
@@ -1851,7 +1851,7 @@ class Xlsx extends BaseReader
 
     private static function toCSSArray($style)
     {
-        $style = trim(str_replace(["\r", "\n"], '', $style), ';');
+        $style = trim(f_str_replace(["\r", "\n"], '', $style), ';');
 
         $temp = explode(';', $style);
         $style = [];
@@ -1859,18 +1859,18 @@ class Xlsx extends BaseReader
             $item = explode(':', $item);
 
             if (strpos($item[1], 'px') !== false) {
-                $item[1] = str_replace('px', '', $item[1]);
+                $item[1] = f_str_replace('px', '', $item[1]);
             }
             if (strpos($item[1], 'pt') !== false) {
-                $item[1] = str_replace('pt', '', $item[1]);
+                $item[1] = f_str_replace('pt', '', $item[1]);
                 $item[1] = Font::fontSizeToPixels($item[1]);
             }
             if (strpos($item[1], 'in') !== false) {
-                $item[1] = str_replace('in', '', $item[1]);
+                $item[1] = f_str_replace('in', '', $item[1]);
                 $item[1] = Font::inchSizeToPixels($item[1]);
             }
             if (strpos($item[1], 'cm') !== false) {
-                $item[1] = str_replace('cm', '', $item[1]);
+                $item[1] = f_str_replace('cm', '', $item[1]);
                 $item[1] = Font::centimeterSizeToPixels($item[1]);
             }
 

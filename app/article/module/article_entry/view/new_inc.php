@@ -91,7 +91,7 @@ if ($IS_action=='new') {
 									<label class="">Headlline:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[headline]"  autocomplete="off" class="thirteen" required value="<?php echo htmlspecialchars($general['headline']);?>" />
+									<input type="text"  name="general[headline]"  autocomplete="off" class="thirteen" required value="<?php echo f_html_escape($general['headline']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -104,7 +104,7 @@ if ($IS_action=='new') {
 									<label class="">Content :</label>
 								</span>
 								<span class="formInput"  >
-									<textarea  class="fifteen" required rows="16"  name="general[content]"><?php echo htmlspecialchars($general['content']);?></textarea>
+									<textarea  class="fifteen" required rows="16"  name="general[content]"><?php echo f_html_escape($general['content']);?></textarea>
 								</span>
 							</span>								
 

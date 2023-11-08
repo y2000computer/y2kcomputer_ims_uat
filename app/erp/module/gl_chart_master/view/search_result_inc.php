@@ -38,11 +38,11 @@ $json_search_items = json_decode($json_searchphrase, true);
 										if ($general_model['status']==0)  echo '<tr style="background: #D1D0CE;">';
 										echo '<td>'.$i_count++.'</td>';
 										echo '<td>';
-										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['chart_code']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['chart_code']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
-										echo '<td>'.htmlspecialchars($general_model['type_name']).'&nbsp;'.'('.htmlspecialchars($general_model['type_code']).')'.'</td>';
-										echo '<td>'.htmlspecialchars($general_model['chart_name']).'</td>';
-										echo '<td  style="text-align:right" >'.htmlspecialchars(number_format($general_model['brought_forward'],2)).'</td>';
+										echo '<td>'.f_html_escape($general_model['type_name']).'&nbsp;'.'('.f_html_escape($general_model['type_code']).')'.'</td>';
+										echo '<td>'.f_html_escape($general_model['chart_name']).'</td>';
+										echo '<td  style="text-align:right" >'.f_html_escape(number_format($general_model['brought_forward'],2)).'</td>';
 										echo '<td>';		switch($general_model['status']) {
 											case "1": echo "Active"; break;
 											case "0": echo "De-active"; break;

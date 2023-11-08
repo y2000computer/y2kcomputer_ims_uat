@@ -56,7 +56,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Network Description :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="network[eng_name]"  size="50" required class="eleven" value="<?php echo htmlspecialchars($network['eng_name']);?>" />
+										<input type="text" name="network[eng_name]"  size="50" required class="eleven" value="<?php echo f_html_escape($network['eng_name']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -84,7 +84,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Fixed IP :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="network[fixed_ip]"  size="20" class="four" value="<?php echo htmlspecialchars($network['fixed_ip']);?>" />
+										<input type="text" name="network[fixed_ip]"  size="20" class="four" value="<?php echo f_html_escape($network['fixed_ip']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -95,7 +95,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">IP Range From :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="network[ip_range_from]"  size="20" class="four" value="<?php echo htmlspecialchars($network['ip_range_from']);?>" />
+										<input type="text" name="network[ip_range_from]"  size="20" class="four" value="<?php echo f_html_escape($network['ip_range_from']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -107,7 +107,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">IP Range To :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="network[ip_range_to]"  size="20" class="four" value="<?php echo htmlspecialchars($network['ip_range_to']);?>" />
+										<input type="text" name="network[ip_range_to]"  size="20" class="four" value="<?php echo f_html_escape($network['ip_range_to']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -119,7 +119,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Network Mask :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="network[network_mask]"  size="20" class="four" value="<?php echo htmlspecialchars($network['network_mask']);?>" />
+										<input type="text" name="network[network_mask]"  size="20" class="four" value="<?php echo f_html_escape($network['network_mask']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

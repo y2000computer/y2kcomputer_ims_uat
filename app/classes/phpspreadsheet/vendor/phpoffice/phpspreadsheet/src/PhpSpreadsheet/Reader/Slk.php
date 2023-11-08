@@ -138,7 +138,7 @@ class Slk extends BaseReader
 
             // explode each row at semicolons while taking into account that literal semicolon (;)
             // is escaped like this (;;)
-            $rowData = explode("\t", str_replace('¤', ';', str_replace(';', "\t", str_replace(';;', '¤', rtrim($rowData)))));
+            $rowData = explode("\t", f_str_replace('¤', ';', f_str_replace(';', "\t", f_str_replace(';;', '¤', rtrim($rowData)))));
 
             $dataType = array_shift($rowData);
             if ($dataType == 'C') {
@@ -229,7 +229,7 @@ class Slk extends BaseReader
 
             // explode each row at semicolons while taking into account that literal semicolon (;)
             // is escaped like this (;;)
-            $rowData = explode("\t", str_replace('¤', ';', str_replace(';', "\t", str_replace(';;', '¤', rtrim($rowData)))));
+            $rowData = explode("\t", f_str_replace('¤', ';', f_str_replace(';', "\t", f_str_replace(';;', '¤', rtrim($rowData)))));
 
             $dataType = array_shift($rowData);
             //    Read shared styles
@@ -238,7 +238,7 @@ class Slk extends BaseReader
                 foreach ($rowData as $rowDatum) {
                     switch ($rowDatum[0]) {
                         case 'P':
-                            $formatArray['numberFormat']['formatCode'] = str_replace($fromFormats, $toFormats, substr($rowDatum, 1));
+                            $formatArray['numberFormat']['formatCode'] = f_str_replace($fromFormats, $toFormats, substr($rowDatum, 1));
 
                             break;
                         case 'E':
@@ -342,7 +342,7 @@ class Slk extends BaseReader
                                         }
                                         $A1CellReference = Coordinate::stringFromColumnIndex($columnReference) . $rowReference;
 
-                                        $value = substr_replace($value, $A1CellReference, $cellReference[0][1], strlen($cellReference[0][0]));
+                                        $value = subf_str_replace($value, $A1CellReference, $cellReference[0][1], strlen($cellReference[0][0]));
                                     }
                                 }
                             }

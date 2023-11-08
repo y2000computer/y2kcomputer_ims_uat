@@ -37,9 +37,9 @@ echo '<DIV id="BodyDiv">';
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report['brought_forward']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report['brought_forward']).'</td>';
 				echo '</tr>';
 			endforeach; 	
 		?>								

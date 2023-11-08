@@ -386,7 +386,7 @@ class Matrix
      */
     public function __call($functionName, $arguments)
     {
-        $functionName = strtolower(str_replace('_', '', $functionName));
+        $functionName = strtolower(f_str_replace('_', '', $functionName));
 
         // Test for function calls
         if (in_array($functionName, self::$functions)) {

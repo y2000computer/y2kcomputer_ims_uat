@@ -34,8 +34,8 @@ function returnParts(chart_code, chart_name){
 										
 										echo '<a href ="javascript:returnParts('.'\''.$chart['chart_code'].'\''  .','. '\''.$chart['chart_name'].'\''   .') ;" >'.$chart['chart_code'].'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
-										echo '<td>'.htmlspecialchars($chart['type_name']).'</td>';
-										echo '<td>'.htmlspecialchars($chart['chart_name']).'</td>';
+										echo '<td>'.f_html_escape($chart['type_name']).'</td>';
+										echo '<td>'.f_html_escape($chart['chart_name']).'</td>';
 										echo '<td>';		switch($chart['status']) {
 											case "1": echo "Active"; break;
 											case "0": echo "De-active"; break;

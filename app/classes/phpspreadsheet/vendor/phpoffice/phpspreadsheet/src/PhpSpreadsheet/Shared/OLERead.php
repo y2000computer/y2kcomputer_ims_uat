@@ -282,7 +282,7 @@ class OLERead
 
             $size = self::getInt4d($d, self::SIZE_POS);
 
-            $name = str_replace("\x00", '', substr($d, 0, $nameSize));
+            $name = f_str_replace("\x00", '', substr($d, 0, $nameSize));
 
             $this->props[] = [
                 'name' => $name,

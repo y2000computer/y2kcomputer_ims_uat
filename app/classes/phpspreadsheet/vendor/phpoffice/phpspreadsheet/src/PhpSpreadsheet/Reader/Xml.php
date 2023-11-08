@@ -78,7 +78,7 @@ class Xml extends BaseReader
         // Read sample data (first 2 KB will do)
         $data = fread($fileHandle, 2048);
         fclose($fileHandle);
-        $data = str_replace("'", '"', $data); // fix headers with single quote
+        $data = f_str_replace("'", '"', $data); // fix headers with single quote
 
         $valid = true;
         foreach ($signature as $match) {
@@ -550,7 +550,7 @@ class Xml extends BaseReader
                                     foreach ($temp as &$value) {
                                         //    Only replace in alternate array entries (i.e. non-quoted blocks)
                                         if ($key = !$key) {
-                                            $value = str_replace(['[.', '.', ']'], '', $value);
+                                            $value = f_str_replace(['[.', '.', ']'], '', $value);
                                         }
                                     }
                                 } else {
@@ -587,7 +587,7 @@ class Xml extends BaseReader
                                                     $columnReference = $columnNumber + trim($columnReference, '[]');
                                                 }
                                                 $A1CellReference = Coordinate::stringFromColumnIndex($columnReference) . $rowReference;
-                                                $value = substr_replace($value, $A1CellReference, $cellReference[0][1], strlen($cellReference[0][0]));
+                                                $value = subf_str_replace($value, $A1CellReference, $cellReference[0][1], strlen($cellReference[0][0]));
                                             }
                                         }
                                     }
@@ -866,7 +866,7 @@ class Xml extends BaseReader
         $toFormats = ['-', ' '];
 
         foreach ($styleAttributes as $styleAttributeKey => $styleAttributeValue) {
-            $styleAttributeValue = str_replace($fromFormats, $toFormats, $styleAttributeValue);
+            $styleAttributeValue = f_str_replace($fromFormats, $toFormats, $styleAttributeValue);
             switch ($styleAttributeValue) {
                 case 'Short Date':
                     $styleAttributeValue = 'dd/mm/yyyy';

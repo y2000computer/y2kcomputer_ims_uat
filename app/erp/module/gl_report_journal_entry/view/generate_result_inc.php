@@ -58,13 +58,13 @@ echo '<DIV id="BodyDiv">';
 
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
-				echo '<td>'.htmlspecialchars(toDMY($report['journal_date'])).'</td>';
-				echo '<td>'.htmlspecialchars($report['journal_code']).'</td>';
+				echo '<td>'.f_html_escape(toDMY($report['journal_date'])).'</td>';
+				echo '<td>'.f_html_escape($report['journal_code']).'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['description']).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report['amount']).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
+				echo '<td>'.f_html_escape($report['description']).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report['amount']).'</td>';
 				echo '</tr>';
 			endforeach; 	
 		?>								

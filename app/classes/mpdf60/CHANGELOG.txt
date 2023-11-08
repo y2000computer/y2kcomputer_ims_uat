@@ -762,7 +762,7 @@ Column sums
 -----------
 (Also changed some preg_replace to str_replace to improve performance)
 To use: just add {colsum} to any cells of the table footer <tfoot>
-Add a number to specify a fixed number of decimal points e.g. <td>£{colsum2}</td>  will give you £123.40
+Add a number to specify a fixed number of decimal points e.g. <td>ï¿½{colsum2}</td>  will give you ï¿½123.40
 The width of the column will be calculated using the actual string {colsum} as a placeholder.
 If you need the column to be wider, use underscores "_" to pad it e.g. {colsum2_____}
 
@@ -2389,7 +2389,7 @@ New Features
 - Replace specified text strings in an existing PDF file (see OverWrite() etc.)
 - More than one Table of Contents can be used in a document (see tocpagebreak etc.)
 - Restore properties of open HTML block elements after a page break (variable $restoreBlockPagebreaks or new tag <formfeed>)
-- <annotation> <bookmark> <indexentry> <tocentry> can now accept characters <>'"& as htmlentities - htmlspecialchars(..., ENT_QUOTES)
+- <annotation> <bookmark> <indexentry> <tocentry> can now accept characters <>'"& as htmlentities - f_html_escape(..., ENT_QUOTES)
 - <annotation> can now accept "\n" for new line
 - support for opacity (CSS3 property) for images
 - specify the number of spaces to substitute for TAB when parsing <pre> tags
@@ -2920,7 +2920,7 @@ function AddExtGState() edited to check if graphics state already exists before 
 
 ASCII-proof code
 ================
-"»¤¬" used as a special identifier in the program changed to "\xbb\xa4\xac" to make the mpdf.php script file immune from someone saving it as a utf-8 encoded file
+"ï¿½ï¿½ï¿½" used as a special identifier in the program changed to "\xbb\xa4\xac" to make the mpdf.php script file immune from someone saving it as a utf-8 encoded file
 
 Images
 ======

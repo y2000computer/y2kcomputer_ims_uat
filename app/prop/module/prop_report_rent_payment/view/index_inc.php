@@ -62,7 +62,7 @@ if ($IS_action=='new') {
 									<label class="">Tenant Code :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="criteria[tenant_code]"  size="15" class="four" value="<?php echo htmlspecialchars($criteria['tenant_code']);?>" />
+										<input type="text" name="criteria[tenant_code]"  size="15" class="four" value="<?php echo f_html_escape($criteria['tenant_code']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -74,7 +74,7 @@ if ($IS_action=='new') {
 									<label class="">Payment No. From :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="criteria[payment_code_from]"  size="15" class="three" value="<?php echo htmlspecialchars($criteria['payment_code_from']);?>" />
+										<input type="text" name="criteria[payment_code_from]"  size="15" class="three" value="<?php echo f_html_escape($criteria['payment_code_from']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -85,7 +85,7 @@ if ($IS_action=='new') {
 									<label class="">Payment No. To :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="criteria[payment_code_to]"  size="15" class="three" value="<?php echo htmlspecialchars($criteria['payment_code_to']);?>" />
+										<input type="text" name="criteria[payment_code_to]"  size="15" class="three" value="<?php echo f_html_escape($criteria['payment_code_to']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

@@ -32,7 +32,7 @@ $writer->save($filename);
 $helper->logWrite($writer, $filename, $callStartTime);
 
 // Export to CSV with BOM (.csv)
-$filename = str_replace('.csv', '-bom.csv', $filename);
+$filename = f_str_replace('.csv', '-bom.csv', $filename);
 $helper->log('Write to CSV format (with BOM)');
 $writer->setUseBOM(true);
 $callStartTime = microtime(true);

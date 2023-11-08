@@ -17,7 +17,7 @@ if (count($_POST)) {
   echo '<h4>HTML format data sent as POST</h4>';
   foreach($_POST AS $name=>$val) {
 	$t =  mb_convert_encoding(PDFDocEncodingToWin1252($val), 'UTF-8', 'Windows-1252' );	// If from core fonts doc
-	echo '<p>PDFDocEnc: '.$name.' => '.htmlspecialchars($t).'</p>';
+	echo '<p>PDFDocEnc: '.$name.' => '.f_html_escape($t).'</p>';
   }
 }
 else if (count($_GET)) {
@@ -25,7 +25,7 @@ else if (count($_GET)) {
   echo '<h4>HTML format data sent as GET</h4>';
   foreach($_GET AS $name=>$val) {
 	$t =  mb_convert_encoding(PDFDocEncodingToWin1252($val), 'UTF-8', 'Windows-1252' );	// If from core fonts doc
-	echo '<p>PDFDocEnc: '.$name.' => '.htmlspecialchars($t).'</p>';
+	echo '<p>PDFDocEnc: '.$name.' => '.f_html_escape($t).'</p>';
   }
 }
 
@@ -66,7 +66,7 @@ else  {
   // To display whole XFDF
   //$postdata = preg_replace("/[\n\r]/", "", $postdata);
   //$postdata = preg_replace('/>\s*</', ">\n<", $postdata);
-  //echo nl2br(htmlspecialchars($postdata)); 
+  //echo nl2br(f_html_escape($postdata)); 
  }
  else { echo "No form data detected"; }
 }

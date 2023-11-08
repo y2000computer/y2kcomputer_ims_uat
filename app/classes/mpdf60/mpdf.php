@@ -959,7 +959,7 @@ function mPDF($mode='',$format='A4',$default_font_size=0,$default_font='',$mgl=1
 	$this->baselineS = 0.3;		// Sets default height for <strike> text as factor of fontsize
 	$this->baselineO = 1.1;		// Sets default height for overline text as factor of fontsize
 
-	$this->noImageFile = str_replace("\\","/",dirname(__FILE__)) . '/includes/no_image.jpg';
+	$this->noImageFile = f_str_replace("\\","/",dirname(__FILE__)) . '/includes/no_image.jpg';
 	$this->subPos = 0;
 	$this->normalLineheight = 1.3;	// This should be overridden in config.php - but it is so important a default value is put here
 	// These are intended as configuration variables, and should be set in config.php - which will override these values; 
@@ -3118,7 +3118,7 @@ function GetStringWidth($s, $addSubset=true, $OTLdata=false, $textvar=0, $includ
 			} 
 			else {
 				if ($this->FontFamily!='csymbol' && $this->FontFamily!='czapfdingbats') { 
-			      	$s = str_replace(chr(173),'',$s ); 
+			      	$s = f_str_replace(chr(173),'',$s ); 
 				}
 				$nb_carac = $l = strlen($s);
 				if ($this->minwSpacing || $this->fixedlSpacing) {
@@ -3210,7 +3210,7 @@ function AddFont($family,$style='') {
 	if(empty($family)) { return; }
 	$family = strtolower($family);
 	$style=strtoupper($style);
-	$style=str_replace('U','',$style);
+	$style=f_str_replace('U','',$style);
 	if($style=='IB') $style='BI';
 	$fontkey = $family.$style;
 	// check if the font has been already added
@@ -3772,10 +3772,10 @@ function Text($x,$y,$txt,$OTLdata=array(), $textvar=0, $aixextra='',$coordsys=''
 	$this->CurrentFont['used']= true;
 
 	if ($this->usingCoreFont) {
-	      $txt2 = str_replace(chr(160),chr(32),$txt);
+	      $txt2 = f_str_replace(chr(160),chr(32),$txt);
 	}
 	else {
-	      $txt2 = str_replace(chr(194).chr(160),chr(32),$txt); 
+	      $txt2 = f_str_replace(chr(194).chr(160),chr(32),$txt); 
 	}
 
 	$px = $x;
@@ -4081,10 +4081,10 @@ function Cell($w,$h=0,$txt='',$border=0,$ln=0,$align='',$fill=0,$link='', $curre
 	// Expects input to be mb_encoded if necessary and RTL reversed
 	// NON_BREAKING SPACE
 	if ($this->usingCoreFont) {
-	      $txt = str_replace(chr(160),chr(32),$txt);
+	      $txt = f_str_replace(chr(160),chr(32),$txt);
 	}
 	else {
-	      $txt = str_replace(chr(194).chr(160),chr(32),$txt);
+	      $txt = f_str_replace(chr(194).chr(160),chr(32),$txt);
 	}
 
 	$oldcolumn = $this->CurrCol;
@@ -5067,12 +5067,12 @@ function MultiCell($w,$h,$txt,$border=0,$align='',$fill=0,$link='',$directionali
 
 	$wmax = ($w - ($this->cMarginL+$this->cMarginR));
 	if ($this->usingCoreFont)  {
-		$s=str_replace("\r",'',$txt);
+		$s=f_str_replace("\r",'',$txt);
 		$nb=strlen($s);
 		while($nb>0 and $s[$nb-1]=="\n")	$nb--;
 	}
 	else {
-		$s=str_replace("\r",'',$txt);
+		$s=f_str_replace("\r",'',$txt);
 		$nb=mb_strlen($s, $this->mb_enc );
 		while($nb>0 and mb_substr($s,$nb-1,1,$this->mb_enc )=="\n")	$nb--;
 	}
@@ -5169,7 +5169,7 @@ function MultiCell($w,$h,$txt,$border=0,$align='',$fill=0,$link='',$directionali
 					// JUSTIFY J using Unicode fonts (Word spacing doesn't work)
 					// WORD SPACING UNICODE
 					// Change NON_BREAKING SPACE to spaces so they are 'spaced' properly
-					$tmp = str_replace(chr(194).chr(160),chr(32),$tmp ); 
+					$tmp = f_str_replace(chr(194).chr(160),chr(32),$tmp ); 
 					$len_ligne = $this->GetStringWidth($tmp, false, $tmpOTLdata);
 					$nb_carac = mb_strlen( $tmp , $this->mb_enc ) ;  
 					$nb_spaces = mb_substr_count( $tmp ,' ', $this->mb_enc ) ;  
@@ -5251,7 +5251,7 @@ function MultiCell($w,$h,$txt,$border=0,$align='',$fill=0,$link='',$directionali
 					// JUSTIFY J using Unicode fonts (Word spacing doesn't work)
 					// WORD SPACING NON_UNICODE/CJK
 					// Change NON_BREAKING SPACE to spaces so they are 'spaced' properly
-					$tmp = str_replace(chr(160),chr(32),$tmp);
+					$tmp = f_str_replace(chr(160),chr(32),$tmp);
 					$len_ligne = $this->GetStringWidth($tmp );
 					$nb_carac = strlen( $tmp ) ;  
 					$nb_spaces = substr_count( $tmp ,' ' ) ;  
@@ -5616,13 +5616,13 @@ function finishFlowingBlock($endofblock=false, $next='') {
 				}
 /*-- END OTL --*/
 				else { 	// *OTL*
-					$content[$k] = $chunk = str_replace("\xc2\xad",'',$chunk ); 
-					$content[$k] = $chunk = str_replace(chr(194).chr(160),chr(32),$chunk ); 
+					$content[$k] = $chunk = f_str_replace("\xc2\xad",'',$chunk ); 
+					$content[$k] = $chunk = f_str_replace(chr(194).chr(160),chr(32),$chunk ); 
 				}	// *OTL*
 			}
 			else if ($this->FontFamily!='csymbol' && $this->FontFamily!='czapfdingbats') {
-			      $content[$k] = $chunk = str_replace(chr(173),'',$chunk );
-				$content[$k] = $chunk = str_replace(chr(160),chr(32),$chunk );
+			      $content[$k] = $chunk = f_str_replace(chr(173),'',$chunk );
+				$content[$k] = $chunk = f_str_replace(chr(160),chr(32),$chunk );
 			}
 			$contentWidth += $this->GetStringWidth( $chunk, true, (isset($cOTLdata[$k]) ? $cOTLdata[$k] : false), $this->textvar ) * _MPDFK;
 
@@ -7135,13 +7135,13 @@ function WriteFlowingBlock( $s, $sOTLdata) {	// mPDF 5.7.1
 				}
 /*-- END OTL --*/
 				else { 	// *OTL*
-					$content[$k] = $chunk = str_replace("\xc2\xad",'',$chunk ); 
-					$content[$k] = $chunk = str_replace(chr(194).chr(160),chr(32),$chunk ); 
+					$content[$k] = $chunk = f_str_replace("\xc2\xad",'',$chunk ); 
+					$content[$k] = $chunk = f_str_replace(chr(194).chr(160),chr(32),$chunk ); 
 				}	// *OTL*
 			}
 			else if ($this->FontFamily!='csymbol' && $this->FontFamily!='czapfdingbats') {
-				$content[$k] = $chunk = str_replace(chr(173),'',$chunk );
-				$content[$k] = $chunk = str_replace(chr(160),chr(32),$chunk );
+				$content[$k] = $chunk = f_str_replace(chr(173),'',$chunk );
+				$content[$k] = $chunk = f_str_replace(chr(160),chr(32),$chunk );
 			}
 
 			$contentWidth += $this->GetStringWidth( $chunk, true, (isset($cOTLdata[$k]) ? $cOTLdata[$k] : false), $this->textvar ) * _MPDFK; 	// mPDF 5.7.1
@@ -8413,9 +8413,9 @@ function _puthtmlheaders() {
 		$this->pgwidth = $this->w - $this->lMargin - $this->rMargin;
 		$this->x = $this->lMargin;
 		$this->y = $this->margin_header;
-		$html = str_replace('{PAGENO}',$pnstr,$html);
-		$html = str_replace($this->aliasNbPgGp,$pntstr,$html );	// {nbpg}
-		$html = str_replace($this->aliasNbPg,$nb,$html );	// {nb}
+		$html = f_str_replace('{PAGENO}',$pnstr,$html);
+		$html = f_str_replace($this->aliasNbPgGp,$pntstr,$html );	// {nbpg}
+		$html = f_str_replace($this->aliasNbPg,$nb,$html );	// {nb}
 		$html = preg_replace_callback('/\{DATE\s+(.*?)\}/', array($this, 'date_callback'),$html );	// mPDF 5.7
 
 		$this->HTMLheaderPageLinks = array();
@@ -8489,9 +8489,9 @@ function _puthtmlheaders() {
 
 		// if bottom-margin==0, corrects to avoid division by zero
 		if ($this->y == $this->h) { $top_y = $this->y = ($this->h - 0.1); }
-		$html = str_replace('{PAGENO}',$pnstr,$html);
-		$html = str_replace($this->aliasNbPgGp,$pntstr,$html );	// {nbpg}
-		$html = str_replace($this->aliasNbPg,$nb,$html );	// {nb}
+		$html = f_str_replace('{PAGENO}',$pnstr,$html);
+		$html = f_str_replace($this->aliasNbPgGp,$pntstr,$html );	// {nbpg}
+		$html = f_str_replace($this->aliasNbPg,$nb,$html );	// {nb}
 		$html = preg_replace_callback('/\{DATE\s+(.*?)\}/', array($this, 'date_callback'),$html );	// mPDF 5.7
 
 
@@ -10031,7 +10031,7 @@ function _enddoc() {
 			} 
 			asort($sortarr);
 			foreach($sortarr AS $i=>$k) {
-				$this->pages[$pn] = str_replace($m[0][$i],'',$this->pages[$pn] );
+				$this->pages[$pn] = f_str_replace($m[0][$i],'',$this->pages[$pn] );
 				$this->pages[$pn] .= "\n".$m[0][$i]."\n";
 			} 
 			$this->pages[$pn] = preg_replace('/\/OC[BG]{0,1}Z-index \/ZI(\d+) BDC/is','/OC /ZI\\1 BDC ',$this->pages[$pn]); 
@@ -10407,10 +10407,10 @@ function _getImage(&$file, $firsttime=true, $allowvector=true, $orig_srcpath=fal
 	}
 
 	// mPDF 5.7.4 URLs
-	if ($firsttime && $file && substr($file,0,5)!='data:') { $file = str_replace(" ","%20",$file ); }
+	if ($firsttime && $file && substr($file,0,5)!='data:') { $file = f_str_replace(" ","%20",$file ); }
 	if ($firsttime && $orig_srcpath) {
 		// If orig_srcpath is a relative file path (and not a URL), then it needs to be URL decoded
-		if (substr($orig_srcpath,0,5)!='data:') { $orig_srcpath = str_replace(" ","%20",$orig_srcpath); }
+		if (substr($orig_srcpath,0,5)!='data:') { $orig_srcpath = f_str_replace(" ","%20",$orig_srcpath); }
 		if (!preg_match('/^(http|ftp)/',$orig_srcpath)) { $orig_srcpath = urldecode_parts($orig_srcpath ); }
 	}
 
@@ -11875,7 +11875,7 @@ function AddCIDFont($family,$style,$name,&$cw,$CMap,$registry,$desc)
 	if(isset($this->fonts[$fontkey]))
 		$this->Error("Font already added: $family $style");
 	$i=count($this->fonts)+$this->extraFontSubsets+1;
-	$name=str_replace(' ','',$name);
+	$name=f_str_replace(' ','',$name);
 	if ($family == 'sjis') { $up = -120; } else { $up = -130; }
 	// ? 'up' and 'ut' do not seem to be referenced anywhere
 	$this->fonts[$fontkey]=array('i'=>$i,'type'=>'Type0','name'=>$name,'up'=>$up,'ut'=>40,'cw'=>$cw,'CMap'=>$CMap,'registry'=>$registry,'MissingWidth'=>1000,'desc'=>$desc);
@@ -12452,7 +12452,7 @@ function SetBasePath($str='') {
   if (!$str) { 
 	if ($_SERVER['SCRIPT_NAME']) { $currentPath = dirname($_SERVER['SCRIPT_NAME']); }
 	else { $currentPath = dirname($_SERVER['PHP_SELF']); }
-	$currentPath = str_replace("\\","/",$currentPath);
+	$currentPath = f_str_replace("\\","/",$currentPath);
 	if ($currentPath == '/') { $currentPath = ''; }
 	if ($host) { 	// mPDF 6
 		if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) { $currpath = 'https://' . $host . $currentPath .'/'; } 
@@ -12467,7 +12467,7 @@ function SetBasePath($str='') {
   if (!preg_match('/(http|https|ftp):\/\/.*\//i',$str)) { $str .= '/'; } 
   $str .= 'xxx';	// in case $str ends in / e.g. http://www.bbc.co.uk/
   $this->basepath = dirname($str) . "/";	// returns e.g. e.g. http://www.google.com/dir1/dir2/dir3/
-  $this->basepath = str_replace("\\","/",$this->basepath); //If on Windows
+  $this->basepath = f_str_replace("\\","/",$this->basepath); //If on Windows
   $tr = parse_url($this->basepath);
   if (isset($tr['host']) && ($tr['host'] == $host)) { $this->basepathIsLocal = true; }
   else { $this->basepathIsLocal = false; }
@@ -12478,7 +12478,7 @@ function GetFullPath(&$path,$basepath='') {
 	// When parsing CSS need to pass temporary basepath - so links are relative to current stylesheet
 	if (!$basepath) { $basepath = $this->basepath; }
 	//Fix path value
-	$path = str_replace("\\","/",$path); //If on Windows
+	$path = f_str_replace("\\","/",$path); //If on Windows
 
 	// mPDF 5.7.2
 	if (substr($path,0,2) == "//") { 
@@ -12495,7 +12495,7 @@ function GetFullPath(&$path,$basepath='') {
 	if (substr($path,0,3) == "../") { //It is a Relative Link
 		$backtrackamount = substr_count($path,"../");
 		$maxbacktrack = substr_count($basepath,"/") - 3;
-		$filepath = str_replace("../",'',$path);
+		$filepath = f_str_replace("../",'',$path);
 		$path = $basepath;
 		//If it is an invalid relative link, then make it go to directory root
 		if ($backtrackamount > $maxbacktrack) $backtrackamount = $maxbacktrack;
@@ -12531,7 +12531,7 @@ function _get_file($path) {
 		$tr = parse_url($path);
 		$lp=getenv("SCRIPT_NAME");
 		$ap=realpath($lp);
-		$ap=str_replace("\\","/",$ap);
+		$ap=f_str_replace("\\","/",$ap);
 		$docroot=substr($ap,0,strpos($ap,$lp));
 		// WriteHTML parses all paths to full URLs; may be local file name 
 		if ($tr['scheme'] && $tr['host'] && $_SERVER["DOCUMENT_ROOT"] ) { 
@@ -13310,9 +13310,9 @@ function _getHtmlHeight($html) {
 		$save_y = $this->y;
 		$this->x = $this->lMargin;
 		$this->y = $this->margin_header;
-		$html = str_replace('{PAGENO}',$this->pagenumPrefix.$this->docPageNum($this->page).$this->pagenumSuffix,$html);
-		$html = str_replace($this->aliasNbPgGp,$this->nbpgPrefix.$this->docPageNumTotal($this->page).$this->nbpgSuffix,$html );
-		$html = str_replace($this->aliasNbPg,$this->page,$html );
+		$html = f_str_replace('{PAGENO}',$this->pagenumPrefix.$this->docPageNum($this->page).$this->pagenumSuffix,$html);
+		$html = f_str_replace($this->aliasNbPgGp,$this->nbpgPrefix.$this->docPageNumTotal($this->page).$this->nbpgSuffix,$html );
+		$html = f_str_replace($this->aliasNbPg,$this->page,$html );
 		$html = preg_replace_callback('/\{DATE\s+(.*?)\}/', array($this, 'date_callback'),$html ); // mPDF 5.7
 		$this->HTMLheaderPageLinks = array();
 		$this->HTMLheaderPageAnnots = array();
@@ -13839,7 +13839,7 @@ function hyphenateWord($word, $currptr) {
 					else { break; }
 					$offset = $p+1;
 				}
-				if (count($poss)) { $this->SHYdictionaryWords[str_replace('/', '', mb_strtolower($entry))] = $poss; }
+				if (count($poss)) { $this->SHYdictionaryWords[f_str_replace('/', '', mb_strtolower($entry))] = $poss; }
 			}
 		}
 		$this->loadedSHYdictionary = true;
@@ -14110,7 +14110,7 @@ function WriteHTML($html,$sub=0,$init=true,$close=true) {
 
 
 
-	$html=str_replace('<?','< ',$html); //Fix '<?XML' bug from HTML code generated by MS Word
+	$html=f_str_replace('<?','< ',$html); //Fix '<?XML' bug from HTML code generated by MS Word
 
 	$this->checkSIP = false;
 	$this->checkSMP = false; 
@@ -14126,10 +14126,10 @@ function WriteHTML($html,$sub=0,$init=true,$close=true) {
 	}
 
 	// Don't allow non-breaking spaces that are converted to substituted chars or will break anyway and mess up table width calc.
-	$html = str_replace('<tta>160</tta>',chr(32),$html); 
-	$html = str_replace('</tta><tta>','|',$html); 
-	$html = str_replace('</tts><tts>','|',$html); 
-	$html = str_replace('</ttz><ttz>','|',$html); 
+	$html = f_str_replace('<tta>160</tta>',chr(32),$html); 
+	$html = f_str_replace('</tta><tta>','|',$html); 
+	$html = f_str_replace('</tts><tts>','|',$html); 
+	$html = f_str_replace('</ttz><ttz>','|',$html); 
 
 	//Add new supported tags in the DisableTags function
 	$html=strip_tags($html,$this->enabledtags); //remove all unsupported tags, but the ones inside the 'enabledtags' string
@@ -19898,7 +19898,7 @@ function CloseTag($tag,&$ahtml,&$ihtml) {	// mPDF 6
 				$objattr = array();
 				$objattr['type'] = 'toc';
 				$objattr['toclevel'] = $this->h2toc[$tag];
-				$objattr['CONTENT'] = htmlspecialchars($content);
+				$objattr['CONTENT'] = f_html_escape($content);
 				$e = "\xbb\xa4\xactype=toc,objattr=".serialize($objattr)."\xbb\xa4\xac";
 				array_unshift($this->textbuffer,array($e));
 			}
@@ -23553,7 +23553,7 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 				}	// *OTL*
 			}
 			else if (strtoupper($v) == 'NONE' || (strtoupper($v) == 'AUTO' && !$this->useKerning)) {
-				if (isset($this->OTLtags['Plus'])) $this->OTLtags['Plus'] = str_replace('kern','', $this->OTLtags['Plus'] );	// *OTL*
+				if (isset($this->OTLtags['Plus'])) $this->OTLtags['Plus'] = f_str_replace('kern','', $this->OTLtags['Plus'] );	// *OTL*
 				if (isset($this->OTLtags['FFPlus'])) $this->OTLtags['FFPlus'] = preg_replace('/kern[\d]*/', '', $this->OTLtags['FFPlus'] ); 
 				$this->textvar = ($this->textvar & ~FC_KERNING);
 			}
@@ -23568,7 +23568,7 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 
 
 		case 'FONT-VARIANT-POSITION':
-			if (isset($this->OTLtags['Plus'])) $this->OTLtags['Plus'] = str_replace(array('sups','subs'),'', $this->OTLtags['Plus']);
+			if (isset($this->OTLtags['Plus'])) $this->OTLtags['Plus'] = f_str_replace(array('sups','subs'),'', $this->OTLtags['Plus']);
 			switch (strtoupper($v)) {
 				case 'SUPER': 
 				$this->OTLtags['Plus'] .= ' sups';
@@ -23584,7 +23584,7 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 		case 'FONT-VARIANT-CAPS':
 			$v =strtoupper($v);
 			if (!isset($this->OTLtags['Plus'])) { $this->OTLtags['Plus'] = ''; }
-			$this->OTLtags['Plus'] = str_replace(array('c2sc','smcp','c2pc','pcap','unic','titl'),'', $this->OTLtags['Plus']);
+			$this->OTLtags['Plus'] = f_str_replace(array('c2sc','smcp','c2pc','pcap','unic','titl'),'', $this->OTLtags['Plus']);
 			$this->textvar = ($this->textvar & ~FC_SMALLCAPS);			// ?????????????? <small-caps>
 			if (strpos($v, 'ALL-SMALL-CAPS')!==false) { $this->OTLtags['Plus'] .= ' c2sc smcp'; }
 			else if (strpos($v, 'SMALL-CAPS')!==false) {
@@ -23602,20 +23602,20 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 			if (!isset($this->OTLtags['Plus'])) { $this->OTLtags['Plus'] = ''; }
 			if (!isset($this->OTLtags['Minus'])) { $this->OTLtags['Minus'] = ''; }
 			if (strpos($v, 'NORMAL')!==false) { 
-				$this->OTLtags['Minus'] = str_replace(array('liga','clig','calt'),'', $this->OTLtags['Minus']);
-				$this->OTLtags['Plus'] = str_replace(array('dlig','hlig'),'', $this->OTLtags['Plus']);
+				$this->OTLtags['Minus'] = f_str_replace(array('liga','clig','calt'),'', $this->OTLtags['Minus']);
+				$this->OTLtags['Plus'] = f_str_replace(array('dlig','hlig'),'', $this->OTLtags['Plus']);
 			}
 			else if (strpos($v, 'NONE')!==false) {
 				$this->OTLtags['Minus'] .= ' liga clig calt'; 
-				$this->OTLtags['Plus'] = str_replace(array('dlig','hlig'),'', $this->OTLtags['Plus']);
+				$this->OTLtags['Plus'] = f_str_replace(array('dlig','hlig'),'', $this->OTLtags['Plus']);
 			}
 			if (strpos($v, 'NO-COMMON-LIGATURES')!==false) { $this->OTLtags['Minus'] .= ' liga clig'; }
-			else if (strpos($v, 'COMMON-LIGATURES')!==false) { $this->OTLtags['Minus'] = str_replace(array('liga','clig'),'', $this->OTLtags['Minus']); }
+			else if (strpos($v, 'COMMON-LIGATURES')!==false) { $this->OTLtags['Minus'] = f_str_replace(array('liga','clig'),'', $this->OTLtags['Minus']); }
 			if (strpos($v, 'NO-CONTEXTUAL')!==false) { $this->OTLtags['Minus'] .= ' calt'; }
-			else if (strpos($v, 'CONTEXTUAL')!==false) { $this->OTLtags['Minus'] = str_replace('calt','', $this->OTLtags['Minus']); }
-			if (strpos($v, 'NO-DISCRETIONARY-LIGATURES')!==false) { $this->OTLtags['Plus'] = str_replace('dlig','', $this->OTLtags['Plus'] ); }
+			else if (strpos($v, 'CONTEXTUAL')!==false) { $this->OTLtags['Minus'] = f_str_replace('calt','', $this->OTLtags['Minus']); }
+			if (strpos($v, 'NO-DISCRETIONARY-LIGATURES')!==false) { $this->OTLtags['Plus'] = f_str_replace('dlig','', $this->OTLtags['Plus'] ); }
 			else if (strpos($v, 'DISCRETIONARY-LIGATURES')!==false) { $this->OTLtags['Plus'] .= ' dlig'; }
-			if (strpos($v, 'NO-HISTORICAL-LIGATURES')!==false) { $this->OTLtags['Plus'] = str_replace('hlig','', $this->OTLtags['Plus'] ); }
+			if (strpos($v, 'NO-HISTORICAL-LIGATURES')!==false) { $this->OTLtags['Plus'] = f_str_replace('hlig','', $this->OTLtags['Plus'] ); }
 			else if (strpos($v, 'HISTORICAL-LIGATURES')!==false) { $this->OTLtags['Plus'] .= ' hlig'; }
 
 			break;
@@ -23624,23 +23624,23 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 			$v =strtoupper($v);
 			if (!isset($this->OTLtags['Plus'])) { $this->OTLtags['Plus'] = ''; }
 			if (strpos($v, 'NORMAL')!==false) {
-				$this->OTLtags['Plus'] = str_replace(array('ordn','zero','lnum','onum','pnum','tnum','frac','afrc'),'', $this->OTLtags['Plus']);
+				$this->OTLtags['Plus'] = f_str_replace(array('ordn','zero','lnum','onum','pnum','tnum','frac','afrc'),'', $this->OTLtags['Plus']);
 			}
 			if (strpos($v, 'ORDINAL')!==false) { $this->OTLtags['Plus'] .= ' ordn'; }
 			if (strpos($v, 'SLASHED-ZERO')!==false) { $this->OTLtags['Plus'] .= ' zero'; }
-			if (strpos($v, 'LINING-NUMS')!==false) { $this->OTLtags['Plus'] .= ' lnum'; $this->OTLtags['Plus'] = str_replace('onum','', $this->OTLtags['Plus'] ); }
-			else if (strpos($v, 'OLDSTYLE-NUMS')!==false) { $this->OTLtags['Plus'] .= ' onum'; $this->OTLtags['Plus'] = str_replace('lnum','', $this->OTLtags['Plus'] ); }
-			if (strpos($v, 'PROPORTIONAL-NUMS')!==false) { $this->OTLtags['Plus'] .= ' pnum'; $this->OTLtags['Plus'] = str_replace('tnum','', $this->OTLtags['Plus'] ); }
-			else if (strpos($v, 'TABULAR-NUMS')!==false) { $this->OTLtags['Plus'] .= ' tnum'; $this->OTLtags['Plus'] = str_replace('pnum','', $this->OTLtags['Plus'] ); }
-			if (strpos($v, 'DIAGONAL-FRACTIONS')!==false) { $this->OTLtags['Plus'] .= ' frac'; $this->OTLtags['Plus'] = str_replace('afrc','', $this->OTLtags['Plus'] ); }
-			else if (strpos($v, 'STACKED-FRACTIONS')!==false) { $this->OTLtags['Plus'] .= ' afrc'; $this->OTLtags['Plus'] = str_replace('frac','', $this->OTLtags['Plus'] ); }
+			if (strpos($v, 'LINING-NUMS')!==false) { $this->OTLtags['Plus'] .= ' lnum'; $this->OTLtags['Plus'] = f_str_replace('onum','', $this->OTLtags['Plus'] ); }
+			else if (strpos($v, 'OLDSTYLE-NUMS')!==false) { $this->OTLtags['Plus'] .= ' onum'; $this->OTLtags['Plus'] = f_str_replace('lnum','', $this->OTLtags['Plus'] ); }
+			if (strpos($v, 'PROPORTIONAL-NUMS')!==false) { $this->OTLtags['Plus'] .= ' pnum'; $this->OTLtags['Plus'] = f_str_replace('tnum','', $this->OTLtags['Plus'] ); }
+			else if (strpos($v, 'TABULAR-NUMS')!==false) { $this->OTLtags['Plus'] .= ' tnum'; $this->OTLtags['Plus'] = f_str_replace('pnum','', $this->OTLtags['Plus'] ); }
+			if (strpos($v, 'DIAGONAL-FRACTIONS')!==false) { $this->OTLtags['Plus'] .= ' frac'; $this->OTLtags['Plus'] = f_str_replace('afrc','', $this->OTLtags['Plus'] ); }
+			else if (strpos($v, 'STACKED-FRACTIONS')!==false) { $this->OTLtags['Plus'] .= ' afrc'; $this->OTLtags['Plus'] = f_str_replace('frac','', $this->OTLtags['Plus'] ); }
 			break;
 
 		case 'FONT-VARIANT-ALTERNATES': 	// Only supports historical-forms
 			$v =strtoupper($v);
 			if (!isset($this->OTLtags['Plus'])) { $this->OTLtags['Plus'] = ''; }
 			if (strpos($v, 'NORMAL')!==false) {
-				$this->OTLtags['Plus'] = str_replace('hist','', $this->OTLtags['Plus']);
+				$this->OTLtags['Plus'] = f_str_replace('hist','', $this->OTLtags['Plus']);
 			} 
 			if (strpos($v, 'HISTORICAL-FORMS')!==false) { $this->OTLtags['Plus'] .= ' hist'; }
 			break;
@@ -23665,7 +23665,7 @@ function setCSS($arrayaux,$type='',$tag='') {	// type= INLINE | BLOCK | TABLECEL
 						else {
 							if ($m[2]=='on') { $m[2] = '1'; }
 							if (strpos($this->OTLtags['FFPlus'],$m[1])===false) { $this->OTLtags['FFPlus'] .= ' '.$m[1].$m[2]; }
-							$this->OTLtags['FFMinus'] = str_replace($m[1],'', $this->OTLtags['FFMinus'] ); 
+							$this->OTLtags['FFMinus'] = f_str_replace($m[1],'', $this->OTLtags['FFMinus'] ); 
 						}
 					}
 				}
@@ -23887,7 +23887,7 @@ function DisableTags($str='') {
 	}
 	else {
 		$str = explode(",",$str);
-		foreach($str as $v) $this->enabledtags = str_replace(trim($v),'',$this->enabledtags);
+		foreach($str as $v) $this->enabledtags = f_str_replace(trim($v),'',$this->enabledtags);
 	}
 }
 
@@ -28125,7 +28125,7 @@ function _putshaders() {
 function _putspotcolors() {
 	foreach($this->spotColors as $name=>$color) {
 		$this->_newobj();
-		$this->_out('[/Separation /'.str_replace(' ','#20',$name));
+		$this->_out('[/Separation /'.f_str_replace(' ','#20',$name));
 		$this->_out('/DeviceCMYK <<');
 		$this->_out('/Range [0 1 0 1 0 1 0 1] /C0 [0 0 0 0] ');
 		$this->_out(sprintf('/C1 [%.3F %.3F %.3F %.3F] ',$color['c']/100,$color['m']/100,$color['y']/100,$color['k']/100));
@@ -29209,12 +29209,12 @@ function IndexEntry($txt, $xref='') {
 function IndexEntrySee($txta,$txtb) {
 	if ($this->directionality == 'rtl') {	// *OTL*
 		// ONLY DO THIS IF NOT IN TAGS
-		if ($txta == strip_tags($txta)) $txta = str_replace(':',' - ',$txta);	// *OTL*
-		if ($txtb == strip_tags($txtb)) $txtb = str_replace(':',' - ',$txtb);	// *OTL*
+		if ($txta == strip_tags($txta)) $txta = f_str_replace(':',' - ',$txta);	// *OTL*
+		if ($txtb == strip_tags($txtb)) $txtb = f_str_replace(':',' - ',$txtb);	// *OTL*
 	}	// *OTL*
 	else {	// *OTL*
-		if ($txta == strip_tags($txta)) $txta = str_replace(':',', ',$txta);
-		if ($txtb == strip_tags($txtb)) $txtb = str_replace(':',', ',$txtb);
+		if ($txta == strip_tags($txta)) $txta = f_str_replace(':',', ',$txta);
+		if ($txtb == strip_tags($txtb)) $txtb = f_str_replace(':',', ',$txtb);
 	}	// *OTL*
 	$this->Reference[]=array('t'=>$txta.' - see '.$txtb,'p'=>array());
 }
@@ -29988,7 +29988,7 @@ function columnAdjustPregReplace($type, $xadj, $yadj, $pattern, $subject) {
 	if (!isset($matches[4])) { $matches[4] = 0; }
 	if (!isset($matches[5])) { $matches[5] = 0; }
 	if (!isset($matches[6])) { $matches[6] = 0; }
-	return str_replace($matches[0], $this->columnAdjustAdd($type, _MPDFK, $xadj, $yadj, $matches[1], $matches[2], $matches[3], $matches[4], $matches[5], $matches[6]), $subject);
+	return f_str_replace($matches[0], $this->columnAdjustAdd($type, _MPDFK, $xadj, $yadj, $matches[1], $matches[2], $matches[3], $matches[4], $matches[5], $matches[6]), $subject);
 }
 
 /*-- END COLUMNS --*/
@@ -30883,7 +30883,7 @@ function SubstituteHiEntities($html) {
 	// converts html_entities > ASCII 127 to unicode
 	// Leaves in particular &lt; to distinguish from tag marker
 	if (count($this->entsearch)) {
-		$html = str_replace($this->entsearch,$this->entsubstitute,$html);
+		$html = f_str_replace($this->entsearch,$this->entsubstitute,$html);
 	}
 	return $html;
 }
@@ -31530,9 +31530,9 @@ function markScriptToLang($html) {
 				$s.=code2utf($chardata[$sch][$j]['uni']);
 			}
 			// ZZZ99 Undo lesser_entity_decode as above - but only for <>&
- 			$s = str_replace("&","&amp;",$s);
- 			$s = str_replace("<","&lt;",$s);
- 			$s = str_replace(">","&gt;",$s);
+ 			$s = f_str_replace("&","&amp;",$s);
+ 			$s = f_str_replace("<","&lt;",$s);
+ 			$s = f_str_replace(">","&gt;",$s);
 
 			// Check Vietnamese if Latin script - even if Basescript
 			if ($scriptblocks[$sch] == UCDN::SCRIPT_LATIN && $this->autoVietnamese && preg_match("/([".$this->viet."])/u", $s)) {
@@ -31986,12 +31986,12 @@ function ConvertAngle($s, $makepositive=true) {
 
 function lesser_entity_decode($html) {
   //supports the most used entity codes (only does ascii safe characters)
- 	$html = str_replace("&lt;","<",$html);
- 	$html = str_replace("&gt;",">",$html);
+ 	$html = f_str_replace("&lt;","<",$html);
+ 	$html = f_str_replace("&gt;",">",$html);
 
- 	$html = str_replace("&apos;","'",$html);
- 	$html = str_replace("&quot;",'"',$html);
- 	$html = str_replace("&amp;","&",$html);
+ 	$html = f_str_replace("&apos;","'",$html);
+ 	$html = f_str_replace("&quot;",'"',$html);
+ 	$html = f_str_replace("&amp;","&",$html);
 	return $html;
 }
 
@@ -32020,7 +32020,7 @@ function AdjustHTML($html, $tabSpaces=8) {
 			$file = _MPDF_TEMP_PATH.'_tempSVG'.uniqid(rand(1,100000),true).'_'.$i.'.svg';
 			//Save to local file
 			file_put_contents($file, $svgi[0][$i]);
-			$html = str_replace($svgi[0][$i], '<img src="'.$file.'" />', $html); 
+			$html = f_str_replace($svgi[0][$i], '<img src="'.$file.'" />', $html); 
 		}
 	}
 
@@ -32052,9 +32052,9 @@ function AdjustHTML($html, $tabSpaces=8) {
 	$html = preg_replace("/[ ]*<dottab\s*[\/]*>[ ]*/",'<dottab />',$html);
 
 	// Concatenates any Substitute characters from symbols/dingbats
-	$html = str_replace('</tts><tts>','|',$html);
-	$html = str_replace('</ttz><ttz>','|',$html);
-	$html = str_replace('</tta><tta>','|',$html);
+	$html = f_str_replace('</tts><tts>','|',$html);
+	$html = f_str_replace('</ttz><ttz>','|',$html);
+	$html = f_str_replace('</tta><tta>','|',$html);
 
 	$html = preg_replace('/<br \/>\s*/is',"<br />",$html);
 
@@ -32106,9 +32106,9 @@ function AdjustHTML($html, $tabSpaces=8) {
 		$temp[2][$iterator] = preg_replace('/\t/',str_repeat(" ",$tabSpaces),$temp[2][$iterator]);
 
 		$temp[2][$iterator] = preg_replace('/\n/',"<br />",$temp[2][$iterator]);
-		$temp[2][$iterator] = str_replace('\\',"\\\\",$temp[2][$iterator]);
+		$temp[2][$iterator] = f_str_replace('\\',"\\\\",$temp[2][$iterator]);
 		//$html = preg_replace('#<pre(.*?)>(.*?)</pre>#si','<erp'.$temp[1][$iterator].'>'.$temp[2][$iterator].'</erp>',$html,1);
-		$html = preg_replace('#<pre(.*?)>(.*?)</pre>#si','<erp'.$temp[1][$iterator].'>'.str_replace('$','\$',$temp[2][$iterator]).'</erp>',$html,1);	// mPDF 5.7+
+		$html = preg_replace('#<pre(.*?)>(.*?)</pre>#si','<erp'.$temp[1][$iterator].'>'.f_str_replace('$','\$',$temp[2][$iterator]).'</erp>',$html,1);	// mPDF 5.7+
 		$thereispre--;
 		$iterator++;
 	}
@@ -32116,18 +32116,18 @@ function AdjustHTML($html, $tabSpaces=8) {
 	while($thereistextarea) //Recover <textarea attributes>content</textarea>
 	{
 		$temp2[2][$iterator] = preg_replace('/\t/',str_repeat(" ",$tabSpaces),$temp2[2][$iterator]);
-		$temp2[2][$iterator] = str_replace('\\',"\\\\",$temp2[2][$iterator]);
+		$temp2[2][$iterator] = f_str_replace('\\',"\\\\",$temp2[2][$iterator]);
 		$html = preg_replace('#<textarea(.*?)>(.*?)</textarea>#si','<aeratxet'.$temp2[1][$iterator].'>'.trim($temp2[2][$iterator]) .'</aeratxet>',$html,1);
 		$thereistextarea--;
 		$iterator++;
 	}
 	//Restore original tag names
-	$html = str_replace("<erp","<pre",$html);
-	$html = str_replace("</erp>","</pre>",$html);
-	$html = str_replace("<aeratxet","<textarea",$html);
-	$html = str_replace("</aeratxet>","</textarea>",$html);
-	$html = str_replace("</innerpre","</pre",$html); 
-	$html = str_replace("<innerpre","<pre",$html); 
+	$html = f_str_replace("<erp","<pre",$html);
+	$html = f_str_replace("</erp>","</pre>",$html);
+	$html = f_str_replace("<aeratxet","<textarea",$html);
+	$html = f_str_replace("</aeratxet>","</textarea>",$html);
+	$html = f_str_replace("</innerpre","</pre",$html); 
+	$html = f_str_replace("<innerpre","<pre",$html); 
 
 	$html = preg_replace('/<textarea([^>]*)><\/textarea>/si','<textarea\\1> </textarea>',$html);
 	$html = preg_replace('/(<table[^>]*>)\s*(<caption)(.*?<\/caption>)(.*?<\/table>)/si','\\2 position="top"\\3\\1\\4\\2 position="bottom"\\3',$html);	// *TABLES*
@@ -32321,7 +32321,7 @@ function SetImportUse() {
 
 // from mPDFI
 function hex2str($hex) {
-	return pack("H*", str_replace(array("\r","\n"," "),"", $hex));
+	return pack("H*", f_str_replace(array("\r","\n"," "),"", $hex));
 }
     
 function str2hex($str) {
@@ -32469,7 +32469,7 @@ function OverWrite($file_in, $search, $replacement, $dest="D", $file_out="mpdf" 
 	  	$s = gzuncompress($s);
 	  }
   	  foreach($search AS $k=>$val) {
-		$s = str_replace($search[$k],$replacement[$k],$s);
+		$s = f_str_replace($search[$k],$replacement[$k],$s);
 	  }
 	  if ($this->compress) {
 		$s = gzcompress($s);
@@ -32485,7 +32485,7 @@ function OverWrite($file_in, $search, $replacement, $dest="D", $file_out="mpdf" 
 	  else {
 	  	$newstr = ($obj+1) . " 0 obj\n<</Length ".$newlen.">>\nstream\n".$s."\nendstream\n";
 	  }
-	  $pdf = str_replace($m[0],$newstr,$pdf);
+	  $pdf = f_str_replace($m[0],$newstr,$pdf);
 	}
 
 	// Update xref in PDF

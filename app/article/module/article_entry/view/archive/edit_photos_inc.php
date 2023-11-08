@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Headline :<?php echo htmlspecialchars($primary['headline']); 
+										Headline :<?php echo f_html_escape($primary['headline']); 
 										?>									
 									</span>
 								</span>
@@ -137,7 +137,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Caption:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[caption]"  autocomplete="off" class="twelve"  required value="<?php echo htmlspecialchars($general['caption']);?>" />
+									<input type="text"  name="general[caption]"  autocomplete="off" class="twelve"  required value="<?php echo f_html_escape($general['caption']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -149,7 +149,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Video URL:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[video_url]"  autocomplete="off" class="sixteen"  value="<?php echo htmlspecialchars($general['video_url']);?>" />
+									<input type="text"  name="general[video_url]"  autocomplete="off" class="sixteen"  value="<?php echo f_html_escape($general['video_url']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -161,7 +161,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Other URL:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[other_url]"  autocomplete="off" class="fifteen"  value="<?php echo htmlspecialchars($general['other_url']);?>" />
+									<input type="text"  name="general[other_url]"  autocomplete="off" class="fifteen"  value="<?php echo f_html_escape($general['other_url']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

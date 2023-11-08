@@ -65,7 +65,7 @@ endforeach;
 									<label class="">Module Code :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="policy[module_code]" readonly required size="50" value="<?php echo htmlspecialchars($policy['module_code']);?>" class="five"/>
+										<input type="text" name="policy[module_code]" readonly required size="50" value="<?php echo f_html_escape($policy['module_code']);?>" class="five"/>
 								</span>
 							</span>
 							<span class="formRow">
@@ -78,7 +78,7 @@ endforeach;
 									<label class="">Level(0-100) :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="policy[rights_level]" required size="10" value="<?php echo htmlspecialchars($policy['rights_level']);?>" class="two"/>
+										<input type="text" name="policy[rights_level]" required size="10" value="<?php echo f_html_escape($policy['rights_level']);?>" class="two"/>
 								</span>
 							</span>
 							<span class="formRow">

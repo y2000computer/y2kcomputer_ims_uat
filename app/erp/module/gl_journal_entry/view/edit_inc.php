@@ -42,7 +42,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 										Journal Date:
 										<?php echo $general['journal_date'];?>
 										&nbsp;&nbsp;&nbsp;
-										Journal Code :<?php echo htmlspecialchars($general['journal_code']);?>									
+										Journal Code :<?php echo f_html_escape($general['journal_code']);?>									
 									</span>
 								</span>
 							</span>

@@ -45,7 +45,7 @@
 									<label for="userModule_email" class="">Tenant Code</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[tenant_code]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($json_search_items['general']['tenant_code']);?>" />
+									<input type="text"  name="general[tenant_code]"  autocomplete="off" class="three" value="<?php echo f_html_escape($json_search_items['general']['tenant_code']);?>" />
 								</span>
 							</span>
 
@@ -54,7 +54,7 @@
 									<label for="userModule_email" class="">Tenant Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[eng_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['eng_name']);?>" />
+									<input type="text"  name="general[eng_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['eng_name']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

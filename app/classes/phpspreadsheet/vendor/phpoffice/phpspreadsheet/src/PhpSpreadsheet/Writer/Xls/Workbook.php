@@ -541,7 +541,7 @@ class Workbook extends BIFFwriter
                 $range = Coordinate::splitRange($namedRange->getRange());
                 $iMax = count($range);
                 for ($i = 0; $i < $iMax; ++$i) {
-                    $range[$i][0] = '\'' . str_replace("'", "''", $namedRange->getWorksheet()->getTitle()) . '\'!' . Coordinate::absoluteCoordinate($range[$i][0]);
+                    $range[$i][0] = '\'' . f_str_replace("'", "''", $namedRange->getWorksheet()->getTitle()) . '\'!' . Coordinate::absoluteCoordinate($range[$i][0]);
                     if (isset($range[$i][1])) {
                         $range[$i][1] = Coordinate::absoluteCoordinate($range[$i][1]);
                     }

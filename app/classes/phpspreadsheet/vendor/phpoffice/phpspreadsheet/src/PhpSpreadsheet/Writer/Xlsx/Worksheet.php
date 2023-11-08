@@ -624,7 +624,7 @@ class Worksheet extends WriterPart
                     $objWriter->writeAttribute('r:id', 'rId_hyperlink_' . $relationId);
                     ++$relationId;
                 } else {
-                    $objWriter->writeAttribute('location', str_replace('sheet://', '', $hyperlink->getUrl()));
+                    $objWriter->writeAttribute('location', f_str_replace('sheet://', '', $hyperlink->getUrl()));
                 }
 
                 if ($hyperlink->getTooltip() !== '') {
@@ -755,7 +755,7 @@ class Worksheet extends WriterPart
             [$ws, $range[0]] = PhpspreadsheetWorksheet::extractSheetTitle($range[0], true);
             $range = implode(':', $range);
 
-            $objWriter->writeAttribute('ref', str_replace('$', '', $range));
+            $objWriter->writeAttribute('ref', f_str_replace('$', '', $range));
 
             $columns = $pSheet->getAutoFilter()->getColumns();
             if (count($columns) > 0) {
@@ -1085,7 +1085,7 @@ class Worksheet extends WriterPart
             switch (strtolower($mappedType)) {
                 case 'inlinestr':    // Inline string
                     if (!$cellValue instanceof RichText) {
-                        $objWriter->writeElement('t', StringHelper::controlCharacterPHP2OOXML(htmlspecialchars($cellValue)));
+                        $objWriter->writeElement('t', StringHelper::controlCharacterPHP2OOXML(f_html_escape($cellValue)));
                     } elseif ($cellValue instanceof RichText) {
                         $objWriter->startElement('is');
                         $this->getParentWriter()->getWriterPart('stringtable')->writeRichText($objWriter, $cellValue);
@@ -1131,7 +1131,7 @@ class Worksheet extends WriterPart
                     break;
                 case 'n':            // Numeric
                     // force point as decimal separator in case current locale uses comma
-                    $objWriter->writeElement('v', str_replace(',', '.', $cellValue));
+                    $objWriter->writeElement('v', f_str_replace(',', '.', $cellValue));
 
                     break;
                 case 'b':            // Boolean

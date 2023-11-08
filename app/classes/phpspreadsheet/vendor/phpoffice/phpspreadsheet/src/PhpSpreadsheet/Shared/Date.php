@@ -483,7 +483,7 @@ class Date
      */
     public static function dayStringToNumber($day)
     {
-        $strippedDayValue = (str_replace(self::$numberSuffixes, '', $day));
+        $strippedDayValue = (f_str_replace(self::$numberSuffixes, '', $day));
         if (is_numeric($strippedDayValue)) {
             return (int) $strippedDayValue;
         }

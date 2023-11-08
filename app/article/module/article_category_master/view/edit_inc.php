@@ -57,7 +57,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Category Name :</label>
 								</span>
 								<span class="formInput" >
-									<input type="text"  name="general[name]"  autocomplete="off" class="six" required value="<?php echo htmlspecialchars($general['name']);?>" />
+									<input type="text"  name="general[name]"  autocomplete="off" class="six" required value="<?php echo f_html_escape($general['name']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -68,7 +68,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Sorting :</label>
 								</span>
 								<span class="formInput" >
-									<input type="text"  name="general[sorting]"  autocomplete="off" class="two" required value="<?php echo htmlspecialchars($general['sorting']);?>" />
+									<input type="text"  name="general[sorting]"  autocomplete="off" class="two" required value="<?php echo f_html_escape($general['sorting']);?>" />
 									(e.g: 1 , 2 )			
 								</span>
 							</span>							

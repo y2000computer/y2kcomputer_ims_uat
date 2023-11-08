@@ -17,7 +17,7 @@
 									<label for="userModule_email" class="">Meta Tag Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['name']);?>" />
+									<input type="text"  name="general[name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['name']);?>" />
 								</span>
 							
 							

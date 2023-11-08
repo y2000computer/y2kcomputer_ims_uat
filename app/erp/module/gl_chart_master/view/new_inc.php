@@ -38,7 +38,7 @@ if ($IS_action=='new') {
 									<label class="">Chart Code :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[chart_code]"  size="20" required class="four" value="<?php echo htmlspecialchars($general['chart_code']);?>" />
+										<input type="text" name="general[chart_code]"  size="20" required class="four" value="<?php echo f_html_escape($general['chart_code']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -49,7 +49,7 @@ if ($IS_action=='new') {
 									<label class="">Chart Name :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[chart_name]"  size="50" required class="fourteen" value="<?php echo htmlspecialchars($general['chart_name']);?>" />
+										<input type="text" name="general[chart_name]"  size="50" required class="fourteen" value="<?php echo f_html_escape($general['chart_name']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -80,7 +80,7 @@ if ($IS_action=='new') {
 									<label class="">Brought Forward :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[brought_forward]"  size="12" required class="five" value="<?php echo htmlspecialchars($general['brought_forward']);?>" />
+										<input type="text" name="general[brought_forward]"  size="12" required class="five" value="<?php echo f_html_escape($general['brought_forward']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

@@ -86,12 +86,12 @@ echo '<DIV id="BodyDiv">';
 				echo '<tr>';
 				echo '<td>'.$i_count++.'</td>';
 				echo '<td>'. $report['chart_code'] .'</td>';
-				echo '<td>'.htmlspecialchars($report['type_name']).'</td>';
-				echo '<td>'.htmlspecialchars($report['chart_name']).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report_brought_forward).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report_previous_balance).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report_current_period_balance).'</td>';
-				echo '<td style="text-align:right" >'.htmlspecialchars($report_ending_balance).'</td>';
+				echo '<td>'.f_html_escape($report['type_name']).'</td>';
+				echo '<td>'.f_html_escape($report['chart_name']).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report_brought_forward).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report_previous_balance).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report_current_period_balance).'</td>';
+				echo '<td style="text-align:right" >'.f_html_escape($report_ending_balance).'</td>';
 				echo '</tr>';
 			endforeach; 	
 		?>								

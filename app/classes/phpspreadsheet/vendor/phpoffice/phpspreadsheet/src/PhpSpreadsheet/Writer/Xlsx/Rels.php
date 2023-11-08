@@ -335,7 +335,7 @@ class Rels extends WriterPart
                     $objWriter,
                     $i,
                     'http://schemas.openxmlformats.org/officeDocument/2006/relationships/image',
-                    '../media/' . str_replace(' ', '', $drawing->getIndexedFilename())
+                    '../media/' . f_str_replace(' ', '', $drawing->getIndexedFilename())
                 );
 
                 $i = $this->writeDrawingHyperLink($objWriter, $drawing, $i);

@@ -34,7 +34,7 @@ $continents = glob(__DIR__ . '/data/continents/*');
 foreach ($continents as $key => $filename) {
     $continent = pathinfo($filename, PATHINFO_FILENAME);
     $helper->log("Loading $continent");
-    $continent = str_replace(' ', '_', $continent);
+    $continent = f_str_replace(' ', '_', $continent);
     $countries = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     $countryCount = count($countries);
 

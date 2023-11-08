@@ -37,7 +37,7 @@ if ($IS_action=='new') {
 									<label class="">Company Name(Eng) :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[name_eng]"  size="50" required="required" class="fifteen" value="<?php echo htmlspecialchars($general['name_eng']);?>" />
+										<input type="text" name="general[name_eng]"  size="50" required="required" class="fifteen" value="<?php echo f_html_escape($general['name_eng']);?>" />
 								</span>
 							</span>
 							<span class="formRow">
@@ -48,7 +48,7 @@ if ($IS_action=='new') {
 									<label class="">Address(Eng) :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_eng_1]"  size="50" class="ten" value="<?php echo htmlspecialchars($general['add_eng_1']);?>" />
+										<input type="text" name="general[add_eng_1]"  size="50" class="ten" value="<?php echo f_html_escape($general['add_eng_1']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -59,7 +59,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_eng_2]"  size="50" class="ten" value="<?php echo htmlspecialchars($general['add_eng_2']);?>" />
+										<input type="text" name="general[add_eng_2]"  size="50" class="ten" value="<?php echo f_html_escape($general['add_eng_2']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -70,7 +70,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_eng_3]"  size="50" class="ten" value="<?php echo htmlspecialchars($general['add_eng_3']);?>" />
+										<input type="text" name="general[add_eng_3]"  size="50" class="ten" value="<?php echo f_html_escape($general['add_eng_3']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -82,7 +82,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_eng_4]"  size="50" class="ten" value="<?php echo htmlspecialchars($general['add_eng_4']);?>" />
+										<input type="text" name="general[add_eng_4]"  size="50" class="ten" value="<?php echo f_html_escape($general['add_eng_4']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -93,7 +93,7 @@ if ($IS_action=='new') {
 									<label class="">Company Name(Chn) :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[name_chn]"  size="50"  required="required" value="<?php echo htmlspecialchars($general['name_chn']);?>" class="eleven"/>
+										<input type="text" name="general[name_chn]"  size="50"  required="required" value="<?php echo f_html_escape($general['name_chn']);?>" class="eleven"/>
 								</span>
 							</span>							
 							<span class="formRow">
@@ -104,7 +104,7 @@ if ($IS_action=='new') {
 									<label class="">Address(Chn) :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_chn_1]"  size="50" class="nine" value="<?php echo htmlspecialchars($general['add_chn_1']);?>" />
+										<input type="text" name="general[add_chn_1]"  size="50" class="nine" value="<?php echo f_html_escape($general['add_chn_1']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -115,7 +115,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_chn_2]"  size="50" class="nine" value="<?php echo htmlspecialchars($general['add_chn_2']);?>" />
+										<input type="text" name="general[add_chn_2]"  size="50" class="nine" value="<?php echo f_html_escape($general['add_chn_2']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -126,7 +126,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_chn_3]"  size="50" class="nine" value="<?php echo htmlspecialchars($general['add_chn_3']);?>" />
+										<input type="text" name="general[add_chn_3]"  size="50" class="nine" value="<?php echo f_html_escape($general['add_chn_3']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -137,7 +137,7 @@ if ($IS_action=='new') {
 									<label class="">&nbsp;</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[add_chn_4]"  size="50" class="nine" value="<?php echo htmlspecialchars($general['add_chn_4']);?>" />
+										<input type="text" name="general[add_chn_4]"  size="50" class="nine" value="<?php echo f_html_escape($general['add_chn_4']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -148,7 +148,7 @@ if ($IS_action=='new') {
 									<label class="">Telephone :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[tel]"  size="50" class="six" value="<?php echo htmlspecialchars($general['tel']);?>" />
+										<input type="text" name="general[tel]"  size="50" class="six" value="<?php echo f_html_escape($general['tel']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -159,7 +159,7 @@ if ($IS_action=='new') {
 									<label class="">Fax :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[fax]"  size="50" class="six" value="<?php echo htmlspecialchars($general['fax']);?>" />
+										<input type="text" name="general[fax]"  size="50" class="six" value="<?php echo f_html_escape($general['fax']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -170,7 +170,7 @@ if ($IS_action=='new') {
 									<label class="">Email :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[email]"  size="50" class="nine" value="<?php echo htmlspecialchars($general['email']);?>" />
+										<input type="text" name="general[email]"  size="50" class="nine" value="<?php echo f_html_escape($general['email']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -182,7 +182,7 @@ if ($IS_action=='new') {
 									<label class="">Journal Prefix :</label>
 								</span>
 								<span class="formInput">
-										<input type="text" name="general[journal_prefix]"  maxlength="2" size="2" class="two" value="<?php echo htmlspecialchars($general['journal_prefix']);?>" />
+										<input type="text" name="general[journal_prefix]"  maxlength="2" size="2" class="two" value="<?php echo f_html_escape($general['journal_prefix']);?>" />
 										(two capital letter only)
 								</span>
 							</span>							

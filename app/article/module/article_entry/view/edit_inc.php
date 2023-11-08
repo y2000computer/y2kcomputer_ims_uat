@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Headline :<?php echo htmlspecialchars($general['headline']);?>									
+										Headline :<?php echo f_html_escape($general['headline']);?>									
 										<?php
 										echo '&nbsp;&nbsp;&nbsp;';
 										$url = '/'.IS_PORTAL.'/'.IS_LANG.'/www/view?article_id='.$general['article_id'].'&preview=yes&season_id='.$general['season_id'];
@@ -128,7 +128,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Headlline:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[headline]"  autocomplete="off" class="thirteen" required value="<?php echo htmlspecialchars($general['headline']);?>" />
+									<input type="text"  name="general[headline]"  autocomplete="off" class="thirteen" required value="<?php echo f_html_escape($general['headline']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -141,7 +141,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Content :</label>
 								</span>
 								<span class="formInput"  >
-									<textarea  class="fifteen" required rows="16"  name="general[content]"><?php echo htmlspecialchars($general['content']);?></textarea>
+									<textarea  class="fifteen" required rows="16"  name="general[content]"><?php echo f_html_escape($general['content']);?></textarea>
 								</span>
 							</span>								
 

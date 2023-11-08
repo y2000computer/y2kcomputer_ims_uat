@@ -35,7 +35,7 @@
 									<label for="userModule_email" class="">Journal Code</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[journal_code]"  autocomplete="off" class="four" value="<?php echo htmlspecialchars($json_search_items['general']['journal_code']);?>" />
+									<input type="text"  name="general[journal_code]"  autocomplete="off" class="four" value="<?php echo f_html_escape($json_search_items['general']['journal_code']);?>" />
 								</span>
 
 							<span class="formRow">
@@ -43,7 +43,7 @@
 								<label for="userModule_email" class="">Chart Code</label>
 							</span>
 							<span class="formInput">
-								<input type="text"  name="general[chart_code]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($json_search_items['general']['chart_code']);?>" />
+								<input type="text"  name="general[chart_code]"  autocomplete="off" class="three" value="<?php echo f_html_escape($json_search_items['general']['chart_code']);?>" />
 							</span>
 							
 
@@ -52,7 +52,7 @@
 									<label for="userModule_email" class="">Chart Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[chart_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['chart_name']);?>" />
+									<input type="text"  name="general[chart_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['chart_name']);?>" />
 								</span>
 							
 							<span class="formRow">
@@ -60,7 +60,7 @@
 									<label for="userModule_email" class="">Description</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[description]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['description']);?>" />
+									<input type="text"  name="general[description]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['description']);?>" />
 								</span>
 							
 							

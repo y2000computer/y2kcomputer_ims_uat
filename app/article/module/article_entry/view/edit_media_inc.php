@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Headline :<?php echo htmlspecialchars($primary['headline']); 
+										Headline :<?php echo f_html_escape($primary['headline']); 
 										?>									
 									</span>
 								</span>
@@ -72,7 +72,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Media Type:</label>
 								</span>
 								<span class="formInput">
-									<input type="hidden"  name="general[media_type_id]"  value="<?php echo htmlspecialchars($general['media_type_id']);?>" />
+									<input type="hidden"  name="general[media_type_id]"  value="<?php echo f_html_escape($general['media_type_id']);?>" />
 									<?php
 									foreach ($arr_article_media_type_master  as $media_type_master) { 
 									  if ($general['media_type_id']  == $media_type_master['media_type_id'] ) echo $media_type_master['name'];
@@ -118,7 +118,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Photo Priority:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[display_priority]"  autocomplete="off" class="two"  required value="<?php echo htmlspecialchars($general['display_priority']);?>" />
+									<input type="text"  name="general[display_priority]"  autocomplete="off" class="two"  required value="<?php echo f_html_escape($general['display_priority']);?>" />
 									&nbsp;(Example: 0,1,2,3,4,5,10)(10=high)
 								</span>
 							</span>							
@@ -131,7 +131,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Caption:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[caption]"  autocomplete="off" class="twelve"  required value="<?php echo htmlspecialchars($general['caption']);?>" />
+									<input type="text"  name="general[caption]"  autocomplete="off" class="twelve"  required value="<?php echo f_html_escape($general['caption']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -216,7 +216,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">YouTube URL:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[youtube_video_url]"  autocomplete="off" class="fifteen"  required value="<?php echo htmlspecialchars($general['youtube_video_url']);?>" />
+									<input type="text"  name="general[youtube_video_url]"  autocomplete="off" class="fifteen"  required value="<?php echo f_html_escape($general['youtube_video_url']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">
@@ -277,7 +277,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 									<label class="">Reference URL:</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[reference_url]"  autocomplete="off" class="fifteen"  required value="<?php echo htmlspecialchars($general['reference_url']);?>" />
+									<input type="text"  name="general[reference_url]"  autocomplete="off" class="fifteen"  required value="<?php echo f_html_escape($general['reference_url']);?>" />
 								</span>
 							</span>							
 							<span class="formRow">

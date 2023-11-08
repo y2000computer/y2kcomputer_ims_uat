@@ -48,7 +48,7 @@ $json_search_items = json_decode($json_searchphrase, true);
 										echo '<td>'.toDMY($general_model['article_date']).'</td>';
 
 										echo '<td>';
-										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['headline']).'&nbsp;'.'&raquo;'.'</a>';
+										echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['headline']).'&nbsp;'.'&raquo;'.'</a>';
 										echo '</td>';
 										
 										echo '<td>';

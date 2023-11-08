@@ -13,7 +13,7 @@
 									<label for="userModule_email" class="">Network Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="network[eng_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['network']['eng_name']);?>" />
+									<input type="text"  name="network[eng_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['network']['eng_name']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

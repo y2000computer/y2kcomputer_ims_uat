@@ -14,7 +14,7 @@
 									<label for="userModule_email" class="">Chart Code</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[chart_code]"  autocomplete="off" class="three" value="<?php echo htmlspecialchars($json_search_items['general']['chart_code']);?>" />
+									<input type="text"  name="general[chart_code]"  autocomplete="off" class="three" value="<?php echo f_html_escape($json_search_items['general']['chart_code']);?>" />
 								</span>
 							</span>
 
@@ -23,7 +23,7 @@
 									<label for="userModule_email" class="">Chart Name</label>
 								</span>
 								<span class="formInput">
-									<input type="text"  name="general[chart_name]"  autocomplete="off" class="five" value="<?php echo htmlspecialchars($json_search_items['general']['chart_name']);?>" />
+									<input type="text"  name="general[chart_name]"  autocomplete="off" class="five" value="<?php echo f_html_escape($json_search_items['general']['chart_name']);?>" />
 								</span>
 							</span>
 							<span class="formRow">

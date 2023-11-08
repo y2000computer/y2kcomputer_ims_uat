@@ -1219,7 +1219,7 @@ class MathTrig
         // Loop through arguments
         foreach ($aArgs as $key => $arg) {
             if (!is_numeric($arg)) {
-                $arg = str_replace('"', '""', $arg);
+                $arg = f_str_replace('"', '""', $arg);
                 $arg = Calculation::wrapResult(strtoupper($arg));
             }
 

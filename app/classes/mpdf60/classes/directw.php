@@ -19,7 +19,7 @@ function Write($h,$txt,$currentx=0,$link='',$directionality='ltr',$align='') {
 	$w = $this->mpdf->w - $this->mpdf->rMargin - $this->mpdf->x; 
 
 	$wmax = ($w - ($this->mpdf->cMarginL+$this->mpdf->cMarginR));
-	$s=str_replace("\r",'',$txt);
+	$s=f_str_replace("\r",'',$txt);
 	if ($this->mpdf->usingCoreFont)  { $nb=strlen($s); }
 	else {
 		$nb=mb_strlen($s, $this->mpdf->mb_enc );
@@ -88,7 +88,7 @@ function Write($h,$txt,$currentx=0,$link='',$directionality='ltr',$align='') {
 						// JUSTIFY J using Unicode fonts (Word spacing doesn't work)
 						// WORD SPACING
 						// Change NON_BREAKING SPACE to spaces so they are 'spaced' properly
-					      $tmp = str_replace(chr(194).chr(160),chr(32),$tmp ); 
+					      $tmp = f_str_replace(chr(194).chr(160),chr(32),$tmp ); 
 						$len_ligne = $this->mpdf->GetStringWidth($tmp );
 						$nb_carac = mb_strlen( $tmp , $this->mpdf->mb_enc ) ;  
 						$nb_spaces = mb_substr_count( $tmp ,' ', $this->mpdf->mb_enc ) ;  
@@ -170,7 +170,7 @@ function Write($h,$txt,$currentx=0,$link='',$directionality='ltr',$align='') {
 						// JUSTIFY J using Unicode fonts
 						// WORD SPACING is not fully supported for complex scripts
 						// Change NON_BREAKING SPACE to spaces so they are 'spaced' properly
-					      $tmp = str_replace(chr(160),chr(32),$tmp );
+					      $tmp = f_str_replace(chr(160),chr(32),$tmp );
 						$len_ligne = $this->mpdf->GetStringWidth($tmp );
 						$nb_carac = strlen( $tmp ) ;  
 						$nb_spaces = substr_count( $tmp ,' ' ) ;  
@@ -216,7 +216,7 @@ function CircularText($x, $y, $r, $text, $align='top', $fontfamily='', $fontsize
 	$fontwidth/=100;        
 	if($kerning==0) $this->mpdf->Error('Please use values unequal to zero for kerning (CircularText)');
 	if($fontwidth==0) $this->mpdf->Error('Please use values unequal to zero for font width (CircularText)');
-	$text=str_replace("\r",'',$text);
+	$text=f_str_replace("\r",'',$text);
 	//circumference
 	$u=($r*2)*M_PI;
 	$checking = true;

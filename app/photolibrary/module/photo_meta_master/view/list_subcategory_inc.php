@@ -39,7 +39,7 @@ if(isset($paging)) $page =$paging->CalcuatePageNo($item_id,SYSTEM_PAGE_ROW_LIMIT
 							<span class="contentRow">
 								<span class="menu_group_headers">
 									<span>
-										Meta Tag Name :<?php echo htmlspecialchars($primary['name']); 
+										Meta Tag Name :<?php echo f_html_escape($primary['name']); 
 										echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 										echo '<a class="commonTextBtn" href="'.actionURL('subcategory_new','?item_id='.$item_id.'&lot_id='.$lot_id.'&tab='.$tab.'&deleteaction='.$deleteaction).'" >
 										Add Sub Tag Category</a>'; 																				

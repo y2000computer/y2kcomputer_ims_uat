@@ -266,7 +266,7 @@ mPDF Example File
 
 <p>The front cover can also be produced like this:</p>
 <!-- EXAMPLE PHP CODE -->
-<div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
+<div class="phpcode">'. nl2br(f_html_escape('/* ALTERNATIVE PHP METHOD */
 $mpdf->Image(\'clematis.jpg\',0,0,210,297,\'jpg\',\'\',true, false);
 // the last "false" allows a full page picture
 
@@ -1578,7 +1578,7 @@ Etiam id libero at magna pellentesque aliquet. Nulla sit amet ipsum id enim temp
 
 
 <!-- EXAMPLE PHP CODE -->
-<div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
+<div class="phpcode">'. nl2br(f_html_escape('/* ALTERNATIVE PHP METHOD */
 $mpdf->SetAlpha(0.5); 
 $mpdf->Image(\'clematis.jpg\',0,0,210,297,\'jpg\',\'\',true, false);
 // the last "false" allows a full page picture
@@ -1589,7 +1589,7 @@ $mpdf->SetAlpha(1);
 <p>The back cover also has an ISBN barcode</p>
 
 <!-- EXAMPLE PHP CODE -->
-<div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
+<div class="phpcode">'. nl2br(f_html_escape('/* ALTERNATIVE PHP METHOD */
 $mpdf->writeBarcode(\'978-0-9542246-0-8\', 1, 130, 230, 1,0, 3,3,4,4);	
 ')) .'</div>
 <!-- END EXAMPLE PHP CODE -->
@@ -1597,7 +1597,7 @@ $mpdf->writeBarcode(\'978-0-9542246-0-8\', 1, 130, 230, 1,0, 3,3,4,4);
 <p>But next is inserted the Index, which can also be done like this:</p>
 
 <!-- EXAMPLE PHP CODE -->
-<div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
+<div class="phpcode">'. nl2br(f_html_escape('/* ALTERNATIVE PHP METHOD */
 $mpdf->AddPage(\'\',NEXT-ODD\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',-1,-1,-1,-1);	
 $mpdf->WriteHTML(\'<h2>Index<bookmark content="Index" /></h2>\');
 $mpdf->WriteHTML(\'<indexinsert cols="2" font="serif" div-font="sans-serif" links="on" />\');

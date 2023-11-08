@@ -33,7 +33,7 @@ require __DIR__.'/../../../../template/header_inc.php';
 									<label class="">Security Policy Name :</label>
 								</span>
 								<span class="formInput">
-										<span class="message"><?php echo htmlspecialchars($policy['eng_name']);?></span>
+										<span class="message"><?php echo f_html_escape($policy['eng_name']);?></span>
 								</span>
 							</span>
 							<span class="formRow">

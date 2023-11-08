@@ -488,7 +488,7 @@ class NumberFormat extends Supervisor
                     // when [h]:mm format, the [h] should replace to the hours of the value * 24
                     if (false !== strpos($block, '[h]')) {
                         $hours = (int) ($value * 24);
-                        $block = str_replace('[h]', $hours, $block);
+                        $block = f_str_replace('[h]', $hours, $block);
 
                         continue;
                     }
@@ -515,12 +515,12 @@ class NumberFormat extends Supervisor
         } else {
             if (preg_match('/\.[#0]+/', $format, $m)) {
                 $s = substr($m[0], 0, 1) . (strlen($m[0]) - 1);
-                $format = str_replace($m[0], $s, $format);
+                $format = f_str_replace($m[0], $s, $format);
             }
             if (preg_match('/^[#0]+/', $format, $m)) {
-                $format = str_replace($m[0], strlen($m[0]), $format);
+                $format = f_str_replace($m[0], strlen($m[0]), $format);
             }
-            $format = '%' . str_replace('%', 'f%%', $format);
+            $format = '%' . f_str_replace('%', 'f%%', $format);
 
             $value = sprintf($format, 100 * $value);
         }
@@ -586,10 +586,10 @@ class NumberFormat extends Supervisor
                     fmod($number, $divisor)
                 );
                 $number = floor($number / $divisor);
-                $mask = substr_replace($mask, $blockValue, $offset, $size);
+                $mask = subf_str_replace($mask, $blockValue, $offset, $size);
             }
             if ($number > 0) {
-                $mask = substr_replace($mask, $number, $offset, 0);
+                $mask = subf_str_replace($mask, $number, $offset, 0);
             }
             $result = $mask;
         }
@@ -657,7 +657,7 @@ class NumberFormat extends Supervisor
         }
 
         // Some non-number strings are quoted, so we'll get rid of the quotes, likewise any positional * symbols
-        $format = str_replace(['"', '*'], '', $format);
+        $format = f_str_replace(['"', '*'], '', $format);
 
         // Find out if we need thousands separator
         // This is indicated by a comma enclosed by a digit placeholder:

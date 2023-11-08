@@ -40,10 +40,10 @@ function print_ar($array, $count=0) {
 function print_r_html($data,$return_data=false)
 {
     $data = print_r($data,true);
-    $data = str_replace( " ","&nbsp;", $data);
-    $data = str_replace( "\r\n","<br>\r\n", $data);
-    $data = str_replace( "\r","<br>\r", $data);
-    $data = str_replace( "\n","<br>\n", $data);
+    $data = f_str_replace( " ","&nbsp;", $data);
+    $data = f_str_replace( "\r\n","<br>\r\n", $data);
+    $data = f_str_replace( "\r","<br>\r", $data);
+    $data = f_str_replace( "\n","<br>\n", $data);
 
     if (!$return_data)
         echo $data;    
@@ -54,10 +54,10 @@ function print_r_html($data,$return_data=false)
 function print_r_html_v2($data,$return_data=false)
 {
     $data = print_r($data,true);
-    $data = str_replace( " ","&nbsp;", $data);
-    $data = str_replace( "\r\n","<br>\r\n", $data);
-    //$data = str_replace( "\r","<br>\r", $data);
-    //$data = str_replace( "\n","<br>\n", $data);
+    $data = f_str_replace( " ","&nbsp;", $data);
+    $data = f_str_replace( "\r\n","<br>\r\n", $data);
+    //$data = f_str_replace( "\r","<br>\r", $data);
+    //$data = f_str_replace( "\n","<br>\n", $data);
 
     if (!$return_data)
         echo $data;    
@@ -68,10 +68,10 @@ function print_r_html_v2($data,$return_data=false)
 function print_r_html_v3($data,$return_data=false)
 {
     $data = print_r($data,true);
-    $data = str_replace( " ","&nbsp;", $data);
-    //$data = str_replace( "\r\n","<br>\r\n", $data);
-    $data = str_replace( "\r","<br>\r", $data);
-    $data = str_replace( "\n","<br>\n", $data);
+    $data = f_str_replace( " ","&nbsp;", $data);
+    //$data = f_str_replace( "\r\n","<br>\r\n", $data);
+    $data = f_str_replace( "\r","<br>\r", $data);
+    $data = f_str_replace( "\n","<br>\n", $data);
 
     if (!$return_data)
         echo $data;    
@@ -79,7 +79,7 @@ function print_r_html_v3($data,$return_data=false)
         return $data;
 }
 
-function mb_str_replace($needle, $replacement, $haystack) {
+function mb_f_str_replace($needle, $replacement, $haystack) {
     return implode($replacement, mb_split($needle, $haystack));
  }
  
@@ -116,14 +116,31 @@ function mb_trim($str, $charlist = NULL, $encoding = NULL) {
 function print_paragraph_html_v1($data,$return_data=false)
 {
     $data = print_r($data,true);
-    $data = str_replace( "\r\n","<br>\r\n", $data);
-    //$data = str_replace( "\n","<br>\n", $data);
+    $data = f_str_replace( "\r\n","<br>\r\n", $data);
+    //$data = f_str_replace( "\n","<br>\n", $data);
 
     if (!$return_data)
         echo $data;    
     else 
         return $data;
 }
+
+
+// FORMATTING FUNCTIONS
+function f_html_escape($text)
+{
+    $text = $text ?? '';  // If the value passed into function is null set $text to a blank string
+    //return f_html_escape($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
+    return htmlspecialchars($text); // Return escaped string
+}
+
+
+function f_str_replace($text)
+{
+    $text = $text ?? '';  // If the value passed into function is null set $text to a blank string
+    return str_replace("/", "", $text); // Return escaped string
+}
+
 
 
 ?>

@@ -752,7 +752,7 @@ class Parser
     {
         $ext_ref = preg_replace("/^'/", '', $ext_ref); // Remove leading  ' if any.
         $ext_ref = preg_replace("/'$/", '', $ext_ref); // Remove trailing ' if any.
-        $ext_ref = str_replace('\'\'', '\'', $ext_ref); // Replace escaped '' with '
+        $ext_ref = f_str_replace('\'\'', '\'', $ext_ref); // Replace escaped '' with '
 
         // Check if there is a sheet range eg., Sheet1:Sheet2.
         if (preg_match('/:/', $ext_ref)) {
@@ -1141,7 +1141,7 @@ class Parser
     {
         // If it's a string return a string node
         if (preg_match('/"([^"]|""){0,255}"/', $this->currentToken)) {
-            $tmp = str_replace('""', '"', $this->currentToken);
+            $tmp = f_str_replace('""', '"', $this->currentToken);
             if (($tmp == '"') || ($tmp == '')) {
                 //    Trap for "" that has been used for an empty string
                 $tmp = '""';

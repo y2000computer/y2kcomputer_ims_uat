@@ -52,13 +52,13 @@ $json_search_items = json_decode($json_searchphrase, true);
 										echo '</td>';
 										echo '<td>';
 										if($last_id <> $general_model[$dmGeneralModel->primary_keyname()]) {
-												echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.htmlspecialchars($general_model['journal_code']).'&nbsp;'.'&raquo;'.'</a>';
+												echo '<a href="'.actionURL('edit','?item_id='.$general_model[$dmGeneralModel->primary_keyname()].'&lot_id='.$lot_id.'&page='.$page).'">'.f_html_escape($general_model['journal_code']).'&nbsp;'.'&raquo;'.'</a>';
 											} else {
 												echo '&nbsp;';
 										}
 										echo '</td>';
-										echo '<td>'.htmlspecialchars($general_model['chart_code']).'</td>';
-										echo '<td>'.htmlspecialchars($general_model['chart_name']).'<br>'.htmlspecialchars($general_model['description']).'</td>';
+										echo '<td>'.f_html_escape($general_model['chart_code']).'</td>';
+										echo '<td>'.f_html_escape($general_model['chart_name']).'<br>'.f_html_escape($general_model['description']).'</td>';
 										echo '<td style="text-align:right">';
 										//if($general_model['amount']>0) echo '<font color="red">';
 										

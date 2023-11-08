@@ -790,7 +790,7 @@ class Gnumeric extends BaseReader
                 $range = Worksheet::extractSheetTitle($range, true);
                 $range[0] = trim($range[0], "'");
                 if ($worksheet = $spreadsheet->getSheetByName($range[0])) {
-                    $extractedRange = str_replace('$', '', $range[1]);
+                    $extractedRange = f_str_replace('$', '', $range[1]);
                     $spreadsheet->addNamedRange(new NamedRange($name, $worksheet, $extractedRange));
                 }
             }
