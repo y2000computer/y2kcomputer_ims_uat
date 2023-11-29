@@ -10,7 +10,7 @@ require __DIR__.'/../../../../function/check_session_func.php';
 				<div class="sidebarContent" id="SubMenuDiv">
 					<div class="sidebarContentCol sidebarContentCol-3 transactions" id="TransactionsDiv">
 						<ul>
-							<li class="menu_group_headers alignCenter theme-blue"><span>20231129Transactions </span></li>
+							<li class="menu_group_headers alignCenter theme-blue"><span>Transactions </span></li>
 							<?php
 							if(in_array("ARTICLE-TRAN-01-001", module_array())){ 
 							echo '<li class="menu_group_item"><p>';  
